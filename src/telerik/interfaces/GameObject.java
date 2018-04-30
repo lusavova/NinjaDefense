@@ -5,6 +5,10 @@ import telerik.Position;
 public abstract class GameObject implements Movable, Collidable {
     private Position position;
 
+    public GameObject() {
+
+    }
+
     public GameObject(Position position) {
         this.position = position;
     }
