@@ -1,5 +1,6 @@
 package telerik.main;
 
+import telerik.Constants;
 import telerik.interfaces.Engine;
 
 import javax.swing.JPanel;
@@ -19,9 +20,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener, Engine {
     private BufferedImage image;
     private Graphics2D g;
 
-    public GamePanel(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public GamePanel() {
+        this.width = (int) (Constants.WINDOW_WIDTH * Constants.SCALE);
+        this.height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
 
         setPreferredSize(new Dimension(width, height));
         setMaximumSize(new Dimension(width, height));

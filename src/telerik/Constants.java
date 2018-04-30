@@ -12,5 +12,6 @@ public class Constants {
     public static int INITIAL_HEALTH = 100;
 
     public static int INITIAL_PLAYER_NUM_OF_BULLETS = 500;
+    public static int INITIAL_PLAYER_BULLET_LEVEL = 1;
 
 }
