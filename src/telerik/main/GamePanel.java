@@ -57,11 +57,18 @@ public class GamePanel extends JPanel implements Runnable, KeyListener, Engine {
     public void run() {
         init();
 
-        double prevTime = 0;
-        //double currentTime =
+        double prevTime = System.nanoTime();
+        double delta = 0;
 
         while (running) {
-            update();
+            double now = System.nanoTime();
+            delta += (now - prevTime) / Constants.TICK_TIME;
+            prevTime = now;
+
+            if(delta >= 1) {
+                update();
+                delta--;
+            }
             render();
             draw();
         }
@@ -79,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener, Engine {
 
     public void draw() {
         Graphics g2 = getGraphics();
-        g2.drawImage(image, 0,0, null);
+        g2.drawImage(image, 0, 0, null);
         g2.dispose();
     }
 
