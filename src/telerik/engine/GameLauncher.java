@@ -4,11 +4,8 @@ import telerik.windows.Window;
 
 public class GameLauncher {
 
-    public GameLauncher() {
-        new Window();
-    }
-
     public static void main(String[] args) {
-        new GameLauncher();
+        Window window =  new Window();
+
     }
 }
