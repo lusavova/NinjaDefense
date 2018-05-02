@@ -27,7 +27,12 @@ public class KeyInput extends KeyAdapter {
         if (key == KeyEvent.VK_RIGHT) {
             ship.setVelX(5);
         }
-
+        if (key == KeyEvent.VK_DOWN) {
+            ship.setVelY(5);
+        }
+        if (key == KeyEvent.VK_UP) {
+            ship.setVelY(-5);
+        }
     }
 
     public void keyReleased(KeyEvent e) {
@@ -43,7 +48,12 @@ public class KeyInput extends KeyAdapter {
         }
         if (key == KeyEvent.VK_RIGHT) {
             ship.setVelX(0);
-
+        }
+        if (key == KeyEvent.VK_DOWN) {
+            ship.setVelY(0);
+        }
+        if (key == KeyEvent.VK_UP) {
+            ship.setVelY(0);
         }
 
     }
