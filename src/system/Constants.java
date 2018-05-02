@@ -6,8 +6,8 @@ public class Constants {
 
     public static final double FPS = 60.0;
     public static final double UPDATE_TIME = 1000000000 / FPS;
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 854;
+    public static final int WIDTH = 480;
+    public static final int HEIGHT = 640;
 
     public static final int INITIAL_LIVES = 3;
     public static final int INITIAL_HEALTH = 100;
