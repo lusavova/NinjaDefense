@@ -23,7 +23,7 @@ public class KeyInput extends KeyAdapter {
             ship.getPosition().setX(x-5);
         }
         if (key == KeyEvent.VK_RIGHT) {
-            ship.getPosition().setX(x-5);
+            ship.getPosition().setX(x+5);
         }
 
     }
