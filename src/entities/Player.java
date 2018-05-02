@@ -9,6 +9,7 @@ public class Player {
     private int lives;
     private FriendlyShip ship;
 
+
     private Game game;
 
     public Player(String username, Game game) {

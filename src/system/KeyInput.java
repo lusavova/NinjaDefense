@@ -19,6 +19,7 @@ public class KeyInput extends KeyAdapter {
         Ship ship = controller.getGame().getPlayer().getShip();
         int x = ship.getPosition().getX();
         int y = ship.getPosition().getY();
+
         if (key == KeyEvent.VK_LEFT) {
             ship.getPosition().setX(x-5);
         }
@@ -30,6 +31,7 @@ public class KeyInput extends KeyAdapter {
 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
+
 
     }
 }
