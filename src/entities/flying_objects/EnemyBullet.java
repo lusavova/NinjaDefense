@@ -34,7 +34,7 @@ public class EnemyBullet extends FlyingObject {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

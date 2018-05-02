@@ -66,8 +66,8 @@ public class Controller {
         bs.show();
     }
 
-    public void tick() {
-        game.getPlayer().getShip().tick();
+    public void update() {
+        game.getPlayer().getShip().update();
     }
 
 

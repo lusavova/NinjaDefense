@@ -33,7 +33,7 @@ public class Comet extends FlyingObject {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

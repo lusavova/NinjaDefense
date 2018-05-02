@@ -34,7 +34,7 @@ public class FriendlyBullet extends FlyingObject {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

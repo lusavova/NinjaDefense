@@ -17,7 +17,7 @@ public class Fuel extends Entity implements Updateable, Collectable {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

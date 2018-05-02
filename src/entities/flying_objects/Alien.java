@@ -22,7 +22,7 @@ public class Alien extends FlyingObject implements ReachingPlanet {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

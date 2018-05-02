@@ -18,7 +18,7 @@ public class Doughnut extends Entity implements Updateable, Collectable {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 

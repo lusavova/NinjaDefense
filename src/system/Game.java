@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private synchronized void stop() {
-        if(!isRunning) {
+        if (!isRunning) {
             return;
         }
         isRunning = false;
@@ -78,8 +78,8 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
 
             if (delta >= 1) {
-                controller.tick();
-                delta --;
+                controller.update();
+                delta--;
             }
             controller.render();
         }
