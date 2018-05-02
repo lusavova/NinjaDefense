@@ -17,7 +17,6 @@ public abstract class Ship extends Entity implements Movable, Updateable {
     public Ship() {
 
     }
-
     @Override
     public void addUpdateable() {
         this.getGame().getController().addUpdateable(this);
