@@ -53,9 +53,10 @@ public class Game extends Canvas implements Runnable {
         frame.add(this);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
         frame.pack();
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+
 
     }
 
