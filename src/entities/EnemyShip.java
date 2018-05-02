@@ -29,6 +29,9 @@ public class EnemyShip extends Ship implements ReachingPlanet {
         }
     }
 
+
+
+
     @Override
     public void update() {
         getPosition().setX(getPosition().getX() + 1);

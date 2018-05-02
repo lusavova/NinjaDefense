@@ -1,5 +1,6 @@
 package system;
 
+import entities.FriendlyShip;
 import interfaces.Ship;
 
 import java.awt.event.KeyAdapter;
@@ -16,22 +17,37 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        Ship ship = controller.getGame().getPlayer().getShip();
+        FriendlyShip ship = controller.getGame().getPlayer().getShip();
         int x = ship.getPosition().getX();
         int y = ship.getPosition().getY();
 
         if (key == KeyEvent.VK_LEFT) {
-            ship.getPosition().setX(x-5);
+            ship.setVelX(-5);
+            ship.getPosition().setX(x + ship.getVelX());
         }
         if (key == KeyEvent.VK_RIGHT) {
-            ship.getPosition().setX(x+5);
+            ship.setVelX(5);
+            ship.getPosition().setX(x + ship.getVelX());
+
         }
 
     }
 
     public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
 
+        int key = e.getKeyCode();
+        FriendlyShip ship = controller.getGame().getPlayer().getShip();
+        int x = ship.getPosition().getX();
+        int y = ship.getPosition().getY();
+
+
+        if (key == KeyEvent.VK_LEFT) {
+            ship.setVelX(0);
+        }
+        if (key == KeyEvent.VK_RIGHT) {
+            ship.setVelX(0);
+
+        }
 
     }
 }

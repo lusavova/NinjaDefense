@@ -95,9 +95,9 @@ public class Game extends Canvas implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        controller = new Controller(this);
 
         player = new Player("Pesho", this);
-        controller = new Controller(this);
 
         this.addKeyListener(new KeyInput(controller));
 
