@@ -1,7 +1,8 @@
 package system;
 
 import entities.FriendlyShip;
-import interfaces.Ship;
+import entities.flying_objects.FriendlyBullet;
+
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -9,6 +10,7 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Controller controller;
+    private boolean isShooting = false;
 
     public KeyInput(Controller controller) {
         this.controller = controller;
@@ -18,6 +20,8 @@ public class KeyInput extends KeyAdapter {
         int key = e.getKeyCode();
 
         FriendlyShip ship = controller.getGame().getPlayer().getShip();
+
+
         int x = ship.getPosition().getX();
         int y = ship.getPosition().getY();
 
@@ -32,7 +36,14 @@ public class KeyInput extends KeyAdapter {
         }
         if (key == KeyEvent.VK_UP) {
             ship.setVelY(-5);
+
         }
+        if (key == KeyEvent.VK_SPACE && !isShooting) {
+            new FriendlyBullet(controller.getGame(), 1);
+            isShooting = true;
+            System.out.println("shoot");
+        }
+
     }
 
     public void keyReleased(KeyEvent e) {
@@ -55,6 +66,10 @@ public class KeyInput extends KeyAdapter {
         if (key == KeyEvent.VK_UP) {
             ship.setVelY(0);
         }
-
+        if (key == KeyEvent.VK_SPACE) {
+            isShooting = false;
+        }
     }
+
 }
+

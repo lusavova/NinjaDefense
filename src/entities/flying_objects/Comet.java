@@ -29,12 +29,19 @@ public class Comet extends FlyingObject {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY() + 3);
+        if (true) {//type 1
+            getPosition().setX(getPosition().getX() + 3);
+        }
+        if (false){//type 2
+            getPosition().setX(getPosition().getX() - 3);
+        }
+        return getPosition();
     }
 
     @Override
     public void update() {
-
+        this.setPosition(nextPosition());
     }
 
     @Override

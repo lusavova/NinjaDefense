@@ -100,6 +100,8 @@ public class Game extends Canvas implements Runnable {
 
         player = new Player("Pesho", this);
 
+
+
         this.addKeyListener(new KeyInput(controller));
 
     }

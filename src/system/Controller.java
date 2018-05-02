@@ -25,7 +25,7 @@ public class Controller {
 
     public void render() {
         bs = game.getBufferStrategy();
-        if(bs == null) {
+        if (bs == null) {
             game.createBufferStrategy(3);
             return;
         }
@@ -46,6 +46,9 @@ public class Controller {
         OneUp ou = new OneUp(game);
         Alien a = new Alien(game);
 
+
+
+
         bg.render(g);
         game.getPlayer().getShip().render(g);
         enemy.render(g);
@@ -62,12 +65,14 @@ public class Controller {
         ou.render(g);
         a.render(g);
 
+
         g.dispose();
         bs.show();
     }
 
     public void update() {
         game.getPlayer().getShip().update();
+
     }
 
 

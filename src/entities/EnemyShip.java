@@ -34,12 +34,19 @@ public class EnemyShip extends Ship implements ReachingPlanet {
 
     @Override
     public void update() {
-        getPosition().setX(getPosition().getX() + 1);
+        this.setPosition(nextPosition());
     }
 
     @Override
     public Position nextPosition() {
-        return null;
+        if (getPosition().getX() <= 0) {
+            getPosition().setX(getPosition().getX()+5);
+        }
+        if (getPosition().getX() >= Constants.WIDTH - 60) {
+            getPosition().setX(getPosition().getX()-5);
+        }
+
+        return getPosition();
     }
 
     @Override
