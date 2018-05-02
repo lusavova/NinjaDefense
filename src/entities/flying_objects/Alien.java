@@ -17,7 +17,7 @@ public class Alien extends FlyingObject implements ReachingPlanet {
     }
 
     @Override
-    public Position nextPosition(Position position) {
+    public Position nextPosition() {
         return null;
     }
 

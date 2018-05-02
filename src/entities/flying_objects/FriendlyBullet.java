@@ -29,7 +29,7 @@ public class FriendlyBullet extends FlyingObject {
     }
 
     @Override
-    public Position nextPosition(Position position) {
+    public Position nextPosition() {
         return null;
     }
 

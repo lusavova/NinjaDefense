@@ -23,12 +23,9 @@ public class KeyInput extends KeyAdapter {
 
         if (key == KeyEvent.VK_LEFT) {
             ship.setVelX(-5);
-            ship.getPosition().setX(x + ship.getVelX());
         }
         if (key == KeyEvent.VK_RIGHT) {
             ship.setVelX(5);
-            ship.getPosition().setX(x + ship.getVelX());
-
         }
 
     }

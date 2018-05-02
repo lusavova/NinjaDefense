@@ -28,7 +28,7 @@ public class Comet extends FlyingObject {
     }
 
     @Override
-    public Position nextPosition(Position position) {
+    public Position nextPosition() {
         return null;
     }
 
