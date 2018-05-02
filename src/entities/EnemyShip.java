@@ -38,7 +38,7 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     }
 
     @Override
-    public Position nextPosition(Position position) {
+    public Position nextPosition() {
         return null;
     }
 

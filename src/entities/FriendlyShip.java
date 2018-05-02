@@ -1,6 +1,7 @@
 package entities;
 
 import interfaces.Ship;
+import javafx.geometry.Pos;
 import system.Constants;
 import system.Game;
 import system.Position;
@@ -22,11 +23,13 @@ public class FriendlyShip extends Ship {
 
     @Override
     public void update() {
-        this.setPosition(nextPosition(getPosition()));
+        this.setPosition(nextPosition());
     }
 
     @Override
-    public Position nextPosition(Position position) {
+    public Position nextPosition() {
+        getPosition().setX(getPosition().getX() + velX);
+        getPosition().setY(getPosition().getY() + velY);
         return getPosition();
     }
 
