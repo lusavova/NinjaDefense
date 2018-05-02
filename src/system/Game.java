@@ -87,6 +87,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void init() {
+        requestFocus();
         BufferedImageLoader imageLoader = new BufferedImageLoader();
         try {
             BufferedImage loadedImage = imageLoader.loadImage("../resources/sprite.png");
@@ -97,6 +98,8 @@ public class Game extends Canvas implements Runnable {
 
         player = new Player("Pesho", this);
         controller = new Controller(this);
+
+        this.addKeyListener(new KeyInput(controller));
 
     }
 
@@ -111,4 +114,5 @@ public class Game extends Canvas implements Runnable {
     public Controller getController() {
         return controller;
     }
+
 }

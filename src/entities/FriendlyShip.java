@@ -18,11 +18,11 @@ public class FriendlyShip extends Ship {
 
     @Override
     public void tick() {
-//        getPosition().setX(getPosition().getX() + 1);
+        this.setPosition(nextPosition(getPosition()));
     }
 
     @Override
     public Position nextPosition(Position position) {
-        return null;
+        return this.getPosition();
     }
 }

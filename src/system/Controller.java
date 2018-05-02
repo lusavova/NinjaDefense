@@ -71,7 +71,12 @@ public class Controller {
     }
 
 
+    public Game getGame() {
+        return game;
+    }
+
     public void addUpdateable(Updateable entity) {
+
         this.updateable.add(entity);
     }
 }
