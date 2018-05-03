@@ -29,7 +29,7 @@ public class PlayState extends GameState {
         this.spriteSheet = gsm.getSpriteSheet();
 
         try {
-            background = new Background("../res/game_bg.png", new Position(0, 0));
+            background = new Background("../res/new_play_bg.png", new Position(0, 0));
         } catch (Exception e) {
             e.printStackTrace();
         }
