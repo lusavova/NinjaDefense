@@ -18,17 +18,7 @@ public class Handler {
     }
 
     public void render(Graphics2D g) {
-//        bs = game.getBufferStrategy();
-//        if(bs == null) {
-//            game.createBufferStrategy(3);
-//            return;
-//        }
-//        g = bs.getDrawGraphics();
-//        g.clearRect(0, 0, Constants.WIDTH, Constants.HEIGHT);
         game.getPlayer().getShip().render(g);
-
-
-        g.dispose();
     }
 
     public void update() {

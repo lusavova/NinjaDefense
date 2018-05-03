@@ -137,7 +137,6 @@ public class Game extends JPanel implements Runnable, GameEngine, KeyListener {
 
     private void draw() {
         Graphics g2 = this.getGraphics();
-
         g2.drawImage(image, 0, 0, width, height, null);
         g2.dispose();
     }
