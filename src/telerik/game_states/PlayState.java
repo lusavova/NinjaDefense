@@ -5,6 +5,7 @@ import telerik.Player;
 import telerik.Position;
 import telerik.SpriteSheet;
 import telerik.entities.OwnShip;
+import telerik.entities.flying_objects.FriendlyBullet;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -20,6 +21,8 @@ public class PlayState extends GameState {
     private int lives;
     private int health;
     private int bullets;
+
+    private boolean isShooting = false;
 
     public PlayState(GameStateManager gsm) {
         this.gsm = gsm;
@@ -69,8 +72,9 @@ public class PlayState extends GameState {
             ship.setVelY(-5);
 
         }
-        if (k == KeyEvent.VK_SPACE) {
-
+        if (k==KeyEvent.VK_SPACE && !isShooting) {
+            new FriendlyBullet(this, 1);
+            isShooting = true;
             System.out.println("shoot");
         }
 
@@ -78,7 +82,23 @@ public class PlayState extends GameState {
 
     @Override
     public void keyReleased(int k) {
+        OwnShip ship = (OwnShip) player.getShip();
 
+        if (k == KeyEvent.VK_LEFT) {
+            ship.setVelX(0);
+        }
+        if (k == KeyEvent.VK_RIGHT) {
+            ship.setVelX(0);
+        }
+        if (k == KeyEvent.VK_DOWN) {
+            ship.setVelY(0);
+        }
+        if (k == KeyEvent.VK_UP) {
+            ship.setVelY(0);
+        }
+        if (k == KeyEvent.VK_SPACE) {
+            isShooting = false;
+        }
     }
 
     public Handler getHandler() {

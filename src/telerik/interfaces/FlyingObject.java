@@ -7,6 +7,7 @@ public abstract class FlyingObject extends Entity implements Movable, Updateable
 
     public FlyingObject(PlayState game) {
         super(game);
+        this.addUpdateable();
     }
 
     public FlyingObject() {
