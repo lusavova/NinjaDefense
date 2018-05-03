@@ -1,6 +1,7 @@
 package telerik.entities.flying_objects;
 
 import telerik.Constants;
+import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
@@ -23,7 +24,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
             this.setSize(new Size(10, 31));
             this.setImage(game.getSpriteSheet().getImage(247, 0, getSize().getWidth(), getSize().getHeight()));
         }
-        this.setPosition(this.getGame().getPlayer().getShip().getPosition());
+        this.setPosition(new Position(this.getGame().getPlayer().getShip().getPosition()));
         addToMovableCollection();
     }
 
