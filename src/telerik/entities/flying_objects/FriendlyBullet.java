@@ -1,14 +1,14 @@
 package telerik.entities.flying_objects;
 
 import telerik.Constants;
-import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
+import telerik.interfaces.Movable;
 
-public class FriendlyBullet extends FlyingObject {
+public class FriendlyBullet extends FlyingObject implements Movable {
     private int kind;
-    private int velY = 10;
+    private int velY = 5;
 
     public FriendlyBullet(PlayState game, int kind) {
         super(game);
@@ -24,29 +24,22 @@ public class FriendlyBullet extends FlyingObject {
             this.setImage(game.getSpriteSheet().getImage(247, 0, getSize().getWidth(), getSize().getHeight()));
         }
         this.setPosition(this.getGame().getPlayer().getShip().getPosition());
-        addUpdateable();
+        addToMovableCollection();
     }
 
     @Override
-    public Position nextPosition() {
-        getPosition().setY(getPosition().getY()-velY);
-
-        return getPosition();
+    public void move() {
+        getPosition().setY(getPosition().getY() - velY);
     }
 
     @Override
-    public void update() {
-
+    public void addToMovableCollection() {
+        getGame().getHandler().addMovable(this);
     }
 
     @Override
-    public void onColide() {
+    public void onCollide() {
 
-    }
-
-    @Override
-    public void addUpdateable() {
-        this.getGame().getHandler().addUpdateable(this);
     }
 
 

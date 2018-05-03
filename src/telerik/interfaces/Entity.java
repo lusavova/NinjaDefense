@@ -16,10 +16,15 @@ public class Entity {
 
     public Entity(PlayState game) {
         this.game = game;
+        addToGameObjectCollection();
     }
 
     public Entity() {
 
+    }
+
+    private void addToGameObjectCollection() {
+        getGame().getHandler().addGameObject(this);
     }
 
     public void render(Graphics2D g) {

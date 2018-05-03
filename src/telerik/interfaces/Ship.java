@@ -2,7 +2,7 @@ package telerik.interfaces;
 
 import telerik.game_states.PlayState;
 
-public abstract class Ship extends Entity implements Movable, Updateable {
+public abstract class Ship extends Entity implements Movable {
     private int health;
     private int level;
 
@@ -10,16 +10,15 @@ public abstract class Ship extends Entity implements Movable, Updateable {
     public Ship(PlayState game) {
         super(game);
         this.level = 1;
-        addUpdateable();
+        addToMovableCollection();
     }
 
     public Ship() {
 
     }
 
-    @Override
-    public void addUpdateable() {
-        this.getGame().getHandler().addUpdateable(this);
+    public void addToMovableCollection() {
+        getGame().getHandler().addMovable(this);
     }
 
     public int getHealth() {

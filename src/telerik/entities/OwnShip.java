@@ -20,13 +20,7 @@ public class OwnShip extends Ship {
         this.setImage(game.getSpriteSheet().getImage(0, 0, getSize().getWidth(), getSize().getHeight()));
     }
 
-    @Override
-    public void update() {
-        this.setPosition(nextPosition());
-//        getPosition().setX(getPosition().getX()+1);
-    }
-
-    public Position nextPosition() {
+    public void move() {
         System.out.println(getPosition().getX());
 
         getPosition().setX(getPosition().getX() + velX);
@@ -44,8 +38,6 @@ public class OwnShip extends Ship {
         if (getPosition().getY() >= Constants.HEIGHT - 100) {
             getPosition().setY(Constants.HEIGHT - 100);
         }
-
-        return getPosition();
     }
 
 

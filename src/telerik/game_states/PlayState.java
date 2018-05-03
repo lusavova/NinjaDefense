@@ -4,7 +4,11 @@ import telerik.Handler;
 import telerik.Player;
 import telerik.Position;
 import telerik.SpriteSheet;
+import telerik.entities.EnemyShip;
 import telerik.entities.OwnShip;
+import telerik.entities.flying_objects.Alien;
+import telerik.entities.flying_objects.Comet;
+import telerik.entities.flying_objects.EnemyBullet;
 import telerik.entities.flying_objects.FriendlyBullet;
 
 import java.awt.*;
@@ -37,6 +41,17 @@ public class PlayState extends GameState {
 
         handler = new Handler(this);
         player = new Player(this);
+
+        new Comet(this, 1);
+        new Comet(this, 2);
+        new EnemyShip(this, 1);
+        new EnemyShip(this, 2);
+        new EnemyBullet (this, 1);
+        new EnemyBullet (this, 2);
+        new Alien(this);
+
+        new FriendlyBullet (this, 1);
+        new FriendlyBullet (this, 2);
     }
 
     @Override

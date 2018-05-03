@@ -6,8 +6,9 @@ import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
+import telerik.interfaces.Movable;
 
-public class EnemyBullet extends FlyingObject {
+public class EnemyBullet extends FlyingObject implements Movable {
     private int kind;
     private int velY = 3;
 
@@ -27,29 +28,22 @@ public class EnemyBullet extends FlyingObject {
             this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 400));
 
         }
-        addUpdateable();
+        addToMovableCollection();
     }
 
     @Override
-    public Position nextPosition() {
+    public void move() {
         getPosition().setY(getPosition().getY() + velY);
-
-        return getPosition();
     }
 
     @Override
-    public void update() {
-
+    public void addToMovableCollection() {
+        getGame().getHandler().addMovable(this);
     }
 
     @Override
-    public void onColide() {
+    public void onCollide() {
 
-    }
-
-    @Override
-    public void addUpdateable() {
-        this.getGame().getHandler().addUpdateable(this);
     }
 }
 

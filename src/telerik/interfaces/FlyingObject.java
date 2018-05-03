@@ -2,12 +2,11 @@ package telerik.interfaces;
 
 import telerik.game_states.PlayState;
 
-public abstract class FlyingObject extends Entity implements Movable, Updateable, Colidable {
+public abstract class FlyingObject extends Entity implements Collide {
     private int power;
 
     public FlyingObject(PlayState game) {
         super(game);
-        this.addUpdateable();
     }
 
     public FlyingObject() {
