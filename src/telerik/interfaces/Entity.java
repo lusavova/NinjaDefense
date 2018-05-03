@@ -6,16 +6,19 @@ import telerik.game_states.PlayState;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public abstract class Entity {
     private Position position;
     private Size size;
     private PlayState game;
-    private BufferedImage image;
+    private ArrayList<BufferedImage> image;
+    protected int frame;
 
 
     public Entity(PlayState game) {
         this.game = game;
+        this.image = new ArrayList<>();
         addToGameObjectCollection();
     }
 
@@ -28,7 +31,7 @@ public abstract class Entity {
     }
 
     public void render(Graphics2D g) {
-        g.drawImage(this.getImage(), getPosition().getX(), getPosition().getY(), null);
+        g.drawImage(this.getImage(frame), getPosition().getX(), getPosition().getY(), null);
     }
 
     public PlayState getGame() {
@@ -53,10 +56,14 @@ public abstract class Entity {
     }
 
     public void setImage(BufferedImage image) {
-        this.image = image;
+        this.image.add(image);
     }
 
-    public BufferedImage getImage() {
+    public BufferedImage getImage(int frame) {
+        return image.get(frame);
+    }
+
+    public ArrayList<BufferedImage> getImageList() {
         return image;
     }
 }
