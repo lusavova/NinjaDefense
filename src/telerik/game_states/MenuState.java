@@ -69,14 +69,14 @@ public class MenuState extends GameState {
         g.setColor(fontColor);
         g.setFont(buttonsFont);
 
-        for (int i = 0; i < buttons.length ; i++) {
+        for (int i = 0; i < buttons.length; i++) {
 
             if (i == currentChoice) {
                 g.setColor(new Color(44, 56, 90));
             } else {
                 g.setColor(new Color(7, 179, 30));
             }
-            g.drawString(buttons[i], (width / 2) - (buttons[i].length() * fontSize / 2) + 35, (height / 2) - 100 + i* fontSize);
+            g.drawString(buttons[i], (width / 2) - (buttons[i].length() * fontSize / 2) + 35, (height / 2) - 100 + i * fontSize);
         }
     }
 
@@ -90,7 +90,7 @@ public class MenuState extends GameState {
         }
 
         if (currentChoice == 2) {
-            System.exit(1);
+            System.exit(0);
         }
     }
 

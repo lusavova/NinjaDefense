@@ -22,16 +22,18 @@ public class GameStateManager {
         this.gamePanel = gamePanel;
         spriteSheet = gamePanel.getSpriteSheet();
         gameStates = new ArrayList<GameState>();
+
         gameStates.add(new MenuState(this));
         gameStates.add(new PlayState(this));
         gameStates.add(new HelpState(this));
         gameStates.add(new GameOverState(this));
-        setState(MENUSTATE);
 
+        setState(MENUSTATE);
     }
 
     public void setState(int state) {
         currentState = state;
+        System.out.println(gameStates.get(currentState).toString());
         gameStates.get(currentState).init();
     }
 

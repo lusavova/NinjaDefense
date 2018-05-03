@@ -42,7 +42,7 @@ public class HelpState extends GameState {
         }
 
         if (k == KeyEvent.VK_SPACE) {
-            gsm.setState(GameStateManager.PLAYSTATE);
+            gsm.setState(GameStateManager.MENUSTATE);
         }
 
         if (k == KeyEvent.VK_ENTER) {
