@@ -51,7 +51,7 @@ public class PlayState extends GameState {
 
     @Override
     public void keyPressed(int k) {
-        OwnShip ship =(OwnShip) player.getShip();
+        OwnShip ship = (OwnShip) player.getShip();
 
         if (k == KeyEvent.VK_ESCAPE) {
             System.exit(0);

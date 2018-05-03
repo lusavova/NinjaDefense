@@ -23,9 +23,8 @@ public class Entity {
     }
 
     public void render(Graphics2D g) {
-        g.drawImage(this.getImage(), getPosition().getX(), getPosition().getY(),null);
+        g.drawImage(this.getImage(), getPosition().getX(), getPosition().getY(), null);
     }
-
 
     public PlayState getGame() {
         return game;
