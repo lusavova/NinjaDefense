@@ -30,12 +30,14 @@ public class FriendlyBullet extends FlyingObject {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY()-10);
+
+        return getPosition();
     }
 
     @Override
     public void update() {
-
+        this.setPosition(nextPosition());
     }
 
     @Override

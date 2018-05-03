@@ -31,12 +31,14 @@ public class EnemyBullet extends FlyingObject {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY()+3);
+
+        return getPosition();
     }
 
     @Override
     public void update() {
-
+        this.setPosition(nextPosition());
     }
 
     @Override
