@@ -22,12 +22,10 @@ public class Entity {
 
     }
 
-    public void render(Graphics g) {
-        g.drawImage(this.getImage(), getPosition().getX(), getPosition().getY(), null);
+    public void render(Graphics2D g) {
+        g.drawImage(this.getImage(), getPosition().getX(), getPosition().getY(),null);
     }
-    public void update() {
 
-    };
 
     public PlayState getGame() {
         return game;
