@@ -7,6 +7,8 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
 import telerik.interfaces.Movable;
 
+import java.util.Random;
+
 public class Comet extends FlyingObject implements Movable {
     private int kind;
     private int velX = 2;
@@ -31,12 +33,22 @@ public class Comet extends FlyingObject implements Movable {
     @Override
     public void move() {
         getPosition().setY(getPosition().getY() + velY);
-        if (this.kind == 1) {//type 1
+        if (getPosition().getY() >= Constants.HEIGHT - 100 || getPosition().getX() >= Constants.WIDTH - 60) {
+            getPosition().setY(new Random().nextInt(Constants.WIDTH - 60));
+            if (kind == 1) {//type 1
+                getPosition().setX(0);
+            }
+            if (this.kind == 2) {//type 2
+                getPosition().setX(Constants.WIDTH - 60);
+            }
+        }
+        if (kind == 1) {//type 1
             getPosition().setX(getPosition().getX() + velX);
         }
         if (this.kind == 2) {//type 2
             getPosition().setX(getPosition().getX() - velX);
         }
+
     }
 
     @Override
