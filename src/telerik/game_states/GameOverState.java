@@ -1,11 +1,13 @@
 package telerik.game_states;
 
+import telerik.Constants;
 import telerik.Position;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class GameOverState extends GameState {
+
     private int width;
     private int height;
 
@@ -16,19 +18,27 @@ public class GameOverState extends GameState {
     private Color fontColor;
     private Font buttonsFont;
 
+    private int fontSize;
+    private int currentStateIndex;
+
     private String[] buttons = {
-            "PLAY AGAIN",
+            "PLAY",
             "EXIT"
     };
 
     public GameOverState(GameStateManager gsm) {
         this.gsm = gsm;
 
+        fontSize = 50;
+
+        width = (int) (Constants.WINDOW_WIDTH * Constants.SCALE);
+        height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
+
         try {
             background = new Background("../res/game_over_bg.png", new Position(0, 0));
 
             fontColor = Color.WHITE;
-            buttonsFont = new Font("Monaco", Font.BOLD, 20);
+            buttonsFont = new Font("Bookman Old Style", Font.BOLD, fontSize);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,12 +47,10 @@ public class GameOverState extends GameState {
 
     @Override
     public void init() {
-
     }
 
     @Override
     public void update() {
-
     }
 
     @Override
@@ -52,27 +60,33 @@ public class GameOverState extends GameState {
         g.setColor(fontColor);
         g.setFont(buttonsFont);
 
-        int i = 0;
-        for (String button : buttons) {
-            g.drawString(button, (width / 2) - button.length() / 2, (height / 2) - i * 15);
-            i++;
+        for (int i = 0; i < buttons.length; i++) {
+
+            if (i == currentChoice) {
+                g.setColor(new Color(255, 253, 237));
+            } else {
+                g.setColor(new Color(255, 95, 97));
+            }
+            g.drawString(buttons[i], ((width - buttons[i].length() * fontSize / 2 ) - 30) / 2, (height / 2) + i * fontSize);
         }
     }
 
     private void select() {
         if (currentChoice == 0) {
-            gsm.setState(GameStateType.PLAYSTATE.ordinal());
-        }
-        if (currentChoice == 1) {
-            System.exit(0);
+            currentStateIndex = GameStateType.PLAYSTATE.ordinal();
+            gsm.setState(currentStateIndex);
+        } else if (currentChoice == 1) {
+            System.exit(1);
         }
     }
 
     @Override
     public void keyPressed(int k) {
+
         if (k == KeyEvent.VK_ENTER) {
             select();
         }
+
         if (k == KeyEvent.VK_UP) {
             currentChoice--;
 
@@ -80,6 +94,7 @@ public class GameOverState extends GameState {
                 currentChoice = buttons.length - 1;
             }
         }
+
         if (k == KeyEvent.VK_DOWN) {
             currentChoice++;
 
