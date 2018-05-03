@@ -32,6 +32,7 @@ public class PlayState extends GameState {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         handler = new Handler(this);
         player = new Player(this);
     }
