@@ -17,7 +17,7 @@ public class MenuState extends GameState {
 
     private Color fontColor;
     private Font buttonsFont;
-    private int fontSize = 50;
+    private int fontSize;
 
     private String[] buttons = {
             "START",
@@ -30,12 +30,10 @@ public class MenuState extends GameState {
     public MenuState(GameStateManager gsm) {
         this.gsm = gsm;
 
+        fontSize = 50;
         width = (int) (Constants.WINDOW_WIDTH * Constants.SCALE);
         height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
-    }
 
-    @Override
-    public void init() {
         try {
             background = new Background("../res/open_win.png", new Position(0, 0));
 
@@ -48,6 +46,11 @@ public class MenuState extends GameState {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void init() {
+
     }
 
     @Override

@@ -27,10 +27,7 @@ public class PlayState extends GameState {
     public PlayState(GameStateManager gsm) {
         this.gsm = gsm;
         this.spriteSheet = gsm.getSpriteSheet();
-    }
 
-    @Override
-    public void init() {
         try {
             background = new Background("../res/game_bg.png", new Position(0, 0));
         } catch (Exception e) {
@@ -39,6 +36,11 @@ public class PlayState extends GameState {
 
         handler = new Handler(this);
         player = new Player(this);
+    }
+
+    @Override
+    public void init() {
+
     }
 
     @Override
@@ -72,7 +74,7 @@ public class PlayState extends GameState {
             ship.setVelY(-5);
 
         }
-        if (k==KeyEvent.VK_SPACE && !isShooting) {
+        if (k == KeyEvent.VK_SPACE && !isShooting) {
             new FriendlyBullet(this, 1);
             isShooting = true;
             System.out.println("shoot");
@@ -98,6 +100,9 @@ public class PlayState extends GameState {
         }
         if (k == KeyEvent.VK_SPACE) {
             isShooting = false;
+        }
+        if (k == KeyEvent.VK_Q) {
+            gsm.setState(GameStateManager.GAMEOVER);
         }
     }
 

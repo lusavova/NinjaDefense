@@ -26,8 +26,8 @@ public class GameStateManager {
         gameStates.add(new PlayState(this));
         gameStates.add(new HelpState(this));
         gameStates.add(new GameOverState(this));
-        setState(PLAYSTATE);
 
+        setState(MENUSTATE);
     }
 
     public void setState(int state) {
