@@ -5,17 +5,18 @@ import telerik.interfaces.Entity;
 import telerik.interfaces.Movable;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Handler {
     private PlayState game;
-    private HashSet<Entity> gameObjects;
-    private HashSet<Movable> movables;
+    private ArrayList<Entity> gameObjects;
+    private ArrayList<Movable> movables;
 
     public Handler(PlayState game) {
         this.game = game;
-        this.gameObjects = new HashSet<>();
-        this.movables = new HashSet<>();
+        this.gameObjects = new ArrayList<>();
+        this.movables = new ArrayList<>();
     }
 
     public void render(Graphics2D g) {
