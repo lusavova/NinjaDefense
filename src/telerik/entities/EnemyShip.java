@@ -7,11 +7,16 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.ReachingPlanet;
 import telerik.interfaces.Ship;
 
+import java.util.Random;
+
 import static javax.swing.text.StyleConstants.Size;
 
 public class EnemyShip extends Ship implements ReachingPlanet {
 
     private int kind;
+    private int velX = 2;
+
+    private Random r;
 
     public EnemyShip(PlayState game, int kind) {
         super(game);
@@ -32,8 +37,6 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     }
 
 
-
-
     @Override
     public void update() {
         getPosition().setX(getPosition().getX() + 1);
@@ -41,7 +44,16 @@ public class EnemyShip extends Ship implements ReachingPlanet {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setX(getPosition().getX() + velX);
+
+        if (getPosition().getX() <= 0) {
+            velX *= -1;
+        }
+        if (getPosition().getX() >= Constants.WIDTH - 60) {
+            velX *= 1;
+        }
+
+        return getPosition();
     }
 
     @Override

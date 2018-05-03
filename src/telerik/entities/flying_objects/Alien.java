@@ -8,6 +8,8 @@ import telerik.interfaces.ReachingPlanet;
 
 public class Alien extends FlyingObject implements ReachingPlanet {
 
+    private int velY = 2;
+
     public Alien(PlayState game) {
         super(game);
         this.setSize(new Size(50, 60));
@@ -18,7 +20,9 @@ public class Alien extends FlyingObject implements ReachingPlanet {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY() + velY);
+
+        return getPosition();
     }
 
     @Override

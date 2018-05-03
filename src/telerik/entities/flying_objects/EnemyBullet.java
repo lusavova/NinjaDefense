@@ -9,6 +9,7 @@ import telerik.interfaces.FlyingObject;
 
 public class EnemyBullet extends FlyingObject {
     private int kind;
+    private int velY = 3;
 
     public EnemyBullet(PlayState game, int kind) {
         super(game);
@@ -31,7 +32,9 @@ public class EnemyBullet extends FlyingObject {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY() + velY);
+
+        return getPosition();
     }
 
     @Override
@@ -49,3 +52,5 @@ public class EnemyBullet extends FlyingObject {
         this.getGame().getHandler().addUpdateable(this);
     }
 }
+
+

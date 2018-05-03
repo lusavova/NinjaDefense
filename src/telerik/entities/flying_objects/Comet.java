@@ -10,6 +10,8 @@ import static javax.swing.text.StyleConstants.Size;
 
 public class Comet extends FlyingObject {
     private int kind;
+    private int velX=2;
+    private int velY=2;
 
     public Comet(PlayState game, int kind) {
         super(game);
@@ -31,7 +33,14 @@ public class Comet extends FlyingObject {
 
     @Override
     public Position nextPosition() {
-        return null;
+        getPosition().setY(getPosition().getY() +velY);
+        if (this.kind==1) {//type 1
+            getPosition().setX(getPosition().getX() + velX);
+        }
+        if (this.kind==2){//type 2
+            getPosition().setX(getPosition().getX() - velX);
+        }
+        return getPosition();
     }
 
     @Override
