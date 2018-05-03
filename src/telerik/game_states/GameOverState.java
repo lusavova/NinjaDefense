@@ -61,7 +61,7 @@ public class GameOverState extends GameState {
 
     private void select() {
         if (currentChoice == 0) {
-            gsm.setState(GameStateManager.PLAYSTATE);
+            gsm.setState(GameStateType.PLAYSTATE.ordinal());
         }
         if (currentChoice == 1) {
             System.exit(0);

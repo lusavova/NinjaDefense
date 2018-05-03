@@ -16,6 +16,7 @@ public class PlayState extends GameState {
     private Background background;
     private Player player;
     private SpriteSheet spriteSheet;
+    private int currentStateIndex;
 
     private int points;
     private int lives;
@@ -102,7 +103,8 @@ public class PlayState extends GameState {
             isShooting = false;
         }
         if (k == KeyEvent.VK_Q) {
-            gsm.setState(GameStateManager.GAMEOVER);
+            currentStateIndex = GameStateType.GAMEOVER.ordinal();
+            gsm.setState(currentStateIndex);
         }
     }
 

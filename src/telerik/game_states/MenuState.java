@@ -18,6 +18,7 @@ public class MenuState extends GameState {
     private Color fontColor;
     private Font buttonsFont;
     private int fontSize;
+    private int currentStateIndex;
 
     private String[] buttons = {
             "START",
@@ -84,11 +85,13 @@ public class MenuState extends GameState {
 
     private void select() {
         if (currentChoice == 0) {
-            gsm.setState(GameStateManager.PLAYSTATE);
+            currentStateIndex = GameStateType.PLAYSTATE.ordinal();
+            gsm.setState(currentStateIndex);
         }
 
         if (currentChoice == 1) {
-            gsm.setState(GameStateManager.HELPSTATE);
+            currentStateIndex = GameStateType.HELPSTATE.ordinal();
+            gsm.setState(currentStateIndex);
         }
 
         if (currentChoice == 2) {

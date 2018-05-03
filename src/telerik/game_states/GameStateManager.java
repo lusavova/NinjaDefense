@@ -13,11 +13,6 @@ public class GameStateManager {
     private Game gamePanel;
     private SpriteSheet spriteSheet;
 
-    public static final int MENUSTATE = 0;
-    public static final int PLAYSTATE = 1;
-    public static final int HELPSTATE = 2;
-    public static final int GAMEOVER = 3;
-
     public GameStateManager(Game gamePanel) {
         this.gamePanel = gamePanel;
         spriteSheet = gamePanel.getSpriteSheet();
@@ -27,7 +22,8 @@ public class GameStateManager {
         gameStates.add(new HelpState(this));
         gameStates.add(new GameOverState(this));
 
-        setState(MENUSTATE);
+        int menuStateIndex = GameStateType.MENUSTATE.ordinal();
+        setState(menuStateIndex);
     }
 
     public void setState(int state) {

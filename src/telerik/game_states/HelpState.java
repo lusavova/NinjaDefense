@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 public class HelpState extends GameState {
 
     private Background background;
+    private int currentStateIndex;
 
     public HelpState(GameStateManager gsm) {
         this.background = background;
@@ -32,7 +33,7 @@ public class HelpState extends GameState {
 
     @Override
     public void render(Graphics2D g) {
-            background.render(g);
+        background.render(g);
     }
 
     @Override
@@ -42,11 +43,13 @@ public class HelpState extends GameState {
         }
 
         if (k == KeyEvent.VK_SPACE) {
-            gsm.setState(GameStateManager.MENUSTATE);
+            currentStateIndex = GameStateType.MENUSTATE.ordinal();
+            gsm.setState(currentStateIndex);
         }
 
         if (k == KeyEvent.VK_ENTER) {
-            gsm.setState(GameStateManager.PLAYSTATE);
+            currentStateIndex = GameStateType.PLAYSTATE.ordinal();
+            gsm.setState(currentStateIndex);
         }
     }
 
