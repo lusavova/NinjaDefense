@@ -4,14 +4,15 @@ import telerik.Handler;
 import telerik.Player;
 import telerik.Position;
 import telerik.SpriteSheet;
+import telerik.entities.OwnShip;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class PlayState extends GameState {
 
-    private Background background;
     private Handler handler;
+    private Background background;
     private Player player;
     private SpriteSheet spriteSheet;
 
@@ -50,9 +51,29 @@ public class PlayState extends GameState {
 
     @Override
     public void keyPressed(int k) {
+        OwnShip ship =(OwnShip) player.getShip();
+
         if (k == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
+        if (k == KeyEvent.VK_LEFT) {
+            ship.setVelX(-5);
+        }
+        if (k == KeyEvent.VK_RIGHT) {
+            ship.setVelX(5);
+        }
+        if (k == KeyEvent.VK_DOWN) {
+            ship.setVelY(5);
+        }
+        if (k == KeyEvent.VK_UP) {
+            ship.setVelY(-5);
+
+        }
+        if (k == KeyEvent.VK_SPACE) {
+
+            System.out.println("shoot");
+        }
+
     }
 
     @Override

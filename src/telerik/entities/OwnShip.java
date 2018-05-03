@@ -26,10 +26,23 @@ public class OwnShip extends Ship {
         this.setPosition(nextPosition());
     }
 
-    @Override
     public Position nextPosition() {
+
         getPosition().setX(getPosition().getX() + velX);
         getPosition().setY(getPosition().getY() + velY);
+        if (getPosition().getX() <= 0) {
+            getPosition().setX(0);
+        }
+        if (getPosition().getX() >= Constants.WIDTH - 60) {
+            getPosition().setX(Constants.WIDTH - 60);
+        }
+        if (getPosition().getY() <= 105) {
+            getPosition().setY(105);
+        }
+        if (getPosition().getY() >= Constants.HEIGHT - 100) {
+            getPosition().setY(Constants.HEIGHT - 100);
+        }
+
         return getPosition();
     }
 
