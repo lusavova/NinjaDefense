@@ -7,33 +7,42 @@ import telerik.interfaces.Movable;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public class Handler {
     private PlayState game;
-    private ArrayList<Entity> gameObjects;
-    private ArrayList<Movable> movables;
+    private LinkedList<Entity> gameObjects;
+    private LinkedList<Movable> movables;
+    private LinkedList<Entity> gameObjectsTemp;
+    private LinkedList<Movable> movablesTemp;
 
     public Handler(PlayState game) {
         this.game = game;
-        this.gameObjects = new ArrayList<>();
-        this.movables = new ArrayList<>();
+        this.gameObjects = new LinkedList<>();
+        this.movables = new LinkedList<>();
+        this.gameObjectsTemp = new LinkedList<>();
+        this.movablesTemp = new LinkedList<>();
     }
 
     public void render(Graphics2D g) {
+        gameObjects.addAll(gameObjectsTemp);
+        gameObjectsTemp.clear();
         gameObjects.forEach(obj -> obj.render(g));
     }
 
     public void update() {
+        movables.addAll(movablesTemp);
+        movablesTemp.clear();
         movables.forEach(obj -> obj.move());
 
     }
 
     public void addGameObject(Entity gameObject) {
-        this.gameObjects.add(gameObject);
+        this.gameObjectsTemp.add(gameObject);
     }
 
     public void addMovable(Movable gameObject) {
-        this.movables.add(gameObject);
+        this.movablesTemp.add(gameObject);
     }
 
     public PlayState getGame() {

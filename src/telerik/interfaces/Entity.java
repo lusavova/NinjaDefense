@@ -7,7 +7,7 @@ import telerik.game_states.PlayState;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Entity {
+public abstract class Entity {
     private Position position;
     private Size size;
     private PlayState game;
