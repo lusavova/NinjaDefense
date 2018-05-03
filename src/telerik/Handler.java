@@ -60,7 +60,7 @@ public class Handler {
     }
 
     public void update() {
-        game.getPlayer().getShip().update();
+
     }
 
 
