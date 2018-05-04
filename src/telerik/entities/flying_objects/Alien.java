@@ -9,7 +9,6 @@ import telerik.interfaces.Movable;
 import telerik.interfaces.ReachingPlanet;
 
 public class Alien extends FlyingObject implements ReachingPlanet, Movable {
-
     private int speed;
 
     public Alien(PlayState game, int x, int speed) {
@@ -17,7 +16,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable {
 
         this.speed = speed;
 
-        this.setSize(new Size(50, 60));
+        this.setSize(new Size(Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
         this.setImage(game.getSpriteSheet().getImage(600, 0, getSize().getWidth(), getSize().getHeight()));
 

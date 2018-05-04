@@ -49,4 +49,13 @@ public class Constants {
     public static final int BUTTONS_FONT_SIZE = 50;
     public static final int CONTROL_PANEL_FONT_ZISE = 15;
 
+    public static final int ALIEN_SPAWN_DELAY = 180;
+
+    // game object sizes
+    public static final int ALIEN_WIDTH = 50;
+    public static final int ALIEN_HIGHT = 60;
+
+
+
+
 }

@@ -22,6 +22,7 @@ public class PlayState extends GameState {
     private Player player;
     private SpriteSheet spriteSheet;
     private int currentStateIndex;
+    private Spawner spawner;
 
     private int points;
     private int lives;
@@ -34,14 +35,15 @@ public class PlayState extends GameState {
         this.gsm = gsm;
         this.spriteSheet = gsm.getSpriteSheet();
 
+
         try {
             background = new Background("../res/new_play_bg.png", new Position(0, 0));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         handler = new Handler(this);
         player = new Player(this);
+        spawner = new Spawner(this);
 
         new Comet(this, 1, 100, 3);
         new Comet(this, 2, 200, 3);
@@ -49,8 +51,6 @@ public class PlayState extends GameState {
         new EnemyShip(this, 2, 20, 200, 3);
         new EnemyBullet(this, 1);
         new EnemyBullet(this, 2);
-        new Alien(this, 20, 2);
-        new Alien(this, 100, 1);
 
         new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
         new FriendlyBullet(this, 2, player.getShip().getPosition(), BulletShipSide.RIGHT);
@@ -59,6 +59,8 @@ public class PlayState extends GameState {
     @Override
     public void update() {
         handler.update();
+        spawner.spawnObject();
+
     }
 
     @Override
