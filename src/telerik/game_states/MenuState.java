@@ -35,10 +35,6 @@ public class MenuState extends GameState {
         width = (int) (Constants.WINDOW_WIDTH * Constants.SCALE);
         height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
 
-    }
-
-    @Override
-    public void init() {
         try {
             background = new Background("../res/open_win.png", new Position(0, 0));
 
