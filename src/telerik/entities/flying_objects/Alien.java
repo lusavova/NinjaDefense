@@ -1,5 +1,6 @@
 package telerik.entities.flying_objects;
 
+import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
@@ -9,19 +10,23 @@ import telerik.interfaces.ReachingPlanet;
 
 public class Alien extends FlyingObject implements ReachingPlanet, Movable {
 
-    private int velY = 2;
+    private int speed;
 
-    public Alien(PlayState game) {
+    public Alien(PlayState game, int x, int speed) {
         super(game);
+
+        this.speed = speed;
+
         this.setSize(new Size(50, 60));
-        this.setPosition(new Position(20, 150));
+        this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
         this.setImage(game.getSpriteSheet().getImage(600, 0, getSize().getWidth(), getSize().getHeight()));
+
         addToMovableCollection();
     }
 
     @Override
     public void move() {
-        getPosition().setY(getPosition().getY() + velY);
+        getPosition().setY(getPosition().getY() + speed);
     }
 
     @Override

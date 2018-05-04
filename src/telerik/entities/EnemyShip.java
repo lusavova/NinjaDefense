@@ -17,24 +17,26 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     private int kind;
     private int velX = 2;
 
+    private int x;
     private Random r;
 
-    public EnemyShip(PlayState game, int kind) {
+    public EnemyShip(PlayState game, int kind, int x, int y, int speeed) {
         super(game);
+
         this.kind = kind;
+
         if (kind == 1) {
             this.setHealth(Constants.INITIAL_HEALTH);
             this.setSize(new Size(99, 55));
             this.setImage(game.getSpriteSheet().getImage(0, 99, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 150));
-
         } else if (kind == 2) {
             this.setHealth(Constants.INITIAL_HEALTH);
             this.setSize(new Size(67, 60));
             this.setImage(game.getSpriteSheet().getImage(0, 154, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 50));
-
         }
+
+        this.setPosition(new Position(x, y));
+        this.velX = speeed;
     }
 
     @Override
