@@ -1,6 +1,7 @@
 package telerik.entities.flying_objects;
 
 
+import javafx.geometry.Pos;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
@@ -14,7 +15,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     private int kind;
     private int velY = 3;
 
-    public EnemyBullet(PlayState game, int kind) {
+    public EnemyBullet(PlayState game, int kind, Position position) {
         super(game);
 
         this.kind = kind;
@@ -23,16 +24,15 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
             this.setPower(Constants.ENEMY_BULLET_1_POWER);
             this.setSize(new Size(10, 27));
             this.setImage(game.getSpriteSheet().getImage(257, 0, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 350));
 
         } else if (kind == 1) {
             this.setPower(Constants.ENEMY_BULLET_2_POWER);
             this.setSize(new Size(10, 44));
             this.setImage(game.getSpriteSheet().getImage(267, 0, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 400));
 
         }
 
+        this.setPosition(new Position(position));
         this.setBounds();
 
         addToMovableCollection();

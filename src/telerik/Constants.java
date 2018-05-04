@@ -54,6 +54,7 @@ public class Constants {
     public static final int FUEL_SPAWN_DELAY = 1200;
     public static final int ONEUP_SPAWN_DELAY = 3600;
     public static final int LEVELUP_SPAWN_DELAY = 60;
+    public static final int ENEMY_BULLETS_SHOOT_DELAY = 90;
 
     public static final int FOOD_LIVE = 1200;
     public static final int FUEL_LIVE = 1200;

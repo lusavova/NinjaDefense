@@ -4,6 +4,7 @@ import telerik.Constants;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
 
+import java.util.HashSet;
 import java.util.Random;
 
 public class Spawner {
@@ -20,6 +21,8 @@ public class Spawner {
 
     private PlayState game;
 
+    private HashSet<EnemyShip> enemyShips;
+
     public Spawner(PlayState game) {
         this.game = game;
         this.rnd = new Random();
@@ -30,10 +33,12 @@ public class Spawner {
         this.levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
         this.oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
 
-        initSpawn();
+        this.enemyShips = new HashSet<>();
+
+//        initSpawn();
     }
 
-    private void initSpawn() {
+    public void initSpawn() {
         new Comet(game, 1, 100, 3);
         new Comet(game, 2, 200, 3);
 
@@ -89,9 +94,20 @@ public class Spawner {
 
             new OneUp(game, rndX, rndY);
         }
+
+        enemyShips.forEach(enemyShip -> {
+            if(enemyShip.getShootDelay() == 0) {
+                new EnemyBullet(game, enemyShip.getLevel(), enemyShip.getPosition());
+            }
+        });
+
     }
 
     public Random getRnd() {
         return rnd;
+    }
+
+    public void addEnemyShip(EnemyShip enemyShip) {
+        enemyShips.add(enemyShip);
     }
 }

@@ -44,7 +44,7 @@ public class PlayState extends GameState {
         handler = new Handler(this);
         player = new Player(this);
         spawner = new Spawner(this);
-
+        spawner.initSpawn();
 
         //new EnemyShip(this, 1, 0, 200, 3);
 
