@@ -38,7 +38,9 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         this.setBounds();
 
         addToMovableCollection();
+        addToBulletCollection();
     }
+
 
     @Override
     public void move() {
@@ -51,9 +53,13 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         getGame().getHandler().addMovable(this);
     }
 
+    private void addToBulletCollection() {
+        getGame().getHandler().addOwnBullet(this);
+    }
+
     @Override
     public void onCollide() {
-
+        System.out.println("Bullet collide");
     }
 
 

@@ -58,7 +58,6 @@ public class Spawner {
         }
 
         if (foodDelay == 0) {
-            System.out.println(foodDelay);
             rndX = rnd.nextInt(Constants.WIDTH - Constants.FOOD_WIDTH);
             rndY = rnd.nextInt(Constants.HEIGHT - Constants.FOOD_HEIGHT);
             int rndFood = rnd.nextInt(6);

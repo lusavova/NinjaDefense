@@ -86,7 +86,6 @@ public class PlayState extends GameState {
             new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
             new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.RIGHT);
             isShooting = true;
-            System.out.println("shoot");
         }
 
     }

@@ -36,6 +36,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.setPosition(new Position(x, y));
 
         this.setBounds();
+        addToCollidableWithOwnBullet();
+        addToCollidableWithOwnShip();
 
     }
 
@@ -50,17 +52,18 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     }
 
     @Override
-    public void addToCollidableWithOwnShip() {
-
-    }
-
-    @Override
     public void onCollide() {
-
+        System.out.println("Enemy Ship collide");
     }
+
 
     @Override
     public void addToCollidableWithOwnBullet() {
+        getGame().getHandler().addCollidableWithBullet(this);
+    }
 
+    @Override
+    public void addToCollidableWithOwnShip() {
+        getGame().getHandler().addCollidableWithShip(this);
     }
 }

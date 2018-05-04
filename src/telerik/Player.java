@@ -21,7 +21,7 @@ public class Player {
         ship = new OwnShip(game);
     }
 
-    public Ship getShip() {
+    public OwnShip getShip() {
         return ship;
     }
 

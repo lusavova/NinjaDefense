@@ -34,6 +34,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         this.setBounds();
 
         addToMovableCollection();
+        addToCollidableWithOwnShip();
     }
 
     public void setSprites(int kind) {
@@ -84,18 +85,19 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollide() {
-
+        System.out.println("Comet collide");
     }
 
-    @Override
-    public void addToCollidableWithOwnShip() {
-
-    }
 
     private void updateFrame() {
         frame++;
         if (frame == getImageList().size()) {
             frame = 0;
         }
+    }
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+        getGame().getHandler().addCollidableWithShip(this);
     }
 }

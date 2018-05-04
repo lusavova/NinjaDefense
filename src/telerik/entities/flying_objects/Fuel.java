@@ -16,16 +16,18 @@ public class Fuel extends Entity implements CollidesWithOwnShip {
         this.setImage(game.getSpriteSheet().getImage(525, 0, getSize().getWidth(), getSize().getHeight()));
 
         this.setBounds();
+        addToCollidableWithOwnShip();
     }
 
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-
-    }
 
     @Override
     public void onCollide() {
+        System.out.println("fuel collide");
+    }
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+        getGame().getHandler().addCollidableWithShip(this);
 
     }
 }

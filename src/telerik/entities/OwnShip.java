@@ -5,9 +5,10 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.Collidable;
 import telerik.interfaces.Ship;
 
-public class OwnShip extends Ship {
+public class OwnShip extends Ship  implements Collidable {
 
     private int velX = 0;
     private int velY = 0;
@@ -84,5 +85,10 @@ public class OwnShip extends Ship {
 
     public void setVelY(int velY) {
         this.velY = velY;
+    }
+
+    @Override
+    public void onCollide() {
+        System.out.println("Own Ship Collide");
     }
 }

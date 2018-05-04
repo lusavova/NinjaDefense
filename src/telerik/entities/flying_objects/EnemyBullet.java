@@ -36,6 +36,8 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         this.setBounds();
 
         addToMovableCollection();
+        addToCollidableWithOwnBullet();
+        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -50,16 +52,18 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
     @Override
     public void onCollide() {
+        System.out.println("enemy bullet collide");
+    }
+
+    @Override
+    public void addToCollidableWithOwnBullet() {
+        getGame().getHandler().addCollidableWithBullet(this);
 
     }
 
     @Override
     public void addToCollidableWithOwnShip() {
-
-    }
-
-    @Override
-    public void addToCollidableWithOwnBullet() {
+        getGame().getHandler().addCollidableWithShip(this);
 
     }
 }

@@ -50,6 +50,24 @@ public class Handler {
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.move());
+        checkForCollisions();
+    }
+
+    private void checkForCollisions() {
+        bulletCollidables.forEach(collidable -> {
+            ownBullets.forEach(bullet -> {
+                if(bullet.getBounds().intersects(collidable.getBounds())) {
+                    bullet.onCollide();
+                    collidable.onCollide();
+                }
+            });
+        });
+        shipCollidables.forEach(collidable -> {
+            if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
+                game.getPlayer().getShip().onCollide();
+                collidable.onCollide();
+            }
+        });
     }
 
     public void addGameObject(Entity gameObject) {
@@ -68,4 +86,15 @@ public class Handler {
         return game;
     }
 
+    public void addOwnBullet(FriendlyBullet friendlyBullet) {
+        ownBullets.add(friendlyBullet);
+    }
+
+    public void addCollidableWithShip (CollidesWithOwnShip gameObj) {
+        shipCollidables.add(gameObj);
+    }
+
+    public void addCollidableWithBullet (CollidesWithOwnBullet gameObj) {
+        bulletCollidables.add(gameObj);
+    }
 }
