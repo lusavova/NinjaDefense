@@ -10,6 +10,7 @@ import telerik.interfaces.Ship;
 import java.util.Random;
 
 import static javax.swing.text.StyleConstants.Size;
+import static javax.swing.text.StyleConstants.getSpaceAbove;
 
 public class EnemyShip extends Ship implements ReachingPlanet {
 
@@ -40,11 +41,8 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     public void move() {
         getPosition().setX(getPosition().getX() + velX);
 
-        if (getPosition().getX() <= 0) {
+        if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
             velX *= -1;
-        }
-        if (getPosition().getX() >= Constants.WIDTH - 60) {
-            velX *= 1;
         }
     }
 

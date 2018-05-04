@@ -25,7 +25,6 @@ public class OwnShip extends Ship {
 
     public void move() {
         updateFrame();
-        System.out.println(getPosition().getX());
 
         getPosition().setX(getPosition().getX() + velX);
         getPosition().setY(getPosition().getY() + velY);
