@@ -22,7 +22,6 @@ public class Constants {
     public static final int INITIAL_HEALTH = 100;
 
 
-
     public static final long FPS = 60;
     public static final double UPDATE_TIME = 1000000000 / FPS;
     public static final int WIDTH = 480;
@@ -42,5 +41,9 @@ public class Constants {
     public static final int BULLET_2_KILL_POINTS = 100;
     public static final int COMET_KILL_POINTS = 100;
 
+
+    public static final int CONTROL_PANEL_HEIGHT = 120;
+    public static final int BUTTONS_FONT_SIZE = 50;
+    public static final int  CONTROL_PANEL_FONT_ZISE = 15;
 
 }

@@ -22,11 +22,6 @@ public class HelpState extends GameState {
     }
 
     @Override
-    public void init() {
-
-    }
-
-    @Override
     public void update() {
 
     }
