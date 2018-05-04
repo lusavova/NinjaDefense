@@ -34,7 +34,6 @@ public class Handler {
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.move());
-
     }
 
     public void addGameObject(Entity gameObject) {
