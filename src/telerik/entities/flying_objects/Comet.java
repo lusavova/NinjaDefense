@@ -33,13 +33,13 @@ public class Comet extends FlyingObject implements Movable {
     @Override
     public void move() {
         getPosition().setY(getPosition().getY() + velY);
-        if (getPosition().getY() >= Constants.HEIGHT - 100 || getPosition().getX() >= Constants.WIDTH - 60) {
-            getPosition().setY(new Random().nextInt(Constants.WIDTH - 60));
+        if (getPosition().getY() >= Constants.HEIGHT  || getPosition().getX() >= Constants.WIDTH) {
+            getPosition().setY(new Random().nextInt(Constants.HEIGHT));
             if (kind == 1) {//type 1
-                getPosition().setX(0);
+                getPosition().setX(-20);
             }
             if (this.kind == 2) {//type 2
-                getPosition().setX(Constants.WIDTH - 60);
+                getPosition().setX(Constants.WIDTH);
             }
         }
         if (kind == 1) {//type 1

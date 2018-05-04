@@ -1,6 +1,7 @@
 package telerik;
 
 import telerik.Constants;
+import telerik.entities.EnemyShip;
 import telerik.game_states.GameStateManager;
 import telerik.interfaces.GameEngine;
 
@@ -27,6 +28,8 @@ public class Game extends JPanel implements Runnable, GameEngine, KeyListener {
     private GameStateManager gsm;
     private Player player;
     private Player username;
+
+    private EnemyShip enemy;
 
     public Game() {
         running = false;

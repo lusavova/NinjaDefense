@@ -45,6 +45,10 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
+    public void removeMovable(Movable gameObject) {
+        this.movablesTemp.remove(gameObject);
+    }
+
     public PlayState getGame() {
         return game;
     }

@@ -3,6 +3,7 @@ package telerik.entities;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.flying_objects.EnemyBullet;
 import telerik.game_states.PlayState;
 import telerik.interfaces.ReachingPlanet;
 import telerik.interfaces.Ship;
@@ -44,7 +45,10 @@ public class EnemyShip extends Ship implements ReachingPlanet {
             velX *= -1;
         }
         if (getPosition().getX() >= Constants.WIDTH - 60) {
-            velX *= 1;
+            velX *= -1;
+        }
+        if (getPosition().getX()%5==0){
+
         }
     }
 
@@ -52,4 +56,5 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     public void onPlanetReach() {
         //TODO
     }
+
 }
