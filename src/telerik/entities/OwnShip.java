@@ -38,8 +38,8 @@ public class OwnShip extends Ship {
         if (getPosition().getY() <= 105) {
             getPosition().setY(105);
         }
-        if (getPosition().getY() >= Constants.HEIGHT - 100) {
-            getPosition().setY(Constants.HEIGHT - 100);
+        if (getPosition().getY() >= Constants.HEIGHT -getSize().getHeight()) {
+            getPosition().setY(Constants.HEIGHT - getSize().getHeight());
         }
     }
 
