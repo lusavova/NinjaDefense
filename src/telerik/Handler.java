@@ -1,6 +1,9 @@
 package telerik;
 
+import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
+import telerik.interfaces.CollidesWithOwnBullet;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 import telerik.interfaces.Movable;
 
@@ -10,10 +13,17 @@ import java.util.LinkedList;
 
 public class Handler {
     private PlayState game;
+
     private HashSet<Entity> gameObjects;
-    private HashSet<Movable> movables;
     private HashSet<Entity> gameObjectsTemp;
+
+    private HashSet<Movable> movables;
     private HashSet<Movable> movablesTemp;
+
+    private HashSet<FriendlyBullet> ownBullets;
+    private HashSet<CollidesWithOwnShip> shipCollidables;
+    private HashSet<CollidesWithOwnBullet> bulletCollidables;
+
 
     public Handler(PlayState game) {
         this.game = game;
@@ -21,6 +31,9 @@ public class Handler {
         this.movables = new HashSet<>();
         this.gameObjectsTemp = new HashSet<>();
         this.movablesTemp = new HashSet<>();
+        this.ownBullets = new HashSet<>();
+        this.shipCollidables = new HashSet<>();
+        this.bulletCollidables = new HashSet<>();
     }
 
     public void render(Graphics2D g) {

@@ -33,6 +33,8 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
         }
 
+        this.setBounds();
+
         addToMovableCollection();
     }
 

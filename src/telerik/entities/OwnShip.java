@@ -17,7 +17,10 @@ public class OwnShip extends Ship {
         this.setHealth(Constants.INITIAL_HEALTH);
         this.setSize(new Size(Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
         this.setPosition(new Position((Constants.WIDTH - Constants.OWN_SHIP_WIDTH) / 2, Constants.HEIGHT - Constants.OWN_SHIP_HEIGHT - 10));
+
         setSprites();
+
+        this.setBounds();
     }
 
     private void setSprites() {
@@ -50,6 +53,7 @@ public class OwnShip extends Ship {
         if (getPosition().getY() >= Constants.HEIGHT - getSize().getHeight()) {
             getPosition().setY(Constants.HEIGHT - getSize().getHeight());
         }
+        getBounds().moveBounds(this);
     }
 
     private void updateFrame() {

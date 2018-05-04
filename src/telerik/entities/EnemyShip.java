@@ -34,6 +34,9 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         }
 
         this.setPosition(new Position(x, y));
+
+        this.setBounds();
+
     }
 
     @Override
@@ -43,6 +46,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
             speed *= -1;
         }
+        getBounds().moveBounds(this);
     }
 
     @Override

@@ -15,6 +15,9 @@ public class OneUp extends Entity implements CollidesWithOwnShip {
         this.setSize(new Size(25, 24));
         this.setPosition(new Position(x, y));
         this.setImage(game.getSpriteSheet().getImage(542, 0, getSize().getWidth(), getSize().getHeight()));
+
+        this.setBounds();
+
     }
 
     @Override

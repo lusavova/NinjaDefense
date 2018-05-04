@@ -31,6 +31,8 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
         setSprites(kind);
 
+        this.setBounds();
+
         addToMovableCollection();
     }
 
@@ -72,6 +74,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
             getPosition().setX(getPosition().getX() - speed);
         }
 
+        getBounds().moveBounds(this);
     }
 
     @Override

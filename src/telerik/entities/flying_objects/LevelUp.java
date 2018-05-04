@@ -15,6 +15,9 @@ public class LevelUp extends Entity implements CollidesWithOwnShip {
         this.setSize(new Size(33, 25));
         this.setPosition(new Position(x, y));
         this.setImage(game.getSpriteSheet().getImage(567, 0, getSize().getWidth(), getSize().getHeight()));
+
+        this.setBounds();
+
     }
 
 

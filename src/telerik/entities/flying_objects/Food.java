@@ -16,6 +16,8 @@ public class Food extends Entity implements CollidesWithOwnShip {
         this.setSize(new Size(Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
         this.setPosition(new Position(x, y));
         this.setImage(game.getSpriteSheet().getImage(500, 25*food, Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
+
+        this.setBounds();
     }
 
 

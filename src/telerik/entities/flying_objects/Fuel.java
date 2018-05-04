@@ -14,6 +14,8 @@ public class Fuel extends Entity implements CollidesWithOwnShip {
         this.setSize(new Size(17, 23));
         this.setPosition(new Position(x, y));
         this.setImage(game.getSpriteSheet().getImage(525, 0, getSize().getWidth(), getSize().getHeight()));
+
+        this.setBounds();
     }
 
 

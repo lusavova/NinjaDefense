@@ -35,12 +35,15 @@ public class FriendlyBullet extends FlyingObject implements Movable {
             this.setPosition(new Position(x, y));
         }
 
+        this.setBounds();
+
         addToMovableCollection();
     }
 
     @Override
     public void move() {
         getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_1_SPEED);
+        getBounds().moveBounds(this);
     }
 
     @Override

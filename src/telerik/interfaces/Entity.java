@@ -1,5 +1,6 @@
 package telerik.interfaces;
 
+import telerik.Bound;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
@@ -13,6 +14,7 @@ public abstract class Entity {
     private Size size;
     private PlayState game;
     private ArrayList<BufferedImage> image;
+    private Bound bounds;
     protected int frame;
 
 
@@ -66,5 +68,13 @@ public abstract class Entity {
 
     public ArrayList<BufferedImage> getImageList() {
         return image;
+    }
+
+    public Bound getBounds() {
+        return bounds;
+    }
+
+    public void setBounds() {
+        this.bounds = new Bound(this);
     }
 }
