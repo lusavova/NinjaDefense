@@ -55,6 +55,36 @@ public class Constants {
     public static final int ALIEN_WIDTH = 50;
     public static final int ALIEN_HIGHT = 60;
 
+    public static final int COMET_WIDTH = 50;
+    public static final int COMET_HIGHT = 60;
+
+    public static final int ENEMY_SHIP_1_WIDTH = 99;
+    public static final int ENEMY_SHIP_1_HEIGHT = 55;
+
+    public static final int ENEMY_SHIP_2_WIDTH = 67;
+    public static final int ENEMY_SHIP_2_HEIGHT = 60;
+
+    public static final int OWN_SHIP_WIDTH = 60;
+    public static final int OWN_SHIP_HEIGHT = 99;
+
+    public static final int ENEMY_BULLET_1_WIDTH = 10;
+    public static final int ENEMY_BULLET_1_HEIGHT = 27;
+
+    public static final int ENEMY_BULLET_2_WIDTH = 10;
+    public static final int ENEMY_BULLET_2_HEIGHT = 44;
+
+    public static final int DOUGHNUT_WIDTH = 25;
+    public static final int DOUGHNUT_HEIGHT = 23;
+
+    public static final int FUEL_WIDTH = 17;
+    public static final int FUEL_HEIGHT = 23;
+
+    public static final int LEVEL_UP_WIDTH = 33;
+    public static final int LEVEL_UP_HEIGHT = 25;
+
+    public static final int ONE_UP_WIDTH = 25;
+    public static final int ONE_UP_HEIGHT = 24;
+
 
 
 
