@@ -15,12 +15,21 @@ public class OwnShip extends Ship {
     public OwnShip(PlayState game) {
         super(game);
         this.setHealth(Constants.INITIAL_HEALTH);
-        this.setSize(new Size(60, 99));
-        this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, Constants.HEIGHT - 150));
-        this.setImage(game.getSpriteSheet().getImage(0, 0, getSize().getWidth(), getSize().getHeight()));
-        this.setImage(game.getSpriteSheet().getImage(60, 0, getSize().getWidth(), getSize().getHeight()));
-        this.setImage(game.getSpriteSheet().getImage(120, 0, getSize().getWidth(), getSize().getHeight()));
-        this.setImage(game.getSpriteSheet().getImage(180, 0, getSize().getWidth(), getSize().getHeight()));
+        this.setSize(new Size(Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
+        this.setPosition(new Position((Constants.WIDTH - Constants.OWN_SHIP_WIDTH) / 2, Constants.HEIGHT - Constants.OWN_SHIP_HEIGHT - 10));
+        setSprites();
+    }
+
+    private void setSprites() {
+        for (int i = 0; i < 4; i++) {
+            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_WIDTH * i, 0, Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
+        }
+    }
+
+    private void setSpritesUpgraded() {
+        for (int i = 0; i < 6; i++) {
+            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_UPGRADED_WIDTH * i, 0, Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
+        }
     }
 
     public void move() {
@@ -38,7 +47,7 @@ public class OwnShip extends Ship {
         if (getPosition().getY() <= 105) {
             getPosition().setY(105);
         }
-        if (getPosition().getY() >= Constants.HEIGHT -getSize().getHeight()) {
+        if (getPosition().getY() >= Constants.HEIGHT - getSize().getHeight()) {
             getPosition().setY(Constants.HEIGHT - getSize().getHeight());
         }
     }
@@ -50,6 +59,12 @@ public class OwnShip extends Ship {
         }
     }
 
+    public void upgradeShip() {
+        getImageList().clear();
+        setSpritesUpgraded();
+        setLevel(2);
+        getPosition().setX(getPosition().getX() - 17);
+    }
 
     public int getVelX() {
         return velX;

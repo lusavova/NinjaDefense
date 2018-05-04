@@ -4,10 +4,10 @@ package telerik.entities.flying_objects;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Collectable;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class OneUp extends Entity implements Collectable {
+public class OneUp extends Entity implements CollidesWithOwnShip {
 
     public OneUp(PlayState game, int x, int y) {
         super(game);
@@ -17,10 +17,13 @@ public class OneUp extends Entity implements Collectable {
         this.setImage(game.getSpriteSheet().getImage(542, 0, getSize().getWidth(), getSize().getHeight()));
     }
 
-
     @Override
-    public void onCollect() {
+    public void addToCollidableWithOwnShip() {
 
     }
 
+    @Override
+    public void onCollide() {
+
+    }
 }

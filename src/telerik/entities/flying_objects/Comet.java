@@ -4,12 +4,13 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.FlyingObject;
 import telerik.interfaces.Movable;
 
 import java.util.Random;
 
-public class Comet extends FlyingObject implements Movable {
+public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip {
     private int kind;
     private int speed;
 
@@ -20,21 +21,35 @@ public class Comet extends FlyingObject implements Movable {
 
         this.kind = kind;
         this.setPower(Constants.COMET_POWER);
-        this.setSize(new Size(57, 56));
+        this.setSize(new Size(Constants.COMET_WIDTH, Constants.COMET_HIGHT));
 
         if (kind == 1) {
-            this.setImage(game.getSpriteSheet().getImage(277, 0, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position(0 - getSize().getWidth(), 440));
+            this.setPosition(new Position(0 - getSize().getWidth(), y));
         } else if (kind == 2) {
-            this.setImage(game.getSpriteSheet().getImage(0, 214, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position(Constants.WIDTH, 500));
+            this.setPosition(new Position(Constants.WIDTH, y));
         }
+
+        setSprites(kind);
 
         addToMovableCollection();
     }
 
+    public void setSprites(int kind) {
+        int y;
+        if(kind == 1) {
+            y = 270;
+        }
+        else {
+            y = 214;
+        }
+        for (int i = 0; i < 6; i++) {
+            this.setImage(getGame().getSpriteSheet().getImage(Constants.COMET_WIDTH * i, y, Constants.COMET_WIDTH, Constants.COMET_HIGHT));
+        }
+    }
+
     @Override
     public void move() {
+        updateFrame();
         getPosition().setY(getPosition().getY() + speed);
 
         if (getPosition().getY() >= Constants.HEIGHT) {
@@ -67,5 +82,17 @@ public class Comet extends FlyingObject implements Movable {
     @Override
     public void onCollide() {
 
+    }
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+
+    }
+
+    private void updateFrame() {
+        frame++;
+        if (frame == getImageList().size()) {
+            frame = 0;
+        }
     }
 }

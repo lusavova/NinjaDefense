@@ -4,6 +4,8 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.CollidesWithOwnBullet;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.ReachingPlanet;
 import telerik.interfaces.Ship;
 
@@ -12,11 +14,8 @@ import java.util.Random;
 import static javax.swing.text.StyleConstants.Size;
 import static javax.swing.text.StyleConstants.getSpaceAbove;
 
-public class EnemyShip extends Ship implements ReachingPlanet {
+public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet {
     private int speed;
-
-    private int x;
-    private Random r;
 
     public EnemyShip(PlayState game, int kind, int x, int y, int speed) {
         super(game);
@@ -26,12 +25,12 @@ public class EnemyShip extends Ship implements ReachingPlanet {
 
         if (kind == 0) {
             this.setHealth(Constants.INITIAL_HEALTH);
-            this.setSize(new Size(99, 55));
-            this.setImage(game.getSpriteSheet().getImage(0, 99, getSize().getWidth(), getSize().getHeight()));
+            this.setSize(new Size(Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 99, Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
         } else if (kind == 1) {
             this.setHealth(Constants.INITIAL_HEALTH);
-            this.setSize(new Size(67, 60));
-            this.setImage(game.getSpriteSheet().getImage(0, 154, getSize().getWidth(), getSize().getHeight()));
+            this.setSize(new Size(Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 154, Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
         }
 
         this.setPosition(new Position(x, y));
@@ -47,7 +46,17 @@ public class EnemyShip extends Ship implements ReachingPlanet {
     }
 
     @Override
-    public void onPlanetReach() {
-        //TODO
+    public void addToCollidableWithOwnShip() {
+
+    }
+
+    @Override
+    public void onCollide() {
+
+    }
+
+    @Override
+    public void addToCollidableWithOwnBullet() {
+
     }
 }

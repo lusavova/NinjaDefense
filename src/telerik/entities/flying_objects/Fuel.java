@@ -4,10 +4,10 @@ package telerik.entities.flying_objects;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Collectable;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class Fuel extends Entity implements Collectable {
+public class Fuel extends Entity implements CollidesWithOwnShip {
     public Fuel(PlayState game, int x, int y) {
         super(game);
 
@@ -18,8 +18,12 @@ public class Fuel extends Entity implements Collectable {
 
 
     @Override
-    public void onCollect() {
+    public void addToCollidableWithOwnShip() {
 
     }
 
+    @Override
+    public void onCollide() {
+
+    }
 }
