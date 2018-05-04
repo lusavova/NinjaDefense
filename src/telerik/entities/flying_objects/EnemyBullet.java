@@ -14,7 +14,9 @@ public class EnemyBullet extends FlyingObject implements Movable {
 
     public EnemyBullet(PlayState game, int kind) {
         super(game);
+
         this.kind = kind;
+
         if (kind == 1) {
             this.setPower(Constants.ENEMY_BULLET_1_POWER);
             this.setSize(new Size(10, 27));
@@ -28,6 +30,7 @@ public class EnemyBullet extends FlyingObject implements Movable {
             this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 400));
 
         }
+
         addToMovableCollection();
     }
 

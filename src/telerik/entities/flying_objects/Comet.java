@@ -29,14 +29,18 @@ public class Comet extends FlyingObject implements Movable {
             this.setImage(game.getSpriteSheet().getImage(0, 214, getSize().getWidth(), getSize().getHeight()));
             this.setPosition(new Position(Constants.WIDTH, 500));
         }
+
         addToMovableCollection();
     }
 
     @Override
     public void move() {
         getPosition().setY(getPosition().getY() + speed);
+
         if (getPosition().getY() >= Constants.HEIGHT || getPosition().getX() >= Constants.WIDTH) {
+
             getPosition().setY(new Random().nextInt(Constants.HEIGHT));
+
             if (kind == 1) {//type 1
                 getPosition().setX(0 - getSize().getWidth());
             }
@@ -44,9 +48,11 @@ public class Comet extends FlyingObject implements Movable {
                 getPosition().setX(Constants.WIDTH);
             }
         }
+
         if (kind == 1) {//type 1
             getPosition().setX(getPosition().getX() + speed);
         }
+
         if (this.kind == 2) {//type 2
             getPosition().setX(getPosition().getX() - speed);
         }

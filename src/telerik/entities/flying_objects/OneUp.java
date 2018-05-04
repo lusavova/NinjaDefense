@@ -9,12 +9,12 @@ import telerik.interfaces.Entity;
 
 public class OneUp extends Entity implements Collectable {
 
-    public OneUp(PlayState game) {
+    public OneUp(PlayState game, int x, int y) {
         super(game);
-        this.setSize(new Size(25, 24));
-        this.setPosition(new Position(20, 80));
-        this.setImage(game.getSpriteSheet().getImage(542, 0, getSize().getWidth(), getSize().getHeight()));
 
+        this.setSize(new Size(25, 24));
+        this.setPosition(new Position(x, y));
+        this.setImage(game.getSpriteSheet().getImage(542, 0, getSize().getWidth(), getSize().getHeight()));
     }
 
 
