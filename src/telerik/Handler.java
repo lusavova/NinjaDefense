@@ -6,7 +6,6 @@ import telerik.interfaces.Movable;
 
 import java.awt.*;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public class Handler {
     private PlayState game;
@@ -14,6 +13,7 @@ public class Handler {
     private HashSet<Movable> movables;
     private HashSet<Entity> gameObjectsTemp;
     private HashSet<Movable> movablesTemp;
+    private HashSet<Entity> gameObjectsToBeRemoved;
 
     public Handler(PlayState game) {
         this.game = game;
@@ -21,11 +21,15 @@ public class Handler {
         this.movables = new HashSet<>();
         this.gameObjectsTemp = new HashSet<>();
         this.movablesTemp = new HashSet<>();
+        this.gameObjectsToBeRemoved = new HashSet<>();
     }
+
 
     public void render(Graphics2D g) {
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
+        gameObjects.removeAll(gameObjectsToBeRemoved);
+        gameObjectsToBeRemoved.clear();
         gameObjects.forEach(obj -> obj.render(g));
     }
 
@@ -33,6 +37,7 @@ public class Handler {
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.move());
+
     }
 
     public void addGameObject(Entity gameObject) {
@@ -43,12 +48,14 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
-    public void removeMovable(Movable gameObject) {
-        this.movablesTemp.remove(gameObject);
+    public void addToRemove(Entity gameObject){
+        this.gameObjectsToBeRemoved.add(gameObject);
     }
+
 
     public PlayState getGame() {
         return game;
     }
+
 
 }
