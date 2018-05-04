@@ -19,6 +19,7 @@ public class Handler {
 
     private HashSet<Movable> movables;
     private HashSet<Movable> movablesTemp;
+    private HashSet<Entity> gameObjectsToBeRemoved;
 
     private HashSet<FriendlyBullet> ownBullets;
     private HashSet<CollidesWithOwnShip> shipCollidables;
@@ -34,11 +35,14 @@ public class Handler {
         this.ownBullets = new HashSet<>();
         this.shipCollidables = new HashSet<>();
         this.bulletCollidables = new HashSet<>();
+        this.gameObjectsToBeRemoved = new HashSet<>();
     }
 
     public void render(Graphics2D g) {
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
+        gameObjects.removeAll(gameObjectsToBeRemoved);
+        gameObjectsToBeRemoved.clear();
         gameObjects.forEach(obj -> obj.render(g));
     }
 
@@ -56,8 +60,8 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
-    public void removeMovable(Movable gameObject) {
-        this.movablesTemp.remove(gameObject);
+    public void addToRemove(Entity gameObject){
+        this.gameObjectsToBeRemoved.add(gameObject);
     }
 
     public PlayState getGame() {
