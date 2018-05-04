@@ -28,4 +28,9 @@ public class Position {
     public void setY(int y) {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return String.format("x = %d, y = %d", x, y);
+    }
 }

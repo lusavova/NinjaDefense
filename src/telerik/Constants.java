@@ -50,6 +50,15 @@ public class Constants {
     public static final int CONTROL_PANEL_FONT_ZISE = 15;
 
     public static final int ALIEN_SPAWN_DELAY = 180;
+    public static final int FOOD_SPAWN_DELAY = 600;
+    public static final int FUEL_SPAWN_DELAY = 1200;
+    public static final int ONEUP_SPAWN_DELAY = 3600;
+    public static final int LEVELUP_SPAWN_DELAY = 3600;
+
+    public static final int FOOD_LIVE = 1200;
+    public static final int FUEL_LIVE = 1200;
+    public static final int LEVELUP_lIVE = 600;
+    public static final int ONEUP_lIVE = 600;
 
     // game object sizes
     public static final int ALIEN_WIDTH = 50;
@@ -73,8 +82,8 @@ public class Constants {
     public static final int ENEMY_BULLET_2_WIDTH = 10;
     public static final int ENEMY_BULLET_2_HEIGHT = 44;
 
-    public static final int DOUGHNUT_WIDTH = 25;
-    public static final int DOUGHNUT_HEIGHT = 23;
+    public static final int FOOD_WIDTH = 25;
+    public static final int FOOD_HEIGHT = 23;
 
     public static final int FUEL_WIDTH = 17;
     public static final int FUEL_HEIGHT = 23;
@@ -85,7 +94,5 @@ public class Constants {
     public static final int ONE_UP_WIDTH = 25;
     public static final int ONE_UP_HEIGHT = 24;
 
-
-
-
+    public static final int NUM_OF_ENEMY_SHIPS = 4;
 }

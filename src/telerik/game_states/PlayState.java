@@ -45,22 +45,15 @@ public class PlayState extends GameState {
         player = new Player(this);
         spawner = new Spawner(this);
 
-        new Comet(this, 1, 100, 3);
-        new Comet(this, 2, 200, 3);
-        new EnemyShip(this, 1, 0, 100, 5);
-        new EnemyShip(this, 2, 20, 200, 3);
-        new EnemyBullet(this, 1);
-        new EnemyBullet(this, 2);
 
-        new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
-        new FriendlyBullet(this, 2, player.getShip().getPosition(), BulletShipSide.RIGHT);
+        //new EnemyShip(this, 1, 0, 200, 3);
+
     }
 
     @Override
     public void update() {
         handler.update();
         spawner.spawnObject();
-
     }
 
     @Override
@@ -133,5 +126,9 @@ public class PlayState extends GameState {
 
     public SpriteSheet getSpriteSheet() {
         return spriteSheet;
+    }
+
+    public Spawner getSpawner() {
+        return spawner;
     }
 }

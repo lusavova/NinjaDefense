@@ -6,10 +6,11 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.Collectable;
 import telerik.interfaces.Entity;
 
-public class Doughnut extends Entity implements Collectable {
+public class Food extends Entity implements Collectable {
 
-    public Doughnut(PlayState game, int x, int y) {
+    public Food(PlayState game, int x, int y) {
         super(game);
+        System.out.println(getPosition());
 
         this.setSize(new Size(25, 23));
         this.setPosition(new Position(x, y));
