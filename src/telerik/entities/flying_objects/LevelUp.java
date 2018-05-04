@@ -23,7 +23,8 @@ public class LevelUp extends Entity implements CollidesWithOwnShip {
 
     @Override
     public void onCollide() {
-        System.out.printf("level up collide");
+        getGame().getHandler().addToRemove(this);
+        getGame().getPlayer().getShip().upgradeShip();
     }
 
     @Override

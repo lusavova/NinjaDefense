@@ -31,8 +31,12 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
         if (side == BulletShipSide.RIGHT) {
             this.setPosition(new Position(x + shipWidth - this.getSize().getWidth(), y));
-        } else {
+        } else if (side == BulletShipSide.LEFT) {
             this.setPosition(new Position(x, y));
+        } else if (side == BulletShipSide.MIDLEFT) {
+            this.setPosition(new Position(x + shipWidth - this.getSize().getWidth() - 16, y + 5));
+        } else {
+            this.setPosition(new Position(x + 16, y + 5));
         }
 
         this.setBounds();
@@ -59,7 +63,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     @Override
     public void onCollide() {
-        System.out.println("Bullet collide");
+        getGame().getHandler().addToRemove(this);
     }
 
 

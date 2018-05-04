@@ -1,5 +1,5 @@
 package telerik.enumerators;
 
 public enum BulletShipSide {
-    LEFT, RIGHT
+    LEFT, RIGHT, MIDLEFT, MIDRIGHT
 }

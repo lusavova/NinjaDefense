@@ -83,8 +83,13 @@ public class PlayState extends GameState {
 
         }
         if (k == KeyEvent.VK_SPACE && !isShooting) {
-            new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
-            new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.RIGHT);
+            new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.LEFT);
+            new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.RIGHT);
+            if (player.getShip().getLevel() == 2) {
+
+                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDLEFT);
+                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDRIGHT);
+            }
             isShooting = true;
         }
 

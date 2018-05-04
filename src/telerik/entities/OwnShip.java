@@ -32,7 +32,7 @@ public class OwnShip extends Ship  implements Collidable {
 
     private void setSpritesUpgraded() {
         for (int i = 0; i < 6; i++) {
-            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_UPGRADED_WIDTH * i, 0, Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
+            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_UPGRADED_WIDTH * i, 326, Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
         }
     }
 
@@ -45,8 +45,8 @@ public class OwnShip extends Ship  implements Collidable {
         if (getPosition().getX() <= 0) {
             getPosition().setX(0);
         }
-        if (getPosition().getX() >= Constants.WIDTH - 60) {
-            getPosition().setX(Constants.WIDTH - 60);
+        if (getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
+            getPosition().setX(Constants.WIDTH - getSize().getWidth());
         }
         if (getPosition().getY() <= 105) {
             getPosition().setY(105);
@@ -68,7 +68,7 @@ public class OwnShip extends Ship  implements Collidable {
         getImageList().clear();
         setSpritesUpgraded();
         setLevel(2);
-        getPosition().setX(getPosition().getX() - 17);
+        this.setSize(new Size(Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
     }
 
     public int getVelX() {
