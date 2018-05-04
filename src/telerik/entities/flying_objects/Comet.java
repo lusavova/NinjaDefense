@@ -24,7 +24,7 @@ public class Comet extends FlyingObject implements Movable {
             this.setImage(game.getSpriteSheet().getImage(277, 0, getSize().getWidth(), getSize().getHeight()));
             this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 440));
         } else if (kind == 2) {
-            this.setImage(game.getSpriteSheet().getImage(391, 0, getSize().getWidth(), getSize().getHeight()));
+            this.setImage(game.getSpriteSheet().getImage(0, 214, getSize().getWidth(), getSize().getHeight()));
             this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 500));
         }
         addToMovableCollection();
