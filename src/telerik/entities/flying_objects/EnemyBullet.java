@@ -5,10 +5,12 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.CollidesWithOwnBullet;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.FlyingObject;
 import telerik.interfaces.Movable;
 
-public class EnemyBullet extends FlyingObject implements Movable {
+public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
     private int kind;
     private int velY = 3;
 
@@ -46,6 +48,16 @@ public class EnemyBullet extends FlyingObject implements Movable {
 
     @Override
     public void onCollide() {
+
+    }
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+
+    }
+
+    @Override
+    public void addToCollidableWithOwnBullet() {
 
     }
 }

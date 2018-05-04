@@ -1,26 +1,31 @@
 package telerik.entities.flying_objects;
 
+import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Collectable;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class Food extends Entity implements Collectable {
+public class Food extends Entity implements CollidesWithOwnShip {
 
-    public Food(PlayState game, int x, int y) {
+    public Food(PlayState game, int x, int y, int food) {
         super(game);
         System.out.println(getPosition());
 
-        this.setSize(new Size(25, 23));
+        this.setSize(new Size(Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
         this.setPosition(new Position(x, y));
-        this.setImage(game.getSpriteSheet().getImage(500, 0, getSize().getWidth(), getSize().getHeight()));
+        this.setImage(game.getSpriteSheet().getImage(500, 25*food, Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
     }
 
 
     @Override
-    public void onCollect() {
+    public void addToCollidableWithOwnShip() {
 
     }
 
+    @Override
+    public void onCollide() {
+
+    }
 }

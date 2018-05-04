@@ -38,7 +38,7 @@ public class Spawner {
         new Comet(game, 2, 200, 3);
 
         for (int i = 0; i < Constants.NUM_OF_ENEMY_SHIPS; i++) {
-            int rndSpeed = rnd.nextInt(5) + 2;
+            int rndSpeed = rnd.nextInt(2) + 2;
             new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed);
         }
     }
@@ -61,9 +61,10 @@ public class Spawner {
             System.out.println(foodDelay);
             rndX = rnd.nextInt(Constants.WIDTH - Constants.FOOD_WIDTH);
             rndY = rnd.nextInt(Constants.HEIGHT - Constants.FOOD_HEIGHT);
+            int rndFood = rnd.nextInt(6);
             foodDelay = Constants.FOOD_SPAWN_DELAY;
 
-            new Food(game, rndX, rndY);
+            new Food(game, rndX, rndY, rndFood);
         }
 
         if (fuelDelay == 0) {

@@ -4,11 +4,9 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.FlyingObject;
-import telerik.interfaces.Movable;
-import telerik.interfaces.ReachingPlanet;
+import telerik.interfaces.*;
 
-public class Alien extends FlyingObject implements ReachingPlanet, Movable {
+public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
     private int speed;
 
     public Alien(PlayState game, int x, int speed) {
@@ -18,7 +16,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable {
 
         this.setSize(new Size(Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
-        this.setImage(game.getSpriteSheet().getImage(600, 0, getSize().getWidth(), getSize().getHeight()));
+        this.setImage(game.getSpriteSheet().getImage(600, 0, Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
 
         addToMovableCollection();
     }
@@ -41,6 +39,16 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable {
 
     @Override
     public void onPlanetReach() {
+
+    }
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+
+    }
+
+    @Override
+    public void addToCollidableWithOwnBullet() {
 
     }
 }

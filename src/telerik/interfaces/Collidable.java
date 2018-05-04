@@ -1,5 +1,5 @@
 package telerik.interfaces;
 
-public interface Collide {
+public interface Collidable {
     public void onCollide();
 }

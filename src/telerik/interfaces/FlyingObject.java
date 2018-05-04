@@ -2,7 +2,7 @@ package telerik.interfaces;
 
 import telerik.game_states.PlayState;
 
-public abstract class FlyingObject extends Entity implements Collide {
+public abstract class FlyingObject extends Entity implements Collidable {
     private int power;
 
     public FlyingObject(PlayState game) {

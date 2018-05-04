@@ -4,10 +4,10 @@ package telerik.entities.flying_objects;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Collectable;
+import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class LevelUp extends Entity implements Collectable {
+public class LevelUp extends Entity implements CollidesWithOwnShip {
 
     public LevelUp(PlayState game, int x, int y) {
         super(game);
@@ -19,7 +19,12 @@ public class LevelUp extends Entity implements Collectable {
 
 
     @Override
-    public void onCollect() {
-        // TODO add one life
+    public void addToCollidableWithOwnShip() {
+
+    }
+
+    @Override
+    public void onCollide() {
+
     }
 }
