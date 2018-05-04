@@ -11,42 +11,44 @@ import java.util.Random;
 
 public class Comet extends FlyingObject implements Movable {
     private int kind;
-    private int velX = 2;
-    private int velY = 2;
+    private int speed;
 
-    public Comet(PlayState game, int kind) {
+    public Comet(PlayState game, int kind, int y, int speed) {
         super(game);
+
+        this.speed = speed;
+
         this.kind = kind;
         this.setPower(Constants.COMET_POWER);
         this.setSize(new Size(57, 56));
 
         if (kind == 1) {
             this.setImage(game.getSpriteSheet().getImage(277, 0, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 440));
+            this.setPosition(new Position(0 - getSize().getWidth(), 440));
         } else if (kind == 2) {
             this.setImage(game.getSpriteSheet().getImage(0, 214, getSize().getWidth(), getSize().getHeight()));
-            this.setPosition(new Position((Constants.WIDTH - getSize().getWidth()) / 2, 500));
+            this.setPosition(new Position(Constants.WIDTH, 500));
         }
         addToMovableCollection();
     }
 
     @Override
     public void move() {
-        getPosition().setY(getPosition().getY() + velY);
-        if (getPosition().getY() >= Constants.HEIGHT  || getPosition().getX() >= Constants.WIDTH) {
+        getPosition().setY(getPosition().getY() + speed);
+        if (getPosition().getY() >= Constants.HEIGHT || getPosition().getX() >= Constants.WIDTH) {
             getPosition().setY(new Random().nextInt(Constants.HEIGHT));
             if (kind == 1) {//type 1
-                getPosition().setX(-getSize().getWidth());
+                getPosition().setX(0 - getSize().getWidth());
             }
             if (this.kind == 2) {//type 2
                 getPosition().setX(Constants.WIDTH);
             }
         }
         if (kind == 1) {//type 1
-            getPosition().setX(getPosition().getX() + velX);
+            getPosition().setX(getPosition().getX() + speed);
         }
         if (this.kind == 2) {//type 2
-            getPosition().setX(getPosition().getX() - velX);
+            getPosition().setX(getPosition().getX() - speed);
         }
 
     }

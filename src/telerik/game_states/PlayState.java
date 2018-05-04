@@ -10,6 +10,7 @@ import telerik.entities.flying_objects.Alien;
 import telerik.entities.flying_objects.Comet;
 import telerik.entities.flying_objects.EnemyBullet;
 import telerik.entities.flying_objects.FriendlyBullet;
+import telerik.enumerators.BulletShipSide;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -42,16 +43,17 @@ public class PlayState extends GameState {
         handler = new Handler(this);
         player = new Player(this);
 
-        new Comet(this, 1);
-        new Comet(this, 2);
-        new EnemyShip(this, 1);
-        new EnemyShip(this, 2);
-        new EnemyBullet (this, 1);
-        new EnemyBullet (this, 2);
-        new Alien(this);
+        new Comet(this, 1, 100, 3);
+        new Comet(this, 2, 200, 3);
+        new EnemyShip(this, 1, 0, 100, 5);
+        new EnemyShip(this, 2, 20, 200, 3);
+        new EnemyBullet(this, 1);
+        new EnemyBullet(this, 2);
+        new Alien(this, 20, 2);
+        new Alien(this, 100, 1);
 
-        new FriendlyBullet (this, 1);
-        new FriendlyBullet (this, 2);
+        new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
+        new FriendlyBullet(this, 2, player.getShip().getPosition(), BulletShipSide.RIGHT);
     }
 
     @Override
@@ -86,7 +88,8 @@ public class PlayState extends GameState {
 
         }
         if (k == KeyEvent.VK_SPACE && !isShooting) {
-            new FriendlyBullet(this, 1);
+            new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.LEFT);
+            new FriendlyBullet(this, 1, player.getShip().getPosition(), BulletShipSide.RIGHT);
             isShooting = true;
             System.out.println("shoot");
         }
