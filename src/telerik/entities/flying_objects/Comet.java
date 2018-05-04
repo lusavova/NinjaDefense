@@ -37,9 +37,9 @@ public class Comet extends FlyingObject implements Movable {
     public void move() {
         getPosition().setY(getPosition().getY() + speed);
 
-        if (getPosition().getY() >= Constants.HEIGHT || getPosition().getX() >= Constants.WIDTH) {
+        if (getPosition().getY() >= Constants.HEIGHT) {
 
-            getPosition().setY(new Random().nextInt(Constants.HEIGHT));
+            getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
 
             if (kind == 1) {//type 1
                 getPosition().setX(0 - getSize().getWidth());
