@@ -16,10 +16,9 @@ import java.awt.*;
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
 
 
-    private int bulletOneHeight;
-    private int bulletOneWidht;
-    private int bulletTwoHeight;
-    private int bulletTwoWidth;
+    private int height;
+    private int width;
+
 
     private int speed = Constants.ENEMY_BULLET_VEL;
 
@@ -31,20 +30,20 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         if (kind == 0) {
 
             this.power = Constants.ENEMY_BULLET_1_POWER;
-            this.bulletOneHeight = Constants.ENEMY_BULLET_1_HEIGHT;
-            this.bulletOneWidht = Constants.ENEMY_BULLET_1_WIDTH;
+            this.height = Constants.ENEMY_BULLET_1_HEIGHT;
+            this.width = Constants.ENEMY_BULLET_1_WIDTH;
 
-            this.setSize(new Size(bulletOneWidht, bulletTwoHeight));
-            this.setImage(game.getSpriteSheet().getImage(257, 0, bulletOneWidht, bulletOneHeight));
+            this.setSize(new Size(width, height));
+            this.setImage(game.getSpriteSheet().getImage(257, 0,width, height));
 
         } else if (kind == 1) {
 
             this.power = Constants.ENEMY_BULLET_2_POWER;
-            this.bulletTwoHeight = Constants.ENEMY_BULLET_2_HEIGHT;
-            this.bulletTwoWidth = Constants.ENEMY_BULLET_2_WIDTH;
+            this.height = Constants.ENEMY_BULLET_2_HEIGHT;
+            this.width = Constants.ENEMY_BULLET_2_WIDTH;
 
-            this.setSize(new Size(bulletTwoWidth, bulletTwoHeight));
-            this.setImage(game.getSpriteSheet().getImage(267, 0, bulletTwoWidth, bulletTwoHeight));
+            this.setSize(new Size(width, height));
+            this.setImage(game.getSpriteSheet().getImage(267, 0, width, height));
         }
 
         this.setPosition(new Position(x - getSize().getWidth() / 2, y + getSize().getHeight() / 2));
