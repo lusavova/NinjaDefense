@@ -14,29 +14,35 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     private int kind;
     private int power;
-    private int speed = Constants.FRIENDLY_BULLET_SPEED;
-    private int bulletOnePower = Constants.FRIENDLY_BULLET_1_POWER;
-    private int getBulletTwoPower = Constants.FRIENDLY_BULLET_2_POWER;
-    private int bulletOneHeight = Constants.FRIENDLY_BULLET_1_HEIGHT;
-    private int bulletOneWidht = Constants.FRIENDLY_BULLET_1_WIDTH;
-    private int bulletTwoHeight = Constants.FRIENDLY_BULLET_2_HEIGHT;
-    private int bulletTwoWidth = Constants.FRIENDLY_BULLET_2_WIDTH;
+    private int speed;
+    private int width;
+    private int height;
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
-        game.getPlayer().getShip().setBullets(game.getPlayer().getShip().getBullets() - 1);
+
+        this.speed = Constants.FRIENDLY_BULLET_SPEED;
         this.kind = kind;
 
         if (kind == 1) {
-            this.setPower(Constants.FRIENDLY_BULLET_1_POWER);
-            this.setSize(new Size(7, 23));
-            this.setImage(game.getSpriteSheet().getImage(240, 0, getSize().getWidth(), getSize().getHeight()));
+
+            power = Constants.FRIENDLY_BULLET_1_POWER;
+            width = Constants.FRIENDLY_BULLET_1_WIDTH;
+            height = Constants.FRIENDLY_BULLET_1_HEIGHT;
+
+            this.setImage(game.getSpriteSheet().getImage(650, 0, width, height));
 
         } else if (kind == 2) {
-            this.setPower(Constants.FRIENDLY_BULLET_2_POWER);
-            this.setSize(new Size(10, 31));
-            this.setImage(game.getSpriteSheet().getImage(247, 0, getSize().getWidth(), getSize().getHeight()));
+
+            power = Constants.FRIENDLY_BULLET_2_POWER;
+            width = Constants.FRIENDLY_BULLET_2_WIDTH;
+            height = Constants.FRIENDLY_BULLET_2_HEIGHT;
+
+            this.setImage(game.getSpriteSheet().getImage(657, 0, width, height));
+
         }
+
+        this.setSize(new Size(width, height));
 
         int x = this.getGame().getPlayer().getShip().getPosition().getX();
         int y = this.getGame().getPlayer().getShip().getPosition().getY() + 10;
@@ -44,14 +50,11 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         int shipWidth = this.getGame().getPlayer().getShip().getSize().getWidth();
 
         if (side == BulletShipSide.RIGHT) {
-            this.setPosition(new Position(x + shipWidth - this.getSize().getWidth(), y));
-
+            this.setPosition(new Position(x + shipWidth - width, y));
         } else if (side == BulletShipSide.LEFT) {
             this.setPosition(new Position(x, y));
-
         } else if (side == BulletShipSide.MIDLEFT) {
-            this.setPosition(new Position(x + shipWidth - this.getSize().getWidth() - 16, y + 5));
-
+            this.setPosition(new Position(x + shipWidth - width - 16, y + 5));
         } else {
             this.setPosition(new Position(x + 16, y + 5));
         }
