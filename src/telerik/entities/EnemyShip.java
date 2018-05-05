@@ -80,7 +80,9 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void onCollideWithShip() {
-        onCollide();
+        getGame().getHandler().addToRemove(this);
+        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+        // TO DO : to resep ship position
     }
 
 

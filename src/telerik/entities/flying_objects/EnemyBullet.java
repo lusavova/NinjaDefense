@@ -15,21 +15,21 @@ import java.awt.*;
 
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
 
-    public EnemyBullet(PlayState game, int kind, Position position) {
+    public EnemyBullet(PlayState game, int kind, int x, int y) {
         super(game);
 
         if (kind == 0) {
             this.setPower(Constants.ENEMY_BULLET_1_POWER);
             this.setSize(new Size(10, 27));
-            this.setImage(game.getSpriteSheet().getImage(257, 0, getSize().getWidth(), getSize().getHeight()));
+            this.setImage(game.getSpriteSheet().getImage(257, 0, Constants.ENEMY_BULLET_1_WIDTH, Constants.ENEMY_BULLET_1_HEIGHT));
 
         } else if (kind == 1) {
             this.setPower(Constants.ENEMY_BULLET_2_POWER);
             this.setSize(new Size(10, 44));
-            this.setImage(game.getSpriteSheet().getImage(267, 0, getSize().getWidth(), getSize().getHeight()));
+            this.setImage(game.getSpriteSheet().getImage(267, 0, Constants.ENEMY_BULLET_2_WIDTH, Constants.ENEMY_BULLET_2_HEIGHT));
         }
 
-        this.setPosition(new Position(position));
+        this.setPosition(new Position(x - getSize().getWidth()/2, y + getSize().getHeight()/2));
         this.setBounds();
 
         addToMovableCollection();

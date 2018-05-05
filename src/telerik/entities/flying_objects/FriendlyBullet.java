@@ -12,8 +12,11 @@ import java.awt.*;
 
 public class FriendlyBullet extends FlyingObject implements Movable {
 
+    private int kind;
+
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
+        this.kind = kind;
 
         if (kind == 1) {
             this.setPower(Constants.FRIENDLY_BULLET_1_POWER);
@@ -55,7 +58,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     public void move() {
         getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_1_SPEED);
         getBounds().moveBounds(this);
-        if (getPosition().getY() <=0) {
+        if (getPosition().getY() <= 0) {
             getGame().getHandler().addToRemove(this);
         }
     }
@@ -74,8 +77,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         getGame().getHandler().addToRemove(this);
     }
 
-
-    public Rectangle newBounds() {
-        return new Rectangle(getPosition().getX(), getPosition().getY(), getSize().getWidth(), getSize().getHeight());
+    public int getKind() {
+        return kind;
     }
 }
