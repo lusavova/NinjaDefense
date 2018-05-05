@@ -29,6 +29,10 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     public void move() {
         getPosition().setY(getPosition().getY() + speed);
         getBounds().moveBounds(this);
+
+        if (getPosition().getY() > Constants.HEIGHT) {
+//            onPlanetReach();
+        }
     }
 
     @Override
@@ -46,10 +50,8 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
 
     @Override
     public void onPlanetReach() {
-        if (getPosition().getY() > Constants.HEIGHT) {
-            int stateIndex = GameStateType.GAMEOVER.ordinal();
-            getGame().getGameStateManager().setState(stateIndex);
-        }
+        int stateIndex = GameStateType.GAMEOVER.ordinal();
+        getGame().getGameStateManager().setState(stateIndex);
     }
 
     @Override

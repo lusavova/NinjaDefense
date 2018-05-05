@@ -19,11 +19,17 @@ public class Handler {
 
     private HashSet<Movable> movables;
     private HashSet<Movable> movablesTemp;
+
     private HashSet<Entity> gameObjectsToBeRemoved;
 
     private HashSet<FriendlyBullet> ownBullets;
+    private HashSet<FriendlyBullet> ownBulletsTemp;
+
     private HashSet<CollidesWithOwnShip> shipCollidables;
+    private HashSet<CollidesWithOwnShip> shipCollidablesTemp;
+
     private HashSet<CollidesWithOwnBullet> bulletCollidables;
+    private HashSet<CollidesWithOwnBullet> bulletCollidablesTemp;
 
 
     public Handler(PlayState game) {
@@ -32,17 +38,27 @@ public class Handler {
         this.movables = new HashSet<>();
         this.gameObjectsTemp = new HashSet<>();
         this.movablesTemp = new HashSet<>();
+
         this.ownBullets = new HashSet<>();
         this.shipCollidables = new HashSet<>();
         this.bulletCollidables = new HashSet<>();
+        this.ownBulletsTemp = new HashSet<>();
+        this.shipCollidablesTemp = new HashSet<>();
+        this.bulletCollidablesTemp = new HashSet<>();
+
         this.gameObjectsToBeRemoved = new HashSet<>();
     }
 
     public void render(Graphics2D g) {
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
+
         gameObjects.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        shipCollidables.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
         gameObjectsToBeRemoved.clear();
+
         gameObjects.forEach(obj -> obj.render(g));
     }
 
@@ -55,6 +71,13 @@ public class Handler {
 
     private void checkForCollisions() {
         //Exception in thread "GameThread" java.util.ConcurrentModificationException
+        bulletCollidables.addAll(bulletCollidablesTemp);
+        shipCollidables.addAll(shipCollidablesTemp);
+        ownBullets.addAll(ownBulletsTemp);
+
+        bulletCollidablesTemp.clear();
+        shipCollidablesTemp.clear();
+        ownBulletsTemp.clear();
 
         bulletCollidables.forEach(collidable -> {
             ownBullets.forEach(bullet -> {
@@ -89,14 +112,14 @@ public class Handler {
     }
 
     public void addOwnBullet(FriendlyBullet friendlyBullet) {
-        ownBullets.add(friendlyBullet);
+        ownBulletsTemp.add(friendlyBullet);
     }
 
     public void addCollidableWithShip (CollidesWithOwnShip gameObj) {
-        shipCollidables.add(gameObj);
+        shipCollidablesTemp.add(gameObj);
     }
 
     public void addCollidableWithBullet (CollidesWithOwnBullet gameObj) {
-        bulletCollidables.add(gameObj);
+        bulletCollidablesTemp.add(gameObj);
     }
 }
