@@ -91,6 +91,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollide() {
+        getGame().getHandler().addToRemove(this);
         resetCometPosition();
     }
 

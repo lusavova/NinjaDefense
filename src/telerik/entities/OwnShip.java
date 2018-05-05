@@ -87,6 +87,8 @@ public class OwnShip extends Ship  implements Collidable {
         this.velY = velY;
     }
 
+
+
     @Override
     public void onCollide() {
 
