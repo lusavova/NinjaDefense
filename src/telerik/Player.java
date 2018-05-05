@@ -9,7 +9,6 @@ public class Player {
     private int points;
     private int lives;
     private int health;
-    private int bullets;
     private OwnShip ship;
 
     private PlayState game;
@@ -47,13 +46,5 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
-    }
-
-    public int getBullets() {
-        return bullets;
-    }
-
-    public void setBullets(int bullets) {
-        this.bullets = bullets;
     }
 }
