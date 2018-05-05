@@ -1,13 +1,20 @@
 package telerik.entities.flying_objects;
 
 
+import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
+
+
 public class LevelUp extends Entity implements CollidesWithOwnShip {
+    private int spawnDelay = Constants.LEVELUP_SPAWN_DELAY;
+    private int live = Constants.LEVELUP_lIVE;
+    private int width = Constants.LEVEL_UP_WIDTH;
+    private int height = Constants.LEVEL_UP_HEIGHT;
 
     public LevelUp(PlayState game, int x, int y) {
         super(game);

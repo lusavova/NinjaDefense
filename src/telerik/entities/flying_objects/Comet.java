@@ -14,7 +14,9 @@ import java.util.Random;
 public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip {
     private CometType kind;
     private int speed;
-    private int power;
+    private int power = Constants.COMET_POWER;
+    private int width = Constants.COMET_WIDTH;
+    private int height = Constants.COMET_HIGHT;
 
     public Comet(PlayState game, CometType kind, int y, int speed) {
         super(game);

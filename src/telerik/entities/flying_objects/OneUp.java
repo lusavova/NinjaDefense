@@ -1,6 +1,7 @@
 package telerik.entities.flying_objects;
 
 
+import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
@@ -8,6 +9,10 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class OneUp extends Entity implements CollidesWithOwnShip {
+    private int spawnDelay = Constants.ONE_UP_SPAWN_DELAY;
+    private int live = Constants.ONE_UP_lIVE;
+    private int width = Constants.ONE_UP_WIDTH;
+    private int height = Constants.ONE_UP_HEIGHT;
 
     public OneUp(PlayState game, int x, int y) {
         super(game);

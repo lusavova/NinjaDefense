@@ -1,6 +1,7 @@
 package telerik.entities.flying_objects;
 
 
+import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
@@ -8,6 +9,11 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class Ammo extends Entity implements CollidesWithOwnShip {
+    private int spawnDelay = Constants.FUEL_SPAWN_DELAY;
+    private int live = Constants.FUEL_LIVE;
+    private int width = Constants.FUEL_WIDTH;
+    private int height = Constants.FUEL_HEIGHT;
+
     public Ammo(PlayState game, int x, int y) {
         super(game);
 

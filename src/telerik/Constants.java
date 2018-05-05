@@ -32,7 +32,11 @@ public class Constants {
 
     public static final int FRIENDLY_BULLET_1_POWER = 20;
     public static final int FRIENDLY_BULLET_2_POWER = 40;
-    public static final int FRIENDLY_BULLET_1_SPEED = 10;
+    public static final int FRIENDLY_BULLET_SPEED = 10;
+    public static final int FRIENDLY_BULLET_1_HEIGHT = 23;
+    public static final int FRIENDLY_BULLET_1_WIDTH = 7;
+    public static final int FRIENDLY_BULLET_2_HEIGHT = 31;
+    public static final int FRIENDLY_BULLET_2_WIDTH = 10;
     public static final int ENEMY_BULLET_1_POWER = 10;
     public static final int ENEMY_BULLET_2_POWER = 20;
     public static final int COMET_POWER = 50;
@@ -52,14 +56,14 @@ public class Constants {
     public static final int ALIEN_SPAWN_DELAY = 180;
     public static final int FOOD_SPAWN_DELAY = 300;
     public static final int FUEL_SPAWN_DELAY = 1200;
-    public static final int ONEUP_SPAWN_DELAY = 3600;
+    public static final int ONE_UP_SPAWN_DELAY = 3600;
     public static final int LEVELUP_SPAWN_DELAY = 5000;
     public static final int ENEMY_BULLETS_SHOOT_DELAY = 180;
 
     public static final int FOOD_LIVE = 1200;
     public static final int FUEL_LIVE = 1200;
     public static final int LEVELUP_lIVE = 600;
-    public static final int ONEUP_lIVE = 600;
+    public static final int ONE_UP_lIVE = 600;
 
     // game object sizes
     public static final int ALIEN_WIDTH = 50;

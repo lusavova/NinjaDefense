@@ -8,6 +8,10 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class Food extends Entity implements CollidesWithOwnShip {
+    private int spawnDelay = Constants.FOOD_SPAWN_DELAY;
+    private int live = Constants.FOOD_LIVE;
+    private int height = Constants.FOOD_HEIGHT;
+    private int width = Constants.FOOD_WIDTH;
 
     public Food(PlayState game, int x, int y, int food) {
         super(game);

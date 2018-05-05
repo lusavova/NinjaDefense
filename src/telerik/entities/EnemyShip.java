@@ -17,6 +17,15 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     private int speed;
     private int shootDelay;
 
+    private int enemyOneHealth = Constants.ENEMY_1_HEALTH;
+    private int enemyTwoHealth = Constants.ENEMY_2_HEALTH;
+
+    private int enemyOneWidth = Constants.ENEMY_SHIP_1_WIDTH;
+    private int enemyOneHeight = Constants.ENEMY_SHIP_1_HEIGHT;
+
+    private int enemyTwoWidth = Constants.ENEMY_SHIP_2_WIDTH;
+    private int enemyTwoHeight = Constants.ENEMY_SHIP_2_HEIGHT;
+
     public EnemyShip(PlayState game, int level, int x, int y, int speed) {
         super(game);
 

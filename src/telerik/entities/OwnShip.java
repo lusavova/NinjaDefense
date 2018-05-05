@@ -15,6 +15,13 @@ public class OwnShip extends Ship implements Collidable {
 
     private int bullets;
 
+    private int health = Constants.INITIAL_HEALTH;
+    private int width = Constants.OWN_SHIP_WIDTH;
+    private int height = Constants.OWN_SHIP_HEIGHT;
+    private int upgradedWidth = Constants.OWN_SHIP_UPGRADED_WIDTH;
+    private int upgradedHeight = Constants.OWN_SHIP_UPGRADED_HEIGHT;
+
+
 
     public OwnShip(PlayState game) {
         super(game);

@@ -14,6 +14,13 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     private int kind;
     private int power;
+    private int speed = Constants.FRIENDLY_BULLET_SPEED;
+    private int bulletOnePower = Constants.FRIENDLY_BULLET_1_POWER;
+    private int getBulletTwoPower = Constants.FRIENDLY_BULLET_2_POWER;
+    private int bulletOneHeight = Constants.FRIENDLY_BULLET_1_HEIGHT;
+    private int bulletOneWidht = Constants.FRIENDLY_BULLET_1_WIDTH;
+    private int bulletTwoHeight = Constants.FRIENDLY_BULLET_2_HEIGHT;
+    private int bulletTwoWidth = Constants.FRIENDLY_BULLET_2_WIDTH;
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
@@ -58,7 +65,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     @Override
     public void update() {
-        getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_1_SPEED);
+        getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_SPEED);
         getBounds().moveBounds(this);
         if (getPosition().getY() <= 0) {
             getGame().getHandler().addToRemove(this);

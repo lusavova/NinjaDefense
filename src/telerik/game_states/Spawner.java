@@ -32,7 +32,7 @@ public class Spawner {
         this.foodDelay = Constants.FOOD_SPAWN_DELAY;
         this.fuelDelay = Constants.FUEL_SPAWN_DELAY;
         this.levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
-        this.oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
+        this.oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
         this.enemyShips = new HashSet<>();
     }
@@ -93,7 +93,7 @@ public class Spawner {
         if (oneUpDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.ONE_UP_WIDTH);
             rndY = rnd.nextInt(Constants.HEIGHT - Constants.ONE_UP_HEIGHT);
-            oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
+            oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
             new OneUp(game, rndX, rndY);
         }

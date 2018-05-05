@@ -14,6 +14,14 @@ import telerik.interfaces.Movable;
 import java.awt.*;
 
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
+    private int bulletOnePower = Constants.ENEMY_BULLET_1_POWER;
+    private int bulletTwoPower = Constants.ENEMY_BULLET_2_POWER;
+    private int bulletOneHeight = Constants.ENEMY_BULLET_1_HEIGHT;
+    private int bulletOneWidht = Constants.ENEMY_BULLET_1_WIDTH;
+    private int bulletTwoHeight = Constants.ENEMY_BULLET_2_HEIGHT;
+    private int bulletTwoWidth = Constants.ENEMY_BULLET_2_WIDTH;
+    private int speed = Constants.ENEMY_BULLET_VEL;
+
 
     private int power;
 
