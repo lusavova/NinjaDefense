@@ -25,11 +25,11 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
 
         if (level == 0) {
-            this.setHealth(Constants.INITIAL_HEALTH);
+            this.setHealth(Constants.ENEMY_1_HEALTH);
             this.setSize(new Size(Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
             this.setImage(game.getSpriteSheet().getImage(0, 99, Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
         } else if (level == 1) {
-            this.setHealth(Constants.INITIAL_HEALTH);
+            this.setHealth(Constants.ENEMY_2_HEALTH);
             this.setSize(new Size(Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
             this.setImage(game.getSpriteSheet().getImage(0, 154, Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
         }
@@ -46,6 +46,9 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void update() {
+        if (getHealth()<=0){
+            getGame().getHandler().addToRemove(this);
+        }
         if (shootDelay == 0) {
             shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
         }
@@ -71,7 +74,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void onCollideWithBullet(FriendlyBullet bullet) {
-        setHealth(getHealth()-bullet.getPower());
+        setHealth(getHealth() - bullet.getPower());
     }
 
     @Override
