@@ -121,7 +121,7 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
-    public void addToRemove(Entity gameObject) {
+    public void addToRemove(Entity gameObject){
         this.gameObjectsToBeRemoved.add(gameObject);
     }
 
@@ -133,11 +133,11 @@ public class Handler {
         ownBulletsTemp.add(friendlyBullet);
     }
 
-    public void addCollidableWithShip(CollidesWithOwnShip gameObj) {
-        shipCollidables.add(gameObj);
+    public void addCollidableWithShip (CollidesWithOwnShip gameObj) {
+        shipCollidablesTemp.add(gameObj);
     }
 
-    public void addCollidableWithBullet(CollidesWithOwnBullet gameObj) {
-        bulletCollidables.add(gameObj);
+    public void addCollidableWithBullet (CollidesWithOwnBullet gameObj) {
+        bulletCollidablesTemp.add(gameObj);
     }
 }
