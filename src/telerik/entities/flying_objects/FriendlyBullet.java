@@ -13,6 +13,7 @@ import java.awt.*;
 public class FriendlyBullet extends FlyingObject implements Movable {
 
     private int kind;
+    private int power;
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
@@ -79,5 +80,13 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     public int getKind() {
         return kind;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
     }
 }
