@@ -4,6 +4,7 @@ import telerik.Constants;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
 import telerik.enumerators.CometType;
+import telerik.exceptions.NoSuchEntityException;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -47,7 +48,12 @@ public class Spawner {
                 startLeft = -1;
             }
             int rndSpeed = rnd.nextInt(2) + 2;
-            new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
+            //custom exception here
+            try {
+                new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
+            } catch (NoSuchEntityException e) {
+                e.printStackTrace();
+            }
         }
     }
 

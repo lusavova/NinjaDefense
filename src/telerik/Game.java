@@ -2,6 +2,7 @@ package telerik;
 
 import telerik.Constants;
 import telerik.entities.EnemyShip;
+import telerik.exceptions.NoSuchEntityException;
 import telerik.game_states.GameStateManager;
 import telerik.interfaces.GameEngine;
 

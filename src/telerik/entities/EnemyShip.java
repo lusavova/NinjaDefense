@@ -4,6 +4,7 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.entities.flying_objects.FriendlyBullet;
+import telerik.exceptions.NoSuchEntityException;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
@@ -21,9 +22,12 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     private int height;
     private int isHurting = 0;
 
-    public EnemyShip(PlayState game, int level, int x, int y, int speed) {
+    public EnemyShip(PlayState game, int level, int x, int y, int speed) throws NoSuchEntityException {
         super(game);
 
+        if(level > 1) {
+            throw new NoSuchEntityException("No such enemy ship.");
+        }
         this.setLevel(level);
         this.speed = speed;
         this.shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
