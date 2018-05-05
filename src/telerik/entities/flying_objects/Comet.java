@@ -56,9 +56,9 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     public void update() {
         updateFrame();
         getPosition().setY(getPosition().getY() + speed);
-
-        resetCometPosition();
-
+        if (getPosition().getY() >= Constants.HEIGHT) {
+            resetCometPosition();
+        }
         if (kind == CometType.LEFT) {
             getPosition().setX(getPosition().getX() + speed);
         }
@@ -71,16 +71,14 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     }
 
     private void resetCometPosition() {
-        if (getPosition().getY() >= Constants.HEIGHT) {
 
-            getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
+        getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
 
-            if (kind == CometType.LEFT) {
-                getPosition().setX(0 - getSize().getWidth());
-            }
-            if (this.kind == CometType.RIGHT) {
-                getPosition().setX(Constants.WIDTH);
-            }
+        if (kind == CometType.LEFT) {
+            getPosition().setX(0 - getSize().getWidth());
+        }
+        if (this.kind == CometType.RIGHT) {
+            getPosition().setX(Constants.WIDTH);
         }
     }
 

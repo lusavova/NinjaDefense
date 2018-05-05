@@ -25,7 +25,6 @@ public class Food extends Entity implements CollidesWithOwnShip {
         getGame().getHandler().addToRemove(this);
 
         System.out.println(getGame().getPlayer().getHealth());
-        //TODO add health
     }
 
     @Override
