@@ -83,12 +83,14 @@ public class PlayState extends GameState {
 
         }
         if (k == KeyEvent.VK_SPACE && !isShooting) {
-            new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.LEFT);
-            new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.RIGHT);
-            if (player.getShip().getLevel() == 2) {
+            if (player.getShip().getBullets() > 0) {
+                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.LEFT);
+                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.RIGHT);
+                if (player.getShip().getLevel() == 2 && player.getShip().getBullets() > 0) {
 
-                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDLEFT);
-                new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDRIGHT);
+                    new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDLEFT);
+                    new FriendlyBullet(this, player.getShip().getLevel(), player.getShip().getPosition(), BulletShipSide.MIDRIGHT);
+                }
             }
             isShooting = true;
         }
@@ -136,7 +138,7 @@ public class PlayState extends GameState {
         return spawner;
     }
 
-    public GameStateManager getGameStateManager(){
+    public GameStateManager getGameStateManager() {
         return gsm;
     }
 }
