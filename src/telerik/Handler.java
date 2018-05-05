@@ -127,6 +127,7 @@ public class Handler {
         shipCollidables.forEach(collidable -> {
             if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
                 game.getPlayer().getShip().onCollide();
+                System.out.println("collide");
                 collidable.onCollideWithShip();
             }
         });
