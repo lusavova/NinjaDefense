@@ -31,7 +31,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         getBounds().moveBounds(this);
 
         if (getPosition().getY() > Constants.HEIGHT) {
-//            onPlanetReach();
+            onPlanetReach();
         }
     }
 
@@ -42,10 +42,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
 
     @Override
     public void onCollide() {
-//        if(isEnemyBullet){
-//        getGame().getHandler().addToRemove(this);
-//    }
-        System.out.println("Alien Collide");
+        getGame().getHandler().addToRemove(this);
     }
 
     @Override
@@ -63,4 +60,16 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     public void addToCollidableWithOwnShip() {
         getGame().getHandler().addCollidableWithShip(this);
     }
+
+    @Override
+    public void onCollideWithShip() {
+        onCollide();
+    }
+
+    @Override
+    public void onCollideWithBullet() {
+        onCollide();
+    }
+
+
 }

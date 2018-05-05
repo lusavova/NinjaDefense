@@ -60,45 +60,45 @@ public class Spawner {
             alienDelay = Constants.ALIEN_SPAWN_DELAY;
             new Alien(game, rndX, rndSpeed);
         }
-
-        if (foodDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.FOOD_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FOOD_HEIGHT);
-            int rndFood = rnd.nextInt(6);
-            foodDelay = Constants.FOOD_SPAWN_DELAY;
-
-            new Food(game, rndX, rndY, rndFood);
-        }
-
-        if (fuelDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.FUEL_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FUEL_HEIGHT);
-            fuelDelay = Constants.FUEL_SPAWN_DELAY;
-
-            new Fuel(game, rndX, rndY);
-        }
-
-        if (levelUpDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.LEVEL_UP_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.LEVEL_UP_HEIGHT);
-            levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
-
-            new LevelUp(game, rndX, rndY);
-        }
-
-        if (oneUpDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.ONE_UP_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.ONE_UP_HEIGHT);
-            oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
-
-            new OneUp(game, rndX, rndY);
-        }
-
-        enemyShips.forEach(enemyShip -> {
-            if(enemyShip.getShootDelay() == 0) {
-                new EnemyBullet(game, enemyShip.getLevel(), enemyShip.getPosition());
-            }
-        });
+//
+//        if (foodDelay == 0) {
+//            rndX = rnd.nextInt(Constants.WIDTH - Constants.FOOD_WIDTH);
+//            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FOOD_HEIGHT);
+//            int rndFood = rnd.nextInt(6);
+//            foodDelay = Constants.FOOD_SPAWN_DELAY;
+//
+//            new Food(game, rndX, rndY, rndFood);
+//        }
+//
+//        if (fuelDelay == 0) {
+//            rndX = rnd.nextInt(Constants.WIDTH - Constants.FUEL_WIDTH);
+//            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FUEL_HEIGHT);
+//            fuelDelay = Constants.FUEL_SPAWN_DELAY;
+//
+//            new Fuel(game, rndX, rndY);
+//        }
+//
+//        if (levelUpDelay == 0) {
+//            rndX = rnd.nextInt(Constants.WIDTH - Constants.LEVEL_UP_WIDTH);
+//            rndY = rnd.nextInt(Constants.HEIGHT - Constants.LEVEL_UP_HEIGHT);
+//            levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
+//
+//            new LevelUp(game, rndX, rndY);
+//        }
+//
+//        if (oneUpDelay == 0) {
+//            rndX = rnd.nextInt(Constants.WIDTH - Constants.ONE_UP_WIDTH);
+//            rndY = rnd.nextInt(Constants.HEIGHT - Constants.ONE_UP_HEIGHT);
+//            oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
+//
+//            new OneUp(game, rndX, rndY);
+//        }
+//
+//        enemyShips.forEach(enemyShip -> {
+//            if(enemyShip.getShootDelay() == 0) {
+//                new EnemyBullet(game, enemyShip.getLevel(), enemyShip.getPosition());
+//            }
+//        });
 
     }
 
