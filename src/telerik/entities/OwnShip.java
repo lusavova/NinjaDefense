@@ -23,12 +23,14 @@ public class OwnShip extends Ship implements Collidable {
 
     public OwnShip(PlayState game) {
         super(game);
+
         this.bullets = Constants.INITIAL_BULLETS;
         this.health = Constants.INITIAL_HEALTH;
         this.width = Constants.OWN_SHIP_WIDTH;
         this.height = Constants.OWN_SHIP_HEIGHT;
         this.upgradedWidth = Constants.OWN_SHIP_UPGRADED_WIDTH;
         this.upgradedHeight = Constants.OWN_SHIP_UPGRADED_HEIGHT;
+
         this.setHealth(Constants.INITIAL_HEALTH);
         this.setSize(new Size(Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
         this.setPosition(new Position((Constants.WIDTH - Constants.OWN_SHIP_WIDTH) / 2, Constants.HEIGHT - Constants.OWN_SHIP_HEIGHT - 10));
