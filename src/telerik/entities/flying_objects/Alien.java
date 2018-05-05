@@ -69,6 +69,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollideWithBullet(FriendlyBullet bullet) {
         onCollide();
+        getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
     }
 
 

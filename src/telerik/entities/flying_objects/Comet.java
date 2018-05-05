@@ -110,7 +110,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() - Constants.COMET_POWER);
     }
 
     public int getPower() {
