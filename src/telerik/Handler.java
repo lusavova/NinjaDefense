@@ -92,7 +92,7 @@ public class Handler {
         String points = String.valueOf(getGame().getPlayer().getPoints());
         String health = String.valueOf(getGame().getPlayer().getHealth());
         String lives = String.valueOf(getGame().getPlayer().getLives());
-        String bullets = String.valueOf(getGame().getPlayer().getBullets());
+        String bullets = String.valueOf(getGame().getPlayer().getShip().getBullets());
 
         g.drawString(points, 40, 15);
         g.drawString(health, 40, 40);

@@ -8,7 +8,7 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.Collidable;
 import telerik.interfaces.Ship;
 
-public class OwnShip extends Ship  implements Collidable {
+public class OwnShip extends Ship implements Collidable {
 
     private int velX = 0;
     private int velY = 0;
@@ -74,6 +74,12 @@ public class OwnShip extends Ship  implements Collidable {
         this.setSize(new Size(Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
     }
 
+
+    @Override
+    public void onCollide() {
+
+    }
+
     public int getVelX() {
         return velX;
     }
@@ -90,10 +96,11 @@ public class OwnShip extends Ship  implements Collidable {
         this.velY = velY;
     }
 
+    public int getBullets() {
+        return bullets;
+    }
 
-
-    @Override
-    public void onCollide() {
-
+    public void setBullets(int bullets) {
+        this.bullets = bullets;
     }
 }
