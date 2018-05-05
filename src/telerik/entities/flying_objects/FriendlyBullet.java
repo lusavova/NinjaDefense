@@ -8,6 +8,8 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
 import telerik.interfaces.Movable;
 
+import java.awt.*;
+
 public class FriendlyBullet extends FlyingObject implements Movable {
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
@@ -53,6 +55,9 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     public void move() {
         getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_1_SPEED);
         getBounds().moveBounds(this);
+        if (getPosition().getY() <=0) {
+            getGame().getHandler().addToRemove(this);
+        }
     }
 
     @Override
@@ -70,4 +75,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     }
 
 
+    public Rectangle newBounds() {
+        return new Rectangle(getPosition().getX(), getPosition().getY(), getSize().getWidth(), getSize().getHeight());
+    }
 }

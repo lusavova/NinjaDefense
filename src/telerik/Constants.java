@@ -49,7 +49,7 @@ public class Constants {
     public static final int BUTTONS_FONT_SIZE = 50;
     public static final int CONTROL_PANEL_FONT_ZISE = 15;
 
-    public static final int ALIEN_SPAWN_DELAY = 180;
+    public static final int ALIEN_SPAWN_DELAY = 30;
     public static final int FOOD_SPAWN_DELAY = 300;
     public static final int FUEL_SPAWN_DELAY = 1200;
     public static final int ONEUP_SPAWN_DELAY = 3600;

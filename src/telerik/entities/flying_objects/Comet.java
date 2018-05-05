@@ -57,17 +57,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         updateFrame();
         getPosition().setY(getPosition().getY() + speed);
 
-        if (getPosition().getY() >= Constants.HEIGHT) {
-
-            getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
-
-            if (kind == CometType.LEFT) {
-                getPosition().setX(0 - getSize().getWidth());
-            }
-            if (this.kind == CometType.RIGHT) {
-                getPosition().setX(Constants.WIDTH);
-            }
-        }
+        resetCometPosition();
 
         if (kind == CometType.LEFT) {
             getPosition().setX(getPosition().getX() + speed);
@@ -80,6 +70,20 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         getBounds().moveBounds(this);
     }
 
+    private void resetCometPosition() {
+        if (getPosition().getY() >= Constants.HEIGHT) {
+
+            getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
+
+            if (kind == CometType.LEFT) {
+                getPosition().setX(0 - getSize().getWidth());
+            }
+            if (this.kind == CometType.RIGHT) {
+                getPosition().setX(Constants.WIDTH);
+            }
+        }
+    }
+
     @Override
     public void addToMovableCollection() {
         getGame().getHandler().addMovable(this);
@@ -87,8 +91,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollide() {
-        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        System.out.println("Comet collide");
+        resetCometPosition();
     }
 
     private void updateFrame() {
@@ -102,5 +105,11 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     @Override
     public void addToCollidableWithOwnShip() {
         getGame().getHandler().addCollidableWithShip(this);
+    }
+
+    @Override
+    public void onCollideWithShip() {
+        onCollide();
+        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
     }
 }

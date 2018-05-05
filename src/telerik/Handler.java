@@ -50,6 +50,7 @@ public class Handler {
     }
 
     public void render(Graphics2D g) {
+
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
 
@@ -57,6 +58,9 @@ public class Handler {
         bulletCollidables.removeAll(gameObjectsToBeRemoved);
         shipCollidables.removeAll(gameObjectsToBeRemoved);
         bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        movables.removeAll(gameObjectsToBeRemoved);
+        ownBullets.removeAll(gameObjectsToBeRemoved);
+
         gameObjectsToBeRemoved.clear();
 
         gameObjects.forEach(obj -> obj.render(g));
@@ -83,14 +87,14 @@ public class Handler {
             ownBullets.forEach(bullet -> {
                 if(bullet.getBounds().intersects(collidable.getBounds())) {
                     bullet.onCollide();
-                    collidable.onCollide();
+                    collidable.onCollideWithBullet();
                 }
             });
         });
         shipCollidables.forEach(collidable -> {
             if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
                 game.getPlayer().getShip().onCollide();
-                collidable.onCollide();
+                collidable.onCollideWithShip();
             }
         });
     }

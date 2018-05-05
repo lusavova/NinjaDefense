@@ -6,6 +6,7 @@ import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
+import java.awt.*;
 import java.util.Random;
 
 import static javax.swing.text.StyleConstants.Size;
@@ -58,7 +59,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void onCollide() {
-        System.out.println("Enemy Ship collide");
+
     }
 
 
@@ -68,8 +69,18 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     }
 
     @Override
+    public void onCollideWithBullet() {
+
+    }
+
+    @Override
     public void addToCollidableWithOwnShip() {
         getGame().getHandler().addCollidableWithShip(this);
+    }
+
+    @Override
+    public void onCollideWithShip() {
+        onCollide();
     }
 
 

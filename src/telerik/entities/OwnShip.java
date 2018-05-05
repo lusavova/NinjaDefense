@@ -89,6 +89,6 @@ public class OwnShip extends Ship  implements Collidable {
 
     @Override
     public void onCollide() {
-        System.out.println("Own Ship Collide");
+
     }
 }
