@@ -22,8 +22,7 @@ public class Ammo extends Entity implements CollidesWithOwnShip {
 
     @Override
     public void onCollide() {
-
-
+        getGame().getHandler().addToRemove(this);
     }
 
     @Override
@@ -35,5 +34,6 @@ public class Ammo extends Entity implements CollidesWithOwnShip {
     @Override
     public void onCollideWithShip() {
         onCollide();
+        getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + 100);
     }
 }
