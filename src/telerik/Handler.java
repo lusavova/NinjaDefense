@@ -36,6 +36,7 @@ public class Handler {
     private HashSet<CollidesWithOwnBullet> bulletCollidables;
     private HashSet<CollidesWithOwnBullet> bulletCollidablesTemp;
 
+    private Font buttonsFont;
 
     public Handler(PlayState game) {
         this.game = game;
@@ -58,6 +59,8 @@ public class Handler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        buttonsFont = new Font("Arial", Font.BOLD, 15);
     }
 
     public void render(Graphics2D g) {
@@ -77,7 +80,24 @@ public class Handler {
         gameObjects.forEach(obj -> obj.render(g));
 
         //draw control panel
+        drawControlPanel(g);
+    }
+
+    public void drawControlPanel (Graphics2D g) {
         g.drawImage(image, 0, 0, null);
+
+        g.setColor(new Color(179, 24, 71));
+        g.setFont(buttonsFont);
+
+        String points = String.valueOf(getGame().getPlayer().getPoints());
+        String health = String.valueOf(getGame().getPlayer().getHealth());
+        String lives = String.valueOf(getGame().getPlayer().getLives());
+        String bullets = String.valueOf(getGame().getPlayer().getBullets());
+
+        g.drawString(points, 40, 15);
+        g.drawString(health, 40, 40);
+        g.drawString(lives, 40, 70);
+        g.drawString(bullets, 40, 95);
     }
 
     public void update() {
@@ -99,7 +119,7 @@ public class Handler {
 
         bulletCollidables.forEach(collidable -> {
             ownBullets.forEach(bullet -> {
-                if(bullet.getBounds().intersects(collidable.getBounds())) {
+                if (bullet.getBounds().intersects(collidable.getBounds())) {
                     bullet.onCollide();
                     collidable.onCollideWithBullet();
                 }
@@ -121,7 +141,7 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
-    public void addToRemove(Entity gameObject){
+    public void addToRemove(Entity gameObject) {
         this.gameObjectsToBeRemoved.add(gameObject);
     }
 
@@ -133,11 +153,11 @@ public class Handler {
         ownBulletsTemp.add(friendlyBullet);
     }
 
-    public void addCollidableWithShip (CollidesWithOwnShip gameObj) {
+    public void addCollidableWithShip(CollidesWithOwnShip gameObj) {
         shipCollidablesTemp.add(gameObj);
     }
 
-    public void addCollidableWithBullet (CollidesWithOwnBullet gameObj) {
+    public void addCollidableWithBullet(CollidesWithOwnBullet gameObj) {
         bulletCollidablesTemp.add(gameObj);
     }
 }
