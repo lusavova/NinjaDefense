@@ -6,6 +6,7 @@ import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.Collidable;
+import telerik.interfaces.HurtingShip;
 import telerik.interfaces.Ship;
 
 public class OwnShip extends Ship implements Collidable {
@@ -17,9 +18,8 @@ public class OwnShip extends Ship implements Collidable {
     private int health;
     private int width;
     private int height;
-    private int upgradedWidth;
-    private int upgradedHeight;
 
+    private boolean isHurt = false;
 
     public OwnShip(PlayState game) {
         super(game);
@@ -28,27 +28,23 @@ public class OwnShip extends Ship implements Collidable {
         this.health = Constants.INITIAL_HEALTH;
         this.width = Constants.OWN_SHIP_WIDTH;
         this.height = Constants.OWN_SHIP_HEIGHT;
-        this.upgradedWidth = Constants.OWN_SHIP_UPGRADED_WIDTH;
-        this.upgradedHeight = Constants.OWN_SHIP_UPGRADED_HEIGHT;
 
-        this.setHealth(Constants.INITIAL_HEALTH);
-        this.setSize(new Size(Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
-        this.setPosition(new Position((Constants.WIDTH - Constants.OWN_SHIP_WIDTH) / 2, Constants.HEIGHT - Constants.OWN_SHIP_HEIGHT - 10));
-
-        setSprites();
-
+        this.setSize(new Size(width, height));
+        this.setPosition(new Position((Constants.WIDTH - width) / 2, Constants.HEIGHT - height));
+        this.setSprites();
         this.setBounds();
     }
 
     private void setSprites() {
-        for (int i = 0; i < 4; i++) {
-            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_WIDTH * i, 0, Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
+        int y;
+        if (getLevel() == 1) {
+            y = 0;
         }
-    }
-
-    private void setSpritesUpgraded() {
-        for (int i = 0; i < 6; i++) {
-            this.setImage(getGame().getSpriteSheet().getImage(Constants.OWN_SHIP_UPGRADED_WIDTH * i, 326, Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
+        else {
+            y = 326;
+        }
+        for (int i = 0; i < 8; i++) {
+            this.setImage(getGame().getSpriteSheet().getImage(width * i, y, width, height));
         }
     }
 
@@ -80,22 +76,39 @@ public class OwnShip extends Ship implements Collidable {
 
     private void updateFrame() {
         frame++;
-        if (frame == getImageList().size()) {
-            frame = 0;
+        if (isHurt) {
+            if (frame == getImageList().size()) {
+                frame = 0;
+                isHurt = false;
+            }
+        }
+        else {
+            if (frame == getImageList().size() / 2) {
+                frame = 0;
+            }
         }
     }
 
     public void upgradeShip() {
         getImageList().clear();
-        setSpritesUpgraded();
+        width = Constants.OWN_SHIP_UPGRADED_WIDTH;
+        height = Constants.OWN_SHIP_UPGRADED_HEIGHT;
         setLevel(2);
-        this.setSize(new Size(Constants.OWN_SHIP_UPGRADED_WIDTH, Constants.OWN_SHIP_UPGRADED_HEIGHT));
+        setSprites();
+        this.setSize(new Size(width, height));
     }
 
 
     @Override
     public void onCollide() {
 
+    }
+
+    public void onCollide(Collidable gameObj) {
+        if(gameObj instanceof HurtingShip) {
+            isHurt = true;
+            frame = getImageList().size() / 2 - 1;
+        }
     }
 
     public int getVelX() {

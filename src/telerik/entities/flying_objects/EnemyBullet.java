@@ -6,10 +6,7 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.CollidesWithOwnBullet;
-import telerik.interfaces.CollidesWithOwnShip;
-import telerik.interfaces.FlyingObject;
-import telerik.interfaces.Movable;
+import telerik.interfaces.*;
 
 import java.awt.*;
 
@@ -21,6 +18,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
 
     private int speed = Constants.ENEMY_BULLET_VEL;
+
 
     private int power;
 
@@ -101,7 +99,9 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         return power;
     }
 
-
+    public void setPower(int power) {
+        this.power = power;
+    }
 }
 
 

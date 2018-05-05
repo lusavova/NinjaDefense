@@ -7,11 +7,12 @@ import telerik.enumerators.CometType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.FlyingObject;
+import telerik.interfaces.HurtingShip;
 import telerik.interfaces.Movable;
 
 import java.util.Random;
 
-public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip {
+public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip, HurtingShip {
     private CometType kind;
     private int speed;
     private int power;

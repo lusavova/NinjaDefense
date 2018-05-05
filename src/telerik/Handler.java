@@ -2,10 +2,7 @@ package telerik;
 
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
-import telerik.interfaces.CollidesWithOwnBullet;
-import telerik.interfaces.CollidesWithOwnShip;
-import telerik.interfaces.Entity;
-import telerik.interfaces.Movable;
+import telerik.interfaces.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -126,7 +123,7 @@ public class Handler {
         });
         shipCollidables.forEach(collidable -> {
             if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
-                game.getPlayer().getShip().onCollide();
+                game.getPlayer().getShip().onCollide(collidable);
                 collidable.onCollideWithShip();
             }
         });
