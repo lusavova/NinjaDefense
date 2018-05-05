@@ -10,41 +10,38 @@ import telerik.interfaces.*;
 
 import java.awt.*;
 
-public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
+public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 
 
-    private int height;
-    private int width;
-
-
-    private int speed = Constants.ENEMY_BULLET_VEL;
-
-
+    private int speed;
     private int power;
+    private int width;
+    private int height;
 
     public EnemyBullet(PlayState game, int kind, int x, int y) {
         super(game);
 
+        this.speed = Constants.ENEMY_BULLET_VEL;
+
         if (kind == 0) {
 
             this.power = Constants.ENEMY_BULLET_1_POWER;
-            this.height = Constants.ENEMY_BULLET_1_HEIGHT;
             this.width = Constants.ENEMY_BULLET_1_WIDTH;
+            this.height = Constants.ENEMY_BULLET_1_HEIGHT;
 
-            this.setSize(new Size(width, height));
-            this.setImage(game.getSpriteSheet().getImage(257, 0,width, height));
+            this.setImage(game.getSpriteSheet().getImage(667, 0, width, height));
 
         } else if (kind == 1) {
 
             this.power = Constants.ENEMY_BULLET_2_POWER;
-            this.height = Constants.ENEMY_BULLET_2_HEIGHT;
             this.width = Constants.ENEMY_BULLET_2_WIDTH;
+            this.height = Constants.ENEMY_BULLET_2_HEIGHT;
 
-            this.setSize(new Size(width, height));
-            this.setImage(game.getSpriteSheet().getImage(267, 0, width, height));
+            this.setImage(game.getSpriteSheet().getImage(677, 0, width, height));
         }
 
-        this.setPosition(new Position(x - getSize().getWidth() / 2, y + getSize().getHeight() / 2));
+        this.setSize(new Size(width, height));
+        this.setPosition(new Position(x - width / 2, y + height / 2));
         this.setBounds();
 
         addToMovableCollection();
@@ -85,22 +82,12 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     @Override
     public void onCollideWithBullet(FriendlyBullet bullet) {
         onCollide();
-        System.out.println("collided");
-
     }
 
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() - getPower());
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
+        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
     }
 }
 

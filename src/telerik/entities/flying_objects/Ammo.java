@@ -9,7 +9,7 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class Ammo extends Entity implements CollidesWithOwnShip {
-    private int spawnDelay;
+
     private int live;
     private int width;
     private int height;
@@ -17,14 +17,13 @@ public class Ammo extends Entity implements CollidesWithOwnShip {
     public Ammo(PlayState game, int x, int y) {
         super(game);
 
-        this.spawnDelay = Constants.FUEL_SPAWN_DELAY;
-        this.live = Constants.FUEL_LIVE;
-        this.width = Constants.FUEL_WIDTH;
-        this.height = Constants.FUEL_HEIGHT;
+        this.live = Constants.AMMO_LIVE;
+        this.width = Constants.AMMO_WIDTH;
+        this.height = Constants.AMMO_HEIGHT;
 
-        this.setSize(new Size(17, 23));
+        this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
-        this.setImage(game.getSpriteSheet().getImage(525, 0, getSize().getWidth(), getSize().getHeight()));
+        this.setImage(game.getSpriteSheet().getImage(525, 0, width, height));
 
         this.setBounds();
         addToCollidableWithOwnShip();
@@ -45,6 +44,6 @@ public class Ammo extends Entity implements CollidesWithOwnShip {
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + 100);
+        getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + Constants.AMMO_AWARD);
     }
 }

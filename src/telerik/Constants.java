@@ -55,19 +55,19 @@ public class Constants {
 
     public static final int ALIEN_SPAWN_DELAY = 180;
     public static final int FOOD_SPAWN_DELAY = 300;
-    public static final int FUEL_SPAWN_DELAY = 1200;
+    public static final int AMMO_SPAWN_DELAY = 1200;
     public static final int ONE_UP_SPAWN_DELAY = 3600;
     public static final int LEVELUP_SPAWN_DELAY = 30;
     public static final int ENEMY_BULLETS_SHOOT_DELAY = 180;
 
     public static final int FOOD_LIVE = 1200;
-    public static final int FUEL_LIVE = 1200;
+    public static final int AMMO_LIVE = 1200;
     public static final int LEVELUP_lIVE = 600;
     public static final int ONE_UP_lIVE = 600;
 
     // game object sizes
     public static final int ALIEN_WIDTH = 50;
-    public static final int ALIEN_HIGHT = 60;
+    public static final int ALIEN_HEIGHT = 60;
 
     public static final int COMET_WIDTH = 57;
     public static final int COMET_HIGHT = 56;
@@ -93,8 +93,8 @@ public class Constants {
     public static final int FOOD_WIDTH = 25;
     public static final int FOOD_HEIGHT = 25;
 
-    public static final int FUEL_WIDTH = 17;
-    public static final int FUEL_HEIGHT = 23;
+    public static final int AMMO_WIDTH = 17;
+    public static final int AMMO_HEIGHT = 23;
 
     public static final int LEVEL_UP_WIDTH = 33;
     public static final int LEVEL_UP_HEIGHT = 25;
@@ -109,4 +109,8 @@ public class Constants {
 
     public static final int ENEMY_1_HEALTH = 5000;
     public static final int ENEMY_2_HEALTH = 10000;
+
+    public static final int AMMO_AWARD = 100;
+    public static final int FOOD_AWARD = 20;
+
 }

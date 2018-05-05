@@ -73,7 +73,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     @Override
     public void update() {
-        getPosition().setY(getPosition().getY() - Constants.FRIENDLY_BULLET_SPEED);
+        getPosition().setY(getPosition().getY() - speed);
         getBounds().moveBounds(this);
         if (getPosition().getY() <= 0) {
             getGame().getHandler().addToRemove(this);

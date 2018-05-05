@@ -86,7 +86,7 @@ public class Handler {
         g.setFont(buttonsFont);
 
         String points = String.valueOf(getGame().getPlayer().getPoints());
-        String health = String.valueOf(getGame().getPlayer().getHealth());
+        String health = String.valueOf(getGame().getPlayer().getShip().getHealth());
         String lives = String.valueOf(getGame().getPlayer().getLives());
         String bullets = String.valueOf(getGame().getPlayer().getShip().getBullets());
 

@@ -14,9 +14,9 @@ import static javax.swing.text.StyleConstants.Size;
 import static javax.swing.text.StyleConstants.getSpaceAbove;
 
 public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
+
     private int speed;
     private int shootDelay;
-    private int health;
     private int width;
     private int height;
 
@@ -29,24 +29,22 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
         if (level == 0) {
 
-            this.health = Constants.ENEMY_1_HEALTH;
+            setHealth(Constants.ENEMY_1_HEALTH);
             this.width = Constants.ENEMY_SHIP_1_WIDTH;
             this.height = Constants.ENEMY_SHIP_1_HEIGHT;
 
-            this.setHealth(Constants.ENEMY_1_HEALTH);
-            this.setSize(new Size(Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
-            this.setImage(game.getSpriteSheet().getImage(0, 99, Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 99, width, height));
+
         } else if (level == 1) {
 
-            this.health = Constants.ENEMY_2_HEALTH;
+            setHealth(Constants.ENEMY_2_HEALTH);
             this.width = Constants.ENEMY_SHIP_2_WIDTH;
-            this. health = Constants.ENEMY_SHIP_2_HEIGHT;
+            this.height = Constants.ENEMY_SHIP_2_HEIGHT;
 
-            this.setHealth(Constants.ENEMY_2_HEALTH);
-            this.setSize(new Size(Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
-            this.setImage(game.getSpriteSheet().getImage(0, 154, Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 154, width, height));
         }
 
+        this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
 
         this.setBounds();
@@ -95,7 +93,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public void onCollideWithShip() {
         getGame().getHandler().addToRemove(this);
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        // TO DO : to reset OwnShip position
+        // TODO : to reset OwnShip position
     }
 
     @Override

@@ -51,9 +51,9 @@ public class OwnShip extends Ship implements Collidable {
     public void update() {
         updateFrame();
 
-        if (getGame().getPlayer().getHealth() <= 0) {
+        if (getGame().getPlayer().getShip().getHealth() <= 0) {
             getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-            getGame().getPlayer().setHealth(Constants.INITIAL_HEALTH);
+            getGame().getPlayer().getShip().setHealth(Constants.INITIAL_HEALTH);
         }
 
         getPosition().setX(getPosition().getX() + velX);
@@ -62,14 +62,14 @@ public class OwnShip extends Ship implements Collidable {
         if (getPosition().getX() <= 0) {
             getPosition().setX(0);
         }
-        if (getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
-            getPosition().setX(Constants.WIDTH - getSize().getWidth());
+        if (getPosition().getX() >= Constants.WIDTH - width) {
+            getPosition().setX(Constants.WIDTH - width);
         }
         if (getPosition().getY() <= 105) {
             getPosition().setY(105);
         }
-        if (getPosition().getY() >= Constants.HEIGHT - getSize().getHeight()) {
-            getPosition().setY(Constants.HEIGHT - getSize().getHeight());
+        if (getPosition().getY() >= Constants.HEIGHT - height) {
+            getPosition().setY(Constants.HEIGHT - height);
         }
         getBounds().moveBounds(this);
     }

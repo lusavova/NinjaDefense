@@ -8,23 +8,22 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
 public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
+
     private int speed;
-    private int spawnDelay;
     private int width;
-    private int hight;
+    private int height;
 
     public Alien(PlayState game, int x, int speed) {
         super(game);
 
-        this.spawnDelay = Constants.ALIEN_SPAWN_DELAY;
         this.width = Constants.ALIEN_WIDTH;
-        this.hight = Constants.ALIEN_HIGHT;
+        this.height = Constants.ALIEN_HEIGHT;
 
         this.speed = speed;
 
-        this.setSize(new Size(Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
+        this.setSize(new Size(width, height));
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
-        this.setImage(game.getSpriteSheet().getImage(600, 0, Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
+        this.setImage(game.getSpriteSheet().getImage(600, 0, width, height));
         this.setBounds();
 
         addToMovableCollection();

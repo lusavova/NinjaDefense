@@ -8,7 +8,6 @@ public class Player {
 
     private int points;
     private int lives;
-    private int health;
     private OwnShip ship;
 
     private PlayState game;
@@ -38,13 +37,5 @@ public class Player {
 
     public void setLives(int lives) {
         this.lives = lives;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 }

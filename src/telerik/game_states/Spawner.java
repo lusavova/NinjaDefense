@@ -30,7 +30,7 @@ public class Spawner {
 
         this.alienDelay = Constants.ALIEN_SPAWN_DELAY;
         this.foodDelay = Constants.FOOD_SPAWN_DELAY;
-        this.fuelDelay = Constants.FUEL_SPAWN_DELAY;
+        this.fuelDelay = Constants.AMMO_SPAWN_DELAY;
         this.levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
         this.oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
@@ -75,9 +75,9 @@ public class Spawner {
         }
 
         if (fuelDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.FUEL_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FUEL_HEIGHT);
-            fuelDelay = Constants.FUEL_SPAWN_DELAY;
+            rndX = rnd.nextInt(Constants.WIDTH - Constants.AMMO_WIDTH);
+            rndY = rnd.nextInt(Constants.HEIGHT - Constants.AMMO_HEIGHT);
+            fuelDelay = Constants.AMMO_SPAWN_DELAY;
 
             new Ammo(game, rndX, rndY);
         }
