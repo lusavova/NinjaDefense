@@ -3,6 +3,7 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.OwnShip;
 import telerik.enumerators.BulletShipSide;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
@@ -17,12 +18,14 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     private int speed;
     private int width;
     private int height;
+    private OwnShip ship;
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
 
         this.speed = Constants.FRIENDLY_BULLET_SPEED;
         this.kind = kind;
+        this.ship = game.getPlayer().getShip();
 
         if (kind == 1) {
 
@@ -60,6 +63,8 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         }
 
         this.setBounds();
+
+        this.ship.setBullets(this.ship.getBullets() - 1);
 
         addToMovableCollection();
         addToBulletCollection();
