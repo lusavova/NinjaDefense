@@ -9,13 +9,19 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class OneUp extends Entity implements CollidesWithOwnShip {
-    private int spawnDelay = Constants.ONE_UP_SPAWN_DELAY;
-    private int live = Constants.ONE_UP_lIVE;
-    private int width = Constants.ONE_UP_WIDTH;
-    private int height = Constants.ONE_UP_HEIGHT;
+    private int spawnDelay;
+    private int live;
+    private int width;
+    private int height;
 
     public OneUp(PlayState game, int x, int y) {
         super(game);
+
+        this.spawnDelay = Constants.ONE_UP_SPAWN_DELAY;
+        this.live = Constants.ONE_UP_lIVE;
+        this.width = Constants.ONE_UP_WIDTH;
+        this.height = Constants.ONE_UP_HEIGHT;
+
 
         this.setSize(new Size(25, 24));
         this.setPosition(new Position(x, y));

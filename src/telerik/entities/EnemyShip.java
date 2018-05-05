@@ -16,15 +16,9 @@ import static javax.swing.text.StyleConstants.getSpaceAbove;
 public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
     private int speed;
     private int shootDelay;
-
-    private int enemyOneHealth = Constants.ENEMY_1_HEALTH;
-    private int enemyTwoHealth = Constants.ENEMY_2_HEALTH;
-
-    private int enemyOneWidth = Constants.ENEMY_SHIP_1_WIDTH;
-    private int enemyOneHeight = Constants.ENEMY_SHIP_1_HEIGHT;
-
-    private int enemyTwoWidth = Constants.ENEMY_SHIP_2_WIDTH;
-    private int enemyTwoHeight = Constants.ENEMY_SHIP_2_HEIGHT;
+    private int health;
+    private int width;
+    private int height;
 
     public EnemyShip(PlayState game, int level, int x, int y, int speed) {
         super(game);
@@ -34,13 +28,21 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
 
         if (level == 0) {
-            this.setHealth(Constants.ENEMY_1_HEALTH);
-            this.setSize(new Size(Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
-            this.setImage(game.getSpriteSheet().getImage(0, 99, Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
+
+            this.health = Constants.ENEMY_1_HEALTH;
+            this.width = Constants.ENEMY_SHIP_1_WIDTH;
+            this.height = Constants.ENEMY_SHIP_1_HEIGHT;
+
+            this.setSize(new Size(width, height));
+            this.setImage(game.getSpriteSheet().getImage(0, 99, width, height));
         } else if (level == 1) {
-            this.setHealth(Constants.ENEMY_2_HEALTH);
-            this.setSize(new Size(Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
-            this.setImage(game.getSpriteSheet().getImage(0, 154, Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
+
+            this.health = Constants.ENEMY_2_HEALTH;
+            this.width = Constants.ENEMY_SHIP_2_WIDTH;
+            this.height = Constants.ENEMY_SHIP_2_HEIGHT;
+
+            this.setSize(new Size(width, height));
+            this.setImage(game.getSpriteSheet().getImage(0, 154,width, height));
         }
 
         this.setPosition(new Position(x, y));
