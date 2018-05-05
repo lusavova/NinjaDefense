@@ -35,7 +35,7 @@ public class Constants {
     public static final int FRIENDLY_BULLET_1_SPEED = 10;
     public static final int ENEMY_BULLET_1_POWER = 10;
     public static final int ENEMY_BULLET_2_POWER = 20;
-    public static final int COMET_POWER = 20;
+    public static final int COMET_POWER = 50;
 
     public static final int ALIEN_KILL_POINTS = 500;
     public static final int SHIP_1_KILL_POINTS = 1000;
