@@ -38,7 +38,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     }
 
     @Override
-    public void move() {
+    public void update() {
         getPosition().setY(getPosition().getY() + Constants.ENEMY_BULLET_VEL);
         if (getPosition().getY() >= Constants.HEIGHT) {
             getGame().getHandler().addToRemove(this);
@@ -61,7 +61,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     }
 
     @Override
-    public void onCollideWithBullet() {
+    public void onCollideWithBullet(FriendlyBullet bullet) {
 
     }
 

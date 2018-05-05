@@ -26,7 +26,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     }
 
     @Override
-    public void move() {
+    public void update() {
         getPosition().setY(getPosition().getY() + speed);
         getBounds().moveBounds(this);
 
@@ -67,7 +67,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     }
 
     @Override
-    public void onCollideWithBullet() {
+    public void onCollideWithBullet(FriendlyBullet bullet) {
         onCollide();
     }
 

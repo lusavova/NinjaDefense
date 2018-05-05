@@ -53,7 +53,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     }
 
     @Override
-    public void move() {
+    public void update() {
         updateFrame();
         getPosition().setY(getPosition().getY() + speed);
         if (getPosition().getY() >= Constants.HEIGHT) {
@@ -89,6 +89,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollide() {
+
         resetCometPosition();
     }
 

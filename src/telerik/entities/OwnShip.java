@@ -39,7 +39,7 @@ public class OwnShip extends Ship implements Collidable {
         }
     }
 
-    public void move() {
+    public void update() {
         updateFrame();
 
         getPosition().setX(getPosition().getX() + velX);
