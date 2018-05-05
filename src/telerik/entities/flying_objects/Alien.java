@@ -9,12 +9,16 @@ import telerik.interfaces.*;
 
 public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
     private int speed;
-    private int spawnDelay = Constants.ALIEN_SPAWN_DELAY;
-    private int width = Constants.ALIEN_WIDTH;
-    private int hight = Constants.ALIEN_HIGHT;
+    private int spawnDelay;
+    private int width;
+    private int hight;
 
     public Alien(PlayState game, int x, int speed) {
         super(game);
+
+        this.spawnDelay = Constants.ALIEN_SPAWN_DELAY;
+        this.width = Constants.ALIEN_WIDTH;
+        this.hight = Constants.ALIEN_HIGHT;
 
         this.speed = speed;
 
