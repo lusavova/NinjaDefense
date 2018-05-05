@@ -35,7 +35,7 @@ public class GameOverState extends GameState {
         height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
 
         try {
-            background = new Background("../res/game_over_bg.png", new Position(0, 0));
+            background = new Background("../res/gm2_new.png", new Position(0, 0));
 
             fontColor = Color.WHITE;
             buttonsFont = new Font("Bookman Old Style", Font.BOLD, fontSize);

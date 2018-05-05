@@ -36,7 +36,7 @@ public class MenuState extends GameState {
         height = (int) (Constants.WINDOW_HEIGHT * Constants.SCALE);
 
         try {
-            background = new Background("../res/open_win.png", new Position(0, 0));
+            background = new Background("../res/menu_new.png", new Position(0, 0));
 
 //            InputStream swf = new FileInputStream("Starjedi.ttf");
 //            Font starwars = Font.createFont(Font.TRUETYPE_FONT, swf);

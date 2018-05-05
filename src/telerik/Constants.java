@@ -4,8 +4,8 @@ public class Constants {
     public static final String GAME_TITLE = "Ninja Defense Game";
 
     //dimensions
-    public static final int WINDOW_WIDTH = 240;
-    public static final int WINDOW_HEIGHT = 320;
+    public static final int WINDOW_WIDTH = 300;
+    public static final int WINDOW_HEIGHT = 400;
     public static final double SCALE = 2;
 
     public static final int WIDTH = (int) (WINDOW_WIDTH * SCALE);
@@ -50,10 +50,10 @@ public class Constants {
     public static final int CONTROL_PANEL_FONT_ZISE = 15;
 
     public static final int ALIEN_SPAWN_DELAY = 180;
-    public static final int FOOD_SPAWN_DELAY = 600;
+    public static final int FOOD_SPAWN_DELAY = 300;
     public static final int FUEL_SPAWN_DELAY = 1200;
     public static final int ONEUP_SPAWN_DELAY = 3600;
-    public static final int LEVELUP_SPAWN_DELAY = 60;
+    public static final int LEVELUP_SPAWN_DELAY = 5000;
     public static final int ENEMY_BULLETS_SHOOT_DELAY = 90;
 
     public static final int FOOD_LIVE = 1200;
@@ -99,4 +99,7 @@ public class Constants {
     public static final int ONE_UP_HEIGHT = 24;
 
     public static final int NUM_OF_ENEMY_SHIPS = 4;
+
+
+    public static final int ENEMY_BULLET_VEL = 3;
 }

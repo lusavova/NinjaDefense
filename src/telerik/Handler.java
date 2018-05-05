@@ -54,6 +54,8 @@ public class Handler {
     }
 
     private void checkForCollisions() {
+        //Exception in thread "GameThread" java.util.ConcurrentModificationException
+
         bulletCollidables.forEach(collidable -> {
             ownBullets.forEach(bullet -> {
                 if(bullet.getBounds().intersects(collidable.getBounds())) {

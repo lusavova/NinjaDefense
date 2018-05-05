@@ -22,6 +22,8 @@ public class OneUp extends Entity implements CollidesWithOwnShip {
 
     @Override
     public void onCollide() {
+//        getGame().getPlayer().setLives(getGame().getPlayer().getLives() + 1);
+//        getGame().getHandler().addToRemove(this);
         System.out.printf("one up collide");
     }
 

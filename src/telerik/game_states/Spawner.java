@@ -3,6 +3,7 @@ package telerik.game_states;
 import telerik.Constants;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
+import telerik.enumerators.CometType;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -34,13 +35,11 @@ public class Spawner {
         this.oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
 
         this.enemyShips = new HashSet<>();
-
-//        initSpawn();
     }
 
     public void initSpawn() {
-        new Comet(game, 1, 100, 3);
-        new Comet(game, 2, 200, 3);
+        new Comet(game, CometType.LEFT, 100, 3);
+        new Comet(game, CometType.RIGHT, 200, 3);
 
         for (int i = 0; i < Constants.NUM_OF_ENEMY_SHIPS; i++) {
             int rndSpeed = rnd.nextInt(2) + 2;

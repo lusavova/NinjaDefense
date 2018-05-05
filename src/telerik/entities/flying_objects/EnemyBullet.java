@@ -12,13 +12,9 @@ import telerik.interfaces.FlyingObject;
 import telerik.interfaces.Movable;
 
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
-    private int kind;
-    private int velY = 3;
 
     public EnemyBullet(PlayState game, int kind, Position position) {
         super(game);
-
-        this.kind = kind;
 
         if (kind == 0) {
             this.setPower(Constants.ENEMY_BULLET_1_POWER);
@@ -29,7 +25,6 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
             this.setPower(Constants.ENEMY_BULLET_2_POWER);
             this.setSize(new Size(10, 44));
             this.setImage(game.getSpriteSheet().getImage(267, 0, getSize().getWidth(), getSize().getHeight()));
-
         }
 
         this.setPosition(new Position(position));
@@ -42,7 +37,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
     @Override
     public void move() {
-        getPosition().setY(getPosition().getY() + velY);
+        getPosition().setY(getPosition().getY() + Constants.ENEMY_BULLET_VEL);
     }
 
     @Override
@@ -52,13 +47,15 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
     @Override
     public void onCollide() {
+//        if (isOwnShip){
+//            getGame().getHandler().addToRemove(this);
+//        }
         System.out.println("enemy bullet collide");
     }
 
     @Override
     public void addToCollidableWithOwnBullet() {
         getGame().getHandler().addCollidableWithBullet(this);
-
     }
 
     @Override

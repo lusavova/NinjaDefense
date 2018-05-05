@@ -22,7 +22,10 @@ public class Food extends Entity implements CollidesWithOwnShip {
 
     @Override
     public void onCollide() {
+        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() + 5);
         getGame().getHandler().addToRemove(this);
+
+        System.out.println(getGame().getPlayer().getHealth());
         //TODO add health
     }
 

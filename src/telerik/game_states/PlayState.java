@@ -37,7 +37,7 @@ public class PlayState extends GameState {
 
 
         try {
-            background = new Background("../res/new_play_bg.png", new Position(0, 0));
+            background = new Background("../res/play_state.png", new Position(0, 0));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,5 +134,9 @@ public class PlayState extends GameState {
 
     public Spawner getSpawner() {
         return spawner;
+    }
+
+    public GameStateManager getGameStateManager(){
+        return gsm;
     }
 }

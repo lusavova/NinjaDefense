@@ -22,6 +22,8 @@ public class Fuel extends Entity implements CollidesWithOwnShip {
 
     @Override
     public void onCollide() {
+        //? Bullets
+        //getGame().getPlayer().setBullets(getGame().getPlayer().getBullets() + 100);
         System.out.println("fuel collide");
     }
 

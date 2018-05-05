@@ -30,6 +30,5 @@ public class LevelUp extends Entity implements CollidesWithOwnShip {
     @Override
     public void addToCollidableWithOwnShip() {
         getGame().getHandler().addCollidableWithShip(this);
-
     }
 }
