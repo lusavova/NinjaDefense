@@ -45,6 +45,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         if (getPosition().getY() >= Constants.HEIGHT) {
             getGame().getHandler().addToRemove(this);
         }
+        getBounds().moveBounds(this);
     }
 
     @Override

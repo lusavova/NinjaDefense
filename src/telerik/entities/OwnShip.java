@@ -43,6 +43,11 @@ public class OwnShip extends Ship implements Collidable {
     public void update() {
         updateFrame();
 
+        if(getGame().getPlayer().getHealth() <= 0) {
+            getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+            getGame().getPlayer().setHealth(Constants.INITIAL_HEALTH);
+        }
+
         getPosition().setX(getPosition().getX() + velX);
         getPosition().setY(getPosition().getY() + velY);
 

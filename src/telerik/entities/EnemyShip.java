@@ -46,7 +46,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void update() {
-        if (getHealth()<=0){
+        if (getHealth() <= 0) {
             getGame().getHandler().addToRemove(this);
         }
         if (shootDelay == 0) {
@@ -72,10 +72,6 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         getGame().getHandler().addCollidableWithBullet(this);
     }
 
-    @Override
-    public void onCollideWithBullet(FriendlyBullet bullet) {
-        setHealth(getHealth() - bullet.getPower());
-    }
 
     @Override
     public void addToCollidableWithOwnShip() {
@@ -89,6 +85,11 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         // TO DO : to reset OwnShip position
     }
 
+    @Override
+    public void onCollideWithBullet(FriendlyBullet bullet) {
+        setHealth(getHealth() - bullet.getPower());
+        getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
+    }
 
     private void addToEnemyShips() {
         getGame().getSpawner().addEnemyShip(this);
