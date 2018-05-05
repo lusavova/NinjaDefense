@@ -12,7 +12,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public class Handler {
     private PlayState game;
@@ -83,7 +82,7 @@ public class Handler {
 
         movables.addAll(movablesTemp);
         movablesTemp.clear();
-        movables.forEach(obj -> obj.move());
+        movables.forEach(obj -> obj.update());
         checkForCollisions();
     }
 
@@ -101,7 +100,7 @@ public class Handler {
             ownBullets.forEach(bullet -> {
                 if(bullet.getBounds().intersects(collidable.getBounds())) {
                     bullet.onCollide();
-                    collidable.onCollideWithBullet();
+                    collidable.onCollideWithBullet(bullet);
                 }
             });
         });

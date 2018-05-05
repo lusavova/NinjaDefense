@@ -3,6 +3,7 @@ package telerik.entities;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
@@ -44,7 +45,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
 
     @Override
-    public void move() {
+    public void update() {
         if (shootDelay == 0) {
             shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
         }
@@ -69,8 +70,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     }
 
     @Override
-    public void onCollideWithBullet() {
-
+    public void onCollideWithBullet(FriendlyBullet bullet) {
+        setHealth(getHealth()-bullet.getPower());
     }
 
     @Override
@@ -82,7 +83,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public void onCollideWithShip() {
         getGame().getHandler().addToRemove(this);
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        // TO DO : to resep ship position
+        // TO DO : to reset OwnShip position
     }
 
 
