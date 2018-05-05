@@ -14,14 +14,14 @@ import telerik.interfaces.Movable;
 import java.awt.*;
 
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
-    private int bulletOnePower = Constants.ENEMY_BULLET_1_POWER;
-    private int bulletTwoPower = Constants.ENEMY_BULLET_2_POWER;
-    private int bulletOneHeight = Constants.ENEMY_BULLET_1_HEIGHT;
-    private int bulletOneWidht = Constants.ENEMY_BULLET_1_WIDTH;
-    private int bulletTwoHeight = Constants.ENEMY_BULLET_2_HEIGHT;
-    private int bulletTwoWidth = Constants.ENEMY_BULLET_2_WIDTH;
-    private int speed = Constants.ENEMY_BULLET_VEL;
 
+
+    private int bulletOneHeight;
+    private int bulletOneWidht;
+    private int bulletTwoHeight;
+    private int bulletTwoWidth;
+
+    private int speed = Constants.ENEMY_BULLET_VEL;
 
     private int power;
 
@@ -29,14 +29,22 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         super(game);
 
         if (kind == 0) {
-            this.setPower(Constants.ENEMY_BULLET_1_POWER);
-            this.setSize(new Size(10, 27));
-            this.setImage(game.getSpriteSheet().getImage(257, 0, Constants.ENEMY_BULLET_1_WIDTH, Constants.ENEMY_BULLET_1_HEIGHT));
+
+            this.power = Constants.ENEMY_BULLET_1_POWER;
+            this.bulletOneHeight = Constants.ENEMY_BULLET_1_HEIGHT;
+            this.bulletOneWidht = Constants.ENEMY_BULLET_1_WIDTH;
+
+            this.setSize(new Size(bulletOneWidht, bulletTwoHeight));
+            this.setImage(game.getSpriteSheet().getImage(257, 0, bulletOneWidht, bulletOneHeight));
 
         } else if (kind == 1) {
-            this.setPower(Constants.ENEMY_BULLET_2_POWER);
-            this.setSize(new Size(10, 44));
-            this.setImage(game.getSpriteSheet().getImage(267, 0, Constants.ENEMY_BULLET_2_WIDTH, Constants.ENEMY_BULLET_2_HEIGHT));
+
+            this.power = Constants.ENEMY_BULLET_2_POWER;
+            this.bulletTwoHeight = Constants.ENEMY_BULLET_2_HEIGHT;
+            this.bulletTwoWidth = Constants.ENEMY_BULLET_2_WIDTH;
+
+            this.setSize(new Size(bulletTwoWidth, bulletTwoHeight));
+            this.setImage(game.getSpriteSheet().getImage(267, 0, bulletTwoWidth, bulletTwoHeight));
         }
 
         this.setPosition(new Position(x - getSize().getWidth() / 2, y + getSize().getHeight() / 2));
@@ -49,7 +57,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
 
     @Override
     public void update() {
-        getPosition().setY(getPosition().getY() + Constants.ENEMY_BULLET_VEL);
+        getPosition().setY(getPosition().getY() + speed);
         if (getPosition().getY() >= Constants.HEIGHT) {
             getGame().getHandler().addToRemove(this);
         }
@@ -94,9 +102,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         return power;
     }
 
-    public void setPower(int power) {
-        this.power = power;
-    }
+
 }
 
 

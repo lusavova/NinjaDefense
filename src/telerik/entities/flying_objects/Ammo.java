@@ -9,13 +9,18 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 public class Ammo extends Entity implements CollidesWithOwnShip {
-    private int spawnDelay = Constants.FUEL_SPAWN_DELAY;
-    private int live = Constants.FUEL_LIVE;
-    private int width = Constants.FUEL_WIDTH;
-    private int height = Constants.FUEL_HEIGHT;
+    private int spawnDelay;
+    private int live;
+    private int width;
+    private int height;
 
     public Ammo(PlayState game, int x, int y) {
         super(game);
+
+        this.spawnDelay = Constants.FUEL_SPAWN_DELAY;
+        this.live = Constants.FUEL_LIVE;
+        this.width = Constants.FUEL_WIDTH;
+        this.height = Constants.FUEL_HEIGHT;
 
         this.setSize(new Size(17, 23));
         this.setPosition(new Position(x, y));
