@@ -65,6 +65,13 @@ public class Handler {
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
 
+        gameObjects.forEach(obj -> obj.render(g));
+
+        //draw control panel
+        g.drawImage(image, 0, 0, null);
+    }
+
+    public void update() {
         gameObjects.removeAll(gameObjectsToBeRemoved);
         bulletCollidables.removeAll(gameObjectsToBeRemoved);
         shipCollidables.removeAll(gameObjectsToBeRemoved);
@@ -74,13 +81,6 @@ public class Handler {
 
         gameObjectsToBeRemoved.clear();
 
-        gameObjects.forEach(obj -> obj.render(g));
-
-        //draw control panel
-        g.drawImage(image, 0, 0, null);
-    }
-
-    public void update() {
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.move());
