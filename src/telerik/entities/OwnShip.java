@@ -14,18 +14,21 @@ public class OwnShip extends Ship implements Collidable {
     private int velY = 0;
 
     private int bullets;
-
-    private int health = Constants.INITIAL_HEALTH;
-    private int width = Constants.OWN_SHIP_WIDTH;
-    private int height = Constants.OWN_SHIP_HEIGHT;
-    private int upgradedWidth = Constants.OWN_SHIP_UPGRADED_WIDTH;
-    private int upgradedHeight = Constants.OWN_SHIP_UPGRADED_HEIGHT;
-
+    private int health;
+    private int width;
+    private int height;
+    private int upgradedWidth;
+    private int upgradedHeight;
 
 
     public OwnShip(PlayState game) {
         super(game);
         this.bullets = Constants.INITIAL_BULLETS;
+        this.health = Constants.INITIAL_HEALTH;
+        this.width = Constants.OWN_SHIP_WIDTH;
+        this.height = Constants.OWN_SHIP_HEIGHT;
+        this.upgradedWidth = Constants.OWN_SHIP_UPGRADED_WIDTH;
+        this.upgradedHeight = Constants.OWN_SHIP_UPGRADED_HEIGHT;
         this.setHealth(Constants.INITIAL_HEALTH);
         this.setSize(new Size(Constants.OWN_SHIP_WIDTH, Constants.OWN_SHIP_HEIGHT));
         this.setPosition(new Position((Constants.WIDTH - Constants.OWN_SHIP_WIDTH) / 2, Constants.HEIGHT - Constants.OWN_SHIP_HEIGHT - 10));
@@ -50,7 +53,7 @@ public class OwnShip extends Ship implements Collidable {
     public void update() {
         updateFrame();
 
-        if(getGame().getPlayer().getHealth() <= 0) {
+        if (getGame().getPlayer().getHealth() <= 0) {
             getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
             getGame().getPlayer().setHealth(Constants.INITIAL_HEALTH);
         }
