@@ -121,7 +121,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public void onCollideWithShip() {
         getGame().getHandler().addToRemove(this);
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        // TODO : to reset OwnShip position
+        getGame().getPlayer().getShip().resetPosition();
     }
 
     @Override

@@ -55,13 +55,13 @@ public class Constants {
 
     public static final int ALIEN_SPAWN_DELAY = 180;
     public static final int FOOD_SPAWN_DELAY = 300;
-    public static final int AMMO_SPAWN_DELAY = 1200;
+    public static final int AMMO_SPAWN_DELAY = 600;
     public static final int ONE_UP_SPAWN_DELAY = 3600;
-    public static final int LEVELUP_SPAWN_DELAY = 30;
+    public static final int LEVELUP_SPAWN_DELAY = 5000;
     public static final int ENEMY_BULLETS_SHOOT_DELAY = 180;
 
-    public static final int FOOD_LIVE = 1200;
-    public static final int AMMO_LIVE = 1200;
+    public static final int FOOD_LIVE = 300;
+    public static final int AMMO_LIVE = 600;
     public static final int LEVELUP_lIVE = 600;
     public static final int ONE_UP_lIVE = 600;
 
@@ -113,4 +113,5 @@ public class Constants {
     public static final int AMMO_AWARD = 100;
     public static final int FOOD_AWARD = 20;
 
+    public static final int ALIEN_POWER = 30;
 }

@@ -60,19 +60,6 @@ public class Handler {
     }
 
     public void render(Graphics2D g) {
-
-        gameObjects.addAll(gameObjectsTemp);
-        gameObjectsTemp.clear();
-
-        gameObjects.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        shipCollidables.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        movables.removeAll(gameObjectsToBeRemoved);
-        ownBullets.removeAll(gameObjectsToBeRemoved);
-
-        gameObjectsToBeRemoved.clear();
-
         gameObjects.forEach(obj -> obj.render(g));
 
         //draw control panel
@@ -97,9 +84,26 @@ public class Handler {
     }
 
     public void update() {
+        gameObjects.addAll(gameObjectsTemp);
+        gameObjectsTemp.clear();
+
+        gameObjects.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        shipCollidables.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        movables.removeAll(gameObjectsToBeRemoved);
+        ownBullets.removeAll(gameObjectsToBeRemoved);
+
+        gameObjectsToBeRemoved.clear();
+
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.update());
+        gameObjects.forEach(obj -> {
+            if (obj instanceof Collectable) {
+                ((Collectable) obj).shouldDie();
+            }
+        });
         checkForCollisions();
     }
 

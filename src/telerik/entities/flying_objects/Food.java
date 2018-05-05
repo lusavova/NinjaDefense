@@ -4,10 +4,11 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.Collectable;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class Food extends Entity implements CollidesWithOwnShip {
+public class Food extends Entity implements CollidesWithOwnShip, Collectable {
 
     private int live;
     private int width;
@@ -42,5 +43,13 @@ public class Food extends Entity implements CollidesWithOwnShip {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+    }
+
+    @Override
+    public void shouldDie() {
+        live--;
+        if(live == 0) {
+            onCollide();
+        }
     }
 }

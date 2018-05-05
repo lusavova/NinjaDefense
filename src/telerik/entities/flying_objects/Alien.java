@@ -9,6 +9,7 @@ import telerik.interfaces.*;
 
 public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 
+    private int power;
     private int speed;
     private int width;
     private int height;
@@ -18,7 +19,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
 
         this.width = Constants.ALIEN_WIDTH;
         this.height = Constants.ALIEN_HEIGHT;
-
+        this.power = Constants.ALIEN_POWER;
         this.speed = speed;
 
         this.setSize(new Size(width, height));
@@ -70,6 +71,8 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollideWithShip() {
         onCollide();
+        int currentHealth = getGame().getPlayer().getShip().getHealth();
+        getGame().getPlayer().getShip().setHealth(currentHealth - power);
     }
 
     @Override

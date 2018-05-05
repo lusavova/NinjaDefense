@@ -5,11 +5,12 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.Collectable;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
 
-public class LevelUp extends Entity implements CollidesWithOwnShip {
+public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable {
     private int live;
     private int width;
     private int height;
@@ -44,5 +45,13 @@ public class LevelUp extends Entity implements CollidesWithOwnShip {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().upgradeShip();
+    }
+
+    @Override
+    public void shouldDie() {
+        live--;
+        if(live == 0) {
+            onCollide();
+        }
     }
 }
