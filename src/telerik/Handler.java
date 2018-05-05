@@ -7,12 +7,17 @@ import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 import telerik.interfaces.Movable;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Handler {
     private PlayState game;
+
+    private BufferedImage image;
 
     private HashSet<Entity> gameObjects;
     private HashSet<Entity> gameObjectsTemp;
@@ -47,6 +52,12 @@ public class Handler {
         this.bulletCollidablesTemp = new HashSet<>();
 
         this.gameObjectsToBeRemoved = new HashSet<>();
+
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream("res/panel_new_600.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void render(Graphics2D g) {
@@ -64,6 +75,9 @@ public class Handler {
         gameObjectsToBeRemoved.clear();
 
         gameObjects.forEach(obj -> obj.render(g));
+
+        //draw control panel
+        g.drawImage(image, 0, 0, null);
     }
 
     public void update() {
@@ -107,7 +121,7 @@ public class Handler {
         this.movablesTemp.add(gameObject);
     }
 
-    public void addToRemove(Entity gameObject){
+    public void addToRemove(Entity gameObject) {
         this.gameObjectsToBeRemoved.add(gameObject);
     }
 
@@ -119,11 +133,11 @@ public class Handler {
         ownBulletsTemp.add(friendlyBullet);
     }
 
-    public void addCollidableWithShip (CollidesWithOwnShip gameObj) {
-        shipCollidablesTemp.add(gameObj);
+    public void addCollidableWithShip(CollidesWithOwnShip gameObj) {
+        shipCollidables.add(gameObj);
     }
 
-    public void addCollidableWithBullet (CollidesWithOwnBullet gameObj) {
-        bulletCollidablesTemp.add(gameObj);
+    public void addCollidableWithBullet(CollidesWithOwnBullet gameObj) {
+        bulletCollidables.add(gameObj);
     }
 }

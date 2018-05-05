@@ -21,9 +21,10 @@ public class GameOverState extends GameState {
     private int fontSize;
     private int currentStateIndex;
 
-    private String[] buttons = {
-            "PLAY",
-            "EXIT"
+    private GameStateButtons[] buttons = {
+            GameStateButtons.NEW_GAME,
+            GameStateButtons.STATISTICS,
+            GameStateButtons.EXIT,
     };
 
     public GameOverState(GameStateManager gsm) {
@@ -63,7 +64,9 @@ public class GameOverState extends GameState {
             } else {
                 g.setColor(new Color(255, 95, 97));
             }
-            g.drawString(buttons[i], ((width - buttons[i].length() * fontSize / 2 ) - 30) / 2, (height / 2) + i * fontSize);
+
+            int buttonsLenght = buttons[i].name().length();
+            g.drawString(buttons[i].name(), ((width - buttonsLenght * fontSize / 2) - 30) / 2, (height / 2) + i * fontSize);
         }
     }
 
