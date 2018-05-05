@@ -50,6 +50,7 @@ public abstract class Entity {
         this.position = position;
     }
 
+
     public Size getSize() {
         return size;
     }
