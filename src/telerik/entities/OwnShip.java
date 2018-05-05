@@ -15,7 +15,6 @@ public class OwnShip extends Ship  implements Collidable {
 
     private int bullets;
 
-
     public OwnShip(PlayState game) {
         super(game);
         this.setHealth(Constants.INITIAL_HEALTH);
@@ -90,7 +89,13 @@ public class OwnShip extends Ship  implements Collidable {
         this.velY = velY;
     }
 
+    public int getBullets() {
+        return bullets;
+    }
 
+    public void setBullets(int bullets) {
+        this.bullets = bullets;
+    }
 
     @Override
     public void onCollide() {
