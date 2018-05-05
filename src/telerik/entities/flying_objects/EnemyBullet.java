@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
+import telerik.entities.SmallExplosion;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
@@ -77,6 +79,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
+        new SmallExplosion(getGame(), getPosition());
     }
 
     @Override

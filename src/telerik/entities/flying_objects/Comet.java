@@ -3,6 +3,8 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
+import telerik.entities.SmallExplosion;
 import telerik.enumerators.CometType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
@@ -97,7 +99,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
 
     @Override
     public void onCollide() {
-
         resetCometPosition();
     }
 
@@ -116,6 +117,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
 
     @Override
     public void onCollideWithShip() {
+        new Explosion(getGame(), getPosition());
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
     }

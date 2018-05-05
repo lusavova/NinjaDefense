@@ -64,6 +64,7 @@ public class Constants {
     public static final int AMMO_LIVE = 600;
     public static final int LEVELUP_lIVE = 600;
     public static final int ONE_UP_lIVE = 600;
+    public static final int EXPLOSION_LIVE = 7;
 
     // game object sizes
     public static final int ALIEN_WIDTH = 50;

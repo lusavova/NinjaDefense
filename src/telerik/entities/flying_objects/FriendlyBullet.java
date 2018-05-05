@@ -3,7 +3,9 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
 import telerik.entities.OwnShip;
+import telerik.entities.SmallExplosion;
 import telerik.enumerators.BulletShipSide;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
@@ -92,6 +94,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
+        new SmallExplosion(getGame(), getPosition());
     }
 
     public int getKind() {

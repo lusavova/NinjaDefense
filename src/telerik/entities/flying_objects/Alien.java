@@ -3,6 +3,7 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
 import telerik.game_states.GameStateType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
@@ -50,6 +51,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
+        new Explosion(getGame(), getPosition());
     }
 
     @Override
