@@ -6,14 +6,11 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.CollidesWithOwnBullet;
-import telerik.interfaces.CollidesWithOwnShip;
-import telerik.interfaces.FlyingObject;
-import telerik.interfaces.Movable;
+import telerik.interfaces.*;
 
 import java.awt.*;
 
-public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
+public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
     private int bulletOnePower = Constants.ENEMY_BULLET_1_POWER;
     private int bulletTwoPower = Constants.ENEMY_BULLET_2_POWER;
     private int bulletOneHeight = Constants.ENEMY_BULLET_1_HEIGHT;

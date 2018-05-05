@@ -21,6 +21,7 @@ public abstract class Entity {
     public Entity(PlayState game) {
         this.game = game;
         this.image = new ArrayList<>();
+        this.frame = 0;
 
         addToGameObjectCollection();
     }

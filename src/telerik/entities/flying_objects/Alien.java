@@ -7,7 +7,7 @@ import telerik.game_states.GameStateType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
-public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
+public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
     private int speed;
     private int spawnDelay = Constants.ALIEN_SPAWN_DELAY;
     private int width = Constants.ALIEN_WIDTH;

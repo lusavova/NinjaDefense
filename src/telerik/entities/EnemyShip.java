@@ -13,7 +13,7 @@ import java.util.Random;
 import static javax.swing.text.StyleConstants.Size;
 import static javax.swing.text.StyleConstants.getSpaceAbove;
 
-public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet {
+public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
     private int speed;
     private int shootDelay;
 
