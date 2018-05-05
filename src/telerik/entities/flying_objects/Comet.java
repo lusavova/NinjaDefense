@@ -14,6 +14,7 @@ import java.util.Random;
 public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip {
     private CometType kind;
     private int speed;
+    private int power;
 
     public Comet(PlayState game, CometType kind, int y, int speed) {
         super(game);
@@ -110,5 +111,13 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
     }
 }

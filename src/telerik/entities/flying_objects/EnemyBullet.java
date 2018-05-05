@@ -15,6 +15,8 @@ import java.awt.*;
 
 public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
 
+    private int power;
+
     public EnemyBullet(PlayState game, int kind, int x, int y) {
         super(game);
 
@@ -29,7 +31,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
             this.setImage(game.getSpriteSheet().getImage(267, 0, Constants.ENEMY_BULLET_2_WIDTH, Constants.ENEMY_BULLET_2_HEIGHT));
         }
 
-        this.setPosition(new Position(x - getSize().getWidth()/2, y + getSize().getHeight()/2));
+        this.setPosition(new Position(x - getSize().getWidth() / 2, y + getSize().getHeight() / 2));
         this.setBounds();
 
         addToMovableCollection();
@@ -51,29 +53,38 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     }
 
     @Override
+    public void addToCollidableWithOwnBullet() {
+        getGame().getHandler().addCollidableWithBullet(this);
+    }
+
+
+    @Override
+    public void addToCollidableWithOwnShip() {
+        getGame().getHandler().addCollidableWithShip(this);
+    }
+
+    @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
     }
 
     @Override
-    public void addToCollidableWithOwnBullet() {
-        getGame().getHandler().addCollidableWithBullet(this);
-    }
-
-    @Override
     public void onCollideWithBullet(FriendlyBullet bullet) {
-
-    }
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-
+        onCollide();
     }
 
     @Override
     public void onCollideWithShip() {
         onCollide();
+        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() - getPower());
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
     }
 }
 
