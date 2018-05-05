@@ -79,7 +79,7 @@ public class Spawner {
             rndY = rnd.nextInt(Constants.HEIGHT - Constants.FUEL_HEIGHT);
             fuelDelay = Constants.FUEL_SPAWN_DELAY;
 
-            new Fuel(game, rndX, rndY);
+            new Ammo(game, rndX, rndY);
         }
 
         if (levelUpDelay == 0) {

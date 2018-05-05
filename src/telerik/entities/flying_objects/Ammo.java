@@ -7,8 +7,8 @@ import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class Fuel extends Entity implements CollidesWithOwnShip {
-    public Fuel(PlayState game, int x, int y) {
+public class Ammo extends Entity implements CollidesWithOwnShip {
+    public Ammo(PlayState game, int x, int y) {
         super(game);
 
         this.setSize(new Size(17, 23));
@@ -23,7 +23,7 @@ public class Fuel extends Entity implements CollidesWithOwnShip {
     @Override
     public void onCollide() {
         //? Bullets
-        //getGame().getPlayer().setBullets(getGame().getPlayer().getBullets() + 100);
+        getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + 100);
     }
 
     @Override

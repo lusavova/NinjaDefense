@@ -17,6 +17,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
+        game.getPlayer().getShip().setBullets(game.getPlayer().getShip().getBullets() - 1);
         this.kind = kind;
 
         if (kind == 1) {
