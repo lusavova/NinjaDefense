@@ -33,16 +33,18 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
             this.width = Constants.ENEMY_SHIP_1_WIDTH;
             this.height = Constants.ENEMY_SHIP_1_HEIGHT;
 
-            this.setSize(new Size(width, height));
-            this.setImage(game.getSpriteSheet().getImage(0, 99, width, height));
+            this.setHealth(Constants.ENEMY_1_HEALTH);
+            this.setSize(new Size(Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 99, Constants.ENEMY_SHIP_1_WIDTH, Constants.ENEMY_SHIP_1_HEIGHT));
         } else if (level == 1) {
 
             this.health = Constants.ENEMY_2_HEALTH;
             this.width = Constants.ENEMY_SHIP_2_WIDTH;
-            this.height = Constants.ENEMY_SHIP_2_HEIGHT;
+            this. health = Constants.ENEMY_SHIP_2_HEIGHT;
 
-            this.setSize(new Size(width, height));
-            this.setImage(game.getSpriteSheet().getImage(0, 154,width, height));
+            this.setHealth(Constants.ENEMY_2_HEALTH);
+            this.setSize(new Size(Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
+            this.setImage(game.getSpriteSheet().getImage(0, 154, Constants.ENEMY_SHIP_2_WIDTH, Constants.ENEMY_SHIP_2_HEIGHT));
         }
 
         this.setPosition(new Position(x, y));
