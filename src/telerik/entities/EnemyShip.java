@@ -100,10 +100,10 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         isHurting = 4;
         this.getImageList().clear();
         if (getLevel() == 0) {
-            this.setImage(getGame().getSpriteSheet().getImage(100, 99, width, height));
+            this.setImage(getGame().getSpriteSheet().getImage(width, 99, width, height));
         }
         else {
-            this.setImage(getGame().getSpriteSheet().getImage(68, 154, width, height));
+            this.setImage(getGame().getSpriteSheet().getImage(width, 154, width, height));
         }
     }
 

@@ -67,7 +67,7 @@ public class MenuState extends GameState {
                 g.setColor(new Color(7, 179, 30));
             }
 
-            g.drawString(buttons[i], 90, (height / 2) -30+ i * fontSize);
+            g.drawString(buttons[i], 90, (height / 2) - 50 + i * fontSize);
         }
     }
 
