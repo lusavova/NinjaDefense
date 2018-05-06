@@ -3,21 +3,29 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
 import telerik.game_states.GameStateType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
-public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet {
+public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
+
+    private int power;
     private int speed;
+    private int width;
+    private int height;
 
     public Alien(PlayState game, int x, int speed) {
         super(game);
 
+        this.width = Constants.ALIEN_WIDTH;
+        this.height = Constants.ALIEN_HEIGHT;
+        this.power = Constants.ALIEN_POWER;
         this.speed = speed;
 
-        this.setSize(new Size(Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
+        this.setSize(new Size(width, height));
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
-        this.setImage(game.getSpriteSheet().getImage(600, 0, Constants.ALIEN_WIDTH, Constants.ALIEN_HIGHT));
+        this.setImage(game.getSpriteSheet().getImage(600, 0, width, height));
         this.setBounds();
 
         addToMovableCollection();
@@ -43,6 +51,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
+        new Explosion(getGame(), getPosition());
     }
 
     @Override
@@ -64,6 +73,8 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollideWithShip() {
         onCollide();
+        int currentHealth = getGame().getPlayer().getShip().getHealth();
+        getGame().getPlayer().getShip().setHealth(currentHealth - power);
     }
 
     @Override

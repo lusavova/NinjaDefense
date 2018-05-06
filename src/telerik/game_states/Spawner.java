@@ -4,6 +4,7 @@ import telerik.Constants;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
 import telerik.enumerators.CometType;
+import telerik.exceptions.NoSuchEntityException;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -30,9 +31,9 @@ public class Spawner {
 
         this.alienDelay = Constants.ALIEN_SPAWN_DELAY;
         this.foodDelay = Constants.FOOD_SPAWN_DELAY;
-        this.fuelDelay = Constants.FUEL_SPAWN_DELAY;
+        this.fuelDelay = Constants.AMMO_SPAWN_DELAY;
         this.levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
-        this.oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
+        this.oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
         this.enemyShips = new HashSet<>();
     }
@@ -47,7 +48,12 @@ public class Spawner {
                 startLeft = -1;
             }
             int rndSpeed = rnd.nextInt(2) + 2;
-            new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
+            //custom exception here
+            try {
+                new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
+            } catch (NoSuchEntityException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -75,9 +81,9 @@ public class Spawner {
         }
 
         if (fuelDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.FUEL_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.FUEL_HEIGHT);
-            fuelDelay = Constants.FUEL_SPAWN_DELAY;
+            rndX = rnd.nextInt(Constants.WIDTH - Constants.AMMO_WIDTH);
+            rndY = rnd.nextInt(Constants.HEIGHT - Constants.AMMO_HEIGHT);
+            fuelDelay = Constants.AMMO_SPAWN_DELAY;
 
             new Ammo(game, rndX, rndY);
         }
@@ -93,7 +99,7 @@ public class Spawner {
         if (oneUpDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.ONE_UP_WIDTH);
             rndY = rnd.nextInt(Constants.HEIGHT - Constants.ONE_UP_HEIGHT);
-            oneUpDelay = Constants.ONEUP_SPAWN_DELAY;
+            oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
             new OneUp(game, rndX, rndY);
         }

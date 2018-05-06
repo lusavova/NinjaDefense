@@ -3,18 +3,24 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
+import telerik.entities.Explosion;
+import telerik.entities.SmallExplosion;
 import telerik.enumerators.CometType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.FlyingObject;
+import telerik.interfaces.HurtingShip;
 import telerik.interfaces.Movable;
 
 import java.util.Random;
 
-public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip {
+public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip, HurtingShip {
+
     private CometType kind;
     private int speed;
     private int power;
+    private int width;
+    private int height;
 
     public Comet(PlayState game, CometType kind, int y, int speed) {
         super(game);
@@ -22,11 +28,14 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         this.kind = kind;
         this.speed = speed;
 
-        setPower(Constants.COMET_POWER);
-        setSize(new Size(Constants.COMET_WIDTH, Constants.COMET_HIGHT));
+        this.power = Constants.COMET_POWER;
+        this.width = Constants.COMET_WIDTH;
+        this.height = Constants.COMET_HIGHT;
+
+        setSize(new Size(width, height));
 
         if (kind == CometType.LEFT) {
-            this.setPosition(new Position(0 - getSize().getWidth(), y));
+            this.setPosition(new Position(0 - width, y));
         } else if (kind == CometType.RIGHT) {
             this.setPosition(new Position(Constants.WIDTH, y));
         }
@@ -48,8 +57,8 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         }
 
         for (int i = 0; i < 6; i++) {
-            int x = Constants.COMET_WIDTH * i;
-            setImage(getGame().getSpriteSheet().getImage(x, y, Constants.COMET_WIDTH, Constants.COMET_HIGHT));
+            int x = width * i;
+            setImage(getGame().getSpriteSheet().getImage(x, y, width, height));
         }
     }
 
@@ -76,7 +85,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
         getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
 
         if (kind == CometType.LEFT) {
-            getPosition().setX(0 - getSize().getWidth());
+            getPosition().setX(0 - width);
         }
         if (this.kind == CometType.RIGHT) {
             getPosition().setX(Constants.WIDTH);
@@ -90,7 +99,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollide() {
-
         resetCometPosition();
     }
 
@@ -109,15 +117,9 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip 
 
     @Override
     public void onCollideWithShip() {
+        new Explosion(getGame(), getPosition());
         onCollide();
-        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() - Constants.COMET_POWER);
+        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
 }

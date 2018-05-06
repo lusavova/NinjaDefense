@@ -2,10 +2,7 @@ package telerik;
 
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
-import telerik.interfaces.CollidesWithOwnBullet;
-import telerik.interfaces.CollidesWithOwnShip;
-import telerik.interfaces.Entity;
-import telerik.interfaces.Movable;
+import telerik.interfaces.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -63,19 +60,6 @@ public class Handler {
     }
 
     public void render(Graphics2D g) {
-
-        gameObjects.addAll(gameObjectsTemp);
-        gameObjectsTemp.clear();
-
-        gameObjects.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        shipCollidables.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        movables.removeAll(gameObjectsToBeRemoved);
-        ownBullets.removeAll(gameObjectsToBeRemoved);
-
-        gameObjectsToBeRemoved.clear();
-
         gameObjects.forEach(obj -> obj.render(g));
 
         //draw control panel
@@ -89,7 +73,7 @@ public class Handler {
         g.setFont(buttonsFont);
 
         String points = String.valueOf(getGame().getPlayer().getPoints());
-        String health = String.valueOf(getGame().getPlayer().getHealth());
+        String health = String.valueOf(getGame().getPlayer().getShip().getHealth());
         String lives = String.valueOf(getGame().getPlayer().getLives());
         String bullets = String.valueOf(getGame().getPlayer().getShip().getBullets());
 
@@ -100,9 +84,26 @@ public class Handler {
     }
 
     public void update() {
+        gameObjects.addAll(gameObjectsTemp);
+        gameObjectsTemp.clear();
+
+        gameObjects.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        shipCollidables.removeAll(gameObjectsToBeRemoved);
+        bulletCollidables.removeAll(gameObjectsToBeRemoved);
+        movables.removeAll(gameObjectsToBeRemoved);
+        ownBullets.removeAll(gameObjectsToBeRemoved);
+
+        gameObjectsToBeRemoved.clear();
+
         movables.addAll(movablesTemp);
         movablesTemp.clear();
         movables.forEach(obj -> obj.update());
+        gameObjects.forEach(obj -> {
+            if (obj instanceof Collectable) {
+                ((Collectable) obj).shouldDie();
+            }
+        });
         checkForCollisions();
     }
 
@@ -126,7 +127,7 @@ public class Handler {
         });
         shipCollidables.forEach(collidable -> {
             if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
-                game.getPlayer().getShip().onCollide();
+                game.getPlayer().getShip().onCollide(collidable);
                 collidable.onCollideWithShip();
             }
         });

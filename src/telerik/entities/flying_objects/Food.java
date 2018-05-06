@@ -4,17 +4,26 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.game_states.PlayState;
+import telerik.interfaces.Collectable;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
 
-public class Food extends Entity implements CollidesWithOwnShip {
+public class Food extends Entity implements CollidesWithOwnShip, Collectable {
+
+    private int live;
+    private int width;
+    private int height;
 
     public Food(PlayState game, int x, int y, int food) {
         super(game);
 
-        this.setSize(new Size(Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
+        this.live = Constants.FOOD_LIVE;
+        this.width = Constants.FOOD_WIDTH;
+        this.height = Constants.FOOD_HEIGHT;
+
+        this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
-        this.setImage(game.getSpriteSheet().getImage(500, 25 * food, Constants.FOOD_WIDTH, Constants.FOOD_HEIGHT));
+        this.setImage(game.getSpriteSheet().getImage(500, 25 * food, width, height));
 
         this.setBounds();
         addToCollidableWithOwnShip();
@@ -23,8 +32,6 @@ public class Food extends Entity implements CollidesWithOwnShip {
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-
-        System.out.println(getGame().getPlayer().getHealth());
     }
 
     @Override
@@ -35,6 +42,14 @@ public class Food extends Entity implements CollidesWithOwnShip {
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().setHealth(getGame().getPlayer().getHealth() + 5);
+        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+    }
+
+    @Override
+    public void shouldDie() {
+        live--;
+        if(live == 0) {
+            onCollide();
+        }
     }
 }

@@ -19,8 +19,10 @@ public abstract class Entity {
 
 
     public Entity(PlayState game) {
+        System.out.println(this);
         this.game = game;
         this.image = new ArrayList<>();
+        this.frame = 0;
 
         addToGameObjectCollection();
     }
