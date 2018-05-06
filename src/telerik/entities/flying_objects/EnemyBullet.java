@@ -91,6 +91,11 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        System.out.println(this + " hit you. -" + power + " Health.");
+    }
+    @Override
+    public String toString(){
+        return "Emeny bullet";
     }
 }
 

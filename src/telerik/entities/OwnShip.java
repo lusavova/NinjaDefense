@@ -144,4 +144,10 @@ public class OwnShip extends Ship implements Collidable {
     public void setBullets(int bullets) {
         this.bullets = bullets;
     }
+
+    @Override
+    public String toString(){
+        return "Own ship";
+    }
+
 }

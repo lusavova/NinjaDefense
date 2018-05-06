@@ -46,6 +46,7 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + Constants.AMMO_AWARD);
+        System.out.println(Constants.AMMO_AWARD + " " + this + " collected.");
     }
 
     @Override
@@ -54,5 +55,9 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
         if(live == 0) {
             onCollide();
         }
+    }
+    @Override
+    public String toString(){
+        return "Ammo";
     }
 }

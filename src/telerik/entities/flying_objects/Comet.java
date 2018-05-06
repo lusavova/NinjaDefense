@@ -120,6 +120,12 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
         new Explosion(getGame(), getPosition());
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        System.out.println(this + " hit you. -" + power + " Health.");
+    }
+
+    @Override
+    public String toString(){
+        return "Comet";
     }
 
 }

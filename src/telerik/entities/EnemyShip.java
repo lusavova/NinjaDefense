@@ -129,6 +129,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
         new Explosion(getGame(), getGame().getPlayer().getShip().getPosition());
         getGame().getPlayer().getShip().resetPosition();
+        System.out.println("KAMIKADZE! " + this + " killed. -1 Live");
+
     }
 
     @Override
@@ -145,4 +147,10 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public int getShootDelay() {
         return shootDelay;
     }
+
+    @Override
+    public String toString(){
+        return "Enemy ship";
+    }
+
 }

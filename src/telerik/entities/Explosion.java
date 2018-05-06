@@ -51,4 +51,9 @@ public class Explosion extends Entity implements Movable {
     public void addToMovableCollection() {
         getGame().getHandler().addMovable(this);
     }
+
+    @Override
+    public String toString(){
+        return "Explosion";
+    }
 }

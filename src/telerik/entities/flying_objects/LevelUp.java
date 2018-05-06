@@ -45,6 +45,7 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().upgradeShip();
+        System.out.println(this + "! You are now LEVEL " + getGame().getPlayer().getShip().getLevel() + ".");
     }
 
     @Override
@@ -53,5 +54,10 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
         if(live == 0) {
             onCollide();
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Level up";
     }
 }

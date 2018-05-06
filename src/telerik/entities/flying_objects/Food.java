@@ -43,6 +43,7 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+        System.out.println(Constants.FOOD_AWARD + " " + this + " collected.");
     }
 
     @Override
@@ -51,5 +52,10 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
         if(live == 0) {
             onCollide();
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Health";
     }
 }

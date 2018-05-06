@@ -108,4 +108,9 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     public void setPower(int power) {
         this.power = power;
     }
+
+    @Override
+    public String toString(){
+        return "Friendly bullet";
+    }
 }
