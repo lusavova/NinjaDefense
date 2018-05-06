@@ -67,9 +67,6 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         this.setBounds();
 
         this.ship.setBullets(this.ship.getBullets() - 1);
-
-        addToMovableCollection();
-        addToBulletCollection();
     }
 
 
@@ -83,18 +80,9 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     }
 
     @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
-
-    private void addToBulletCollection() {
-        getGame().getHandler().addOwnBullet(this);
-    }
-
-    @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new SmallExplosion(getGame(), getPosition());
+        new SmallExplosion(getGame(), this);
     }
 
     public int getKind() {
@@ -107,5 +95,10 @@ public class FriendlyBullet extends FlyingObject implements Movable {
 
     public void setPower(int power) {
         this.power = power;
+    }
+
+    @Override
+    public String toString(){
+        return "Friendly bullet";
     }
 }

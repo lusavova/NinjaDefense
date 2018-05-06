@@ -13,15 +13,18 @@ public class SmallExplosion extends Entity implements Movable {
     private int width;
     private int height;
 
-    public SmallExplosion(PlayState game, Position position) {
+    public SmallExplosion(PlayState game, Entity gameObj) {
         super(game);
 
         this.live = Constants.EXPLOSION_LIVE;
         this.width = 25;
         this.height = 25;
-        this.setPosition(position);
+
+        int x = gameObj.getPosition().getX() + (gameObj.getSize().getWidth() - width) / 2;
+        int y = gameObj.getPosition().getY() + (gameObj.getSize().getHeight() - height) / 2;
+        this.setPosition(new Position(x, y));
+
         setSprites();
-        addToMovableCollection();
     }
 
     private void setSprites() {
@@ -44,7 +47,8 @@ public class SmallExplosion extends Entity implements Movable {
     }
 
     @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
+    public String toString(){
+        return "Small explosion";
     }
+
 }

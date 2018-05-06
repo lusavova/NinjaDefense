@@ -1,5 +1,6 @@
 package telerik.entities.flying_objects;
 
+import telerik.Bound;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
@@ -42,9 +43,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
 
         setSprites(kind);
         setBounds();
-
-        addToMovableCollection();
-        addToCollidableWithOwnShip();
     }
 
     public void setSprites(CometType kind) {
@@ -92,10 +90,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
         }
     }
 
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
 
     @Override
     public void onCollide() {
@@ -111,15 +105,19 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
     }
 
     @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
+    public void onCollideWithShip() {
+        new Explosion(getGame(), this);
+        onCollide();
+        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        System.out.println(this + " hit you. -" + power + " Health.");
     }
 
     @Override
-    public void onCollideWithShip() {
-        new Explosion(getGame(), getPosition());
-        onCollide();
-        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+    public String toString(){
+        return "Comet";
     }
 
+    public CometType getKind() {
+        return kind;
+    }
 }

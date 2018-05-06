@@ -27,7 +27,6 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
         this.setImage(game.getSpriteSheet().getImage(567, 0, width, height));
 
         this.setBounds();
-        addToCollidableWithOwnShip();
     }
 
 
@@ -37,14 +36,10 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
     }
 
     @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-    }
-
-    @Override
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().upgradeShip();
+        System.out.println(this + "! You are now LEVEL " + getGame().getPlayer().getShip().getLevel() + ".");
     }
 
     @Override
@@ -53,5 +48,10 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
         if(live == 0) {
             onCollide();
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Level up";
     }
 }

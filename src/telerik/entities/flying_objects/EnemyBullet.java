@@ -45,10 +45,6 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
         this.setSize(new Size(width, height));
         this.setPosition(new Position(x - width / 2, y + height / 2));
         this.setBounds();
-
-        addToMovableCollection();
-        addToCollidableWithOwnBullet();
-        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -61,25 +57,9 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     }
 
     @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
-
-    @Override
-    public void addToCollidableWithOwnBullet() {
-        getGame().getHandler().addCollidableWithBullet(this);
-    }
-
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-    }
-
-    @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new SmallExplosion(getGame(), getPosition());
+        new SmallExplosion(getGame(), this);
     }
 
     @Override
@@ -91,6 +71,11 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        System.out.println(this + " hit you. -" + power + " Health.");
+    }
+    @Override
+    public String toString(){
+        return "Emeny bullet";
     }
 }
 

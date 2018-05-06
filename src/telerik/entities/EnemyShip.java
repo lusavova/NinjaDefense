@@ -53,8 +53,6 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.setPosition(new Position(x, y));
 
         this.setBounds();
-        addToCollidableWithOwnBullet();
-        addToCollidableWithOwnShip();
         addToEnemyShips();
 
     }
@@ -69,7 +67,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
             }
         }
         if (getHealth() <= 0) {
-            new Explosion(getGame(), getPosition());
+            new Explosion(getGame(), this);
             getGame().getHandler().addToRemove(this);
         }
         if (shootDelay == 0) {
@@ -110,25 +108,15 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     }
 
-
-    @Override
-    public void addToCollidableWithOwnBullet() {
-        getGame().getHandler().addCollidableWithBullet(this);
-    }
-
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-    }
-
     @Override
     public void onCollideWithShip() {
-        new Explosion(getGame(), getPosition());
+        new Explosion(getGame(), this);
         getGame().getHandler().addToRemove(this);
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        new Explosion(getGame(), getGame().getPlayer().getShip().getPosition());
+        new Explosion(getGame(), getGame().getPlayer().getShip());
         getGame().getPlayer().getShip().resetPosition();
+        System.out.println("KAMIKADZE! " + this + " killed. -1 Live");
+
     }
 
     @Override
@@ -145,4 +133,10 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public int getShootDelay() {
         return shootDelay;
     }
+
+    @Override
+    public String toString(){
+        return "Enemy ship";
+    }
+
 }

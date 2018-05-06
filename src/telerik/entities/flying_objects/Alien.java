@@ -27,10 +27,6 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
         this.setImage(game.getSpriteSheet().getImage(600, 0, width, height));
         this.setBounds();
-
-        addToMovableCollection();
-        addToCollidableWithOwnBullet();
-        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -43,31 +39,18 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         }
     }
 
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
 
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new Explosion(getGame(), getPosition());
+        new Explosion(getGame(), this);
     }
 
     @Override
     public void onPlanetReach() {
         int stateIndex = GameStateType.GAMEOVER.ordinal();
         getGame().getGameStateManager().setState(stateIndex);
-    }
-
-    @Override
-    public void addToCollidableWithOwnBullet() {
-        getGame().getHandler().addCollidableWithBullet(this);
-    }
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
+        System.out.println(this + " reached the planet and abducted The Coding Ninja. GAME OVER.");
     }
 
     @Override
@@ -75,13 +58,21 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         onCollide();
         int currentHealth = getGame().getPlayer().getShip().getHealth();
         getGame().getPlayer().getShip().setHealth(currentHealth - power);
+        System.out.println("KAMIKADZE! " + this + " killed. -" + power + " Health.");
     }
 
     @Override
     public void onCollideWithBullet(FriendlyBullet bullet) {
         onCollide();
         getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
+        System.out.println(this + " killed. +" + bullet.getPower() + " Points");
     }
+
+    @Override
+    public String toString(){
+        return "Alien";
+    }
+
 
 
 }

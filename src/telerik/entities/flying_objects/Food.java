@@ -26,7 +26,6 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
         this.setImage(game.getSpriteSheet().getImage(500, 25 * food, width, height));
 
         this.setBounds();
-        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -35,14 +34,10 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
     }
 
     @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-    }
-
-    @Override
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+        System.out.println(Constants.FOOD_AWARD + " " + this + " collected.");
     }
 
     @Override
@@ -51,5 +46,10 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
         if(live == 0) {
             onCollide();
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Health";
     }
 }
