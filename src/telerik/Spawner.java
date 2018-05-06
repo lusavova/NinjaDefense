@@ -1,10 +1,11 @@
-package telerik.game_states;
+package telerik;
 
 import telerik.Constants;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
 import telerik.enumerators.CometType;
 import telerik.exceptions.NoSuchEntityException;
+import telerik.game_states.PlayState;
 
 import java.util.HashSet;
 import java.util.Random;

@@ -1,10 +1,12 @@
 package telerik.game_states;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import telerik.Game;
 import telerik.SpriteSheet;
+import telerik.enumerators.GameStateType;
 
 public class GameStateManager {
 
@@ -22,6 +24,8 @@ public class GameStateManager {
         gameStates.add(new PlayState(this));
         gameStates.add(new HelpState(this));
         gameStates.add(new GameOverState(this));
+        gameStates.add(new PauseState(this));
+        gameStates.add(new WinState(this));
 
         int menuStateIndex = GameStateType.MENUSTATE.ordinal();
         setState(menuStateIndex);
@@ -50,5 +54,11 @@ public class GameStateManager {
 
     public SpriteSheet getSpriteSheet() {
         return spriteSheet;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        if (gameOver) {
+            this.gameStates.set(GameStateType.PLAYSTATE.ordinal(), new PlayState(this));
+        }
     }
 }

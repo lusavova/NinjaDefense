@@ -60,7 +60,6 @@ public class Game extends JPanel implements Runnable, GameEngine, KeyListener {
         gsm = new GameStateManager(this);
     }
 
-
     @Override
     public void addNotify() {
         super.addNotify();
