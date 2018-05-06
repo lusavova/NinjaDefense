@@ -105,7 +105,6 @@ public class Constants {
 
     public static final int NUM_OF_ENEMY_SHIPS = 4;
 
-
     public static final int ENEMY_BULLET_VEL = 3;
 
     public static final int ENEMY_1_HEALTH = 3000;

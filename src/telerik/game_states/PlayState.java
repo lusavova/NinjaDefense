@@ -1,19 +1,17 @@
 package telerik.game_states;
 
-import telerik.Handler;
-import telerik.Player;
-import telerik.Position;
-import telerik.SpriteSheet;
-import telerik.entities.EnemyShip;
+import telerik.*;
 import telerik.entities.OwnShip;
-import telerik.entities.flying_objects.Alien;
-import telerik.entities.flying_objects.Comet;
-import telerik.entities.flying_objects.EnemyBullet;
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.enumerators.BulletShipSide;
+import telerik.enumerators.GameStateType;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class PlayState extends GameState {
 
@@ -23,11 +21,7 @@ public class PlayState extends GameState {
     private SpriteSheet spriteSheet;
     private int currentStateIndex;
     private Spawner spawner;
-
-    private int points;
-    private int lives;
-    private int health;
-    private int bullets;
+    private BufferedImage playIcon;
 
     private boolean isShooting = false;
 
@@ -35,19 +29,16 @@ public class PlayState extends GameState {
         this.gsm = gsm;
         this.spriteSheet = gsm.getSpriteSheet();
 
-
         try {
             background = new Background("../res/play_state.png", new Position(0, 0));
-        } catch (Exception e) {
+            playIcon = ImageIO.read(getClass().getResourceAsStream("../res/buttons/playIcon.png"));
+        } catch (IOException e) {
             e.printStackTrace();
         }
         handler = new Handler(this);
         player = new Player(this);
         spawner = new Spawner(this);
         spawner.initSpawn();
-
-        //new EnemyShip(this, 1, 0, 200, 3);
-
     }
 
     @Override
@@ -60,6 +51,7 @@ public class PlayState extends GameState {
     public void render(Graphics2D g) {
         background.render(g);
         handler.render(g);
+        g.drawImage(playIcon, 570, 10, null);
     }
 
     @Override
@@ -104,20 +96,35 @@ public class PlayState extends GameState {
         if (k == KeyEvent.VK_LEFT) {
             ship.setVelX(0);
         }
+
         if (k == KeyEvent.VK_RIGHT) {
             ship.setVelX(0);
         }
+
         if (k == KeyEvent.VK_DOWN) {
             ship.setVelY(0);
         }
+
         if (k == KeyEvent.VK_UP) {
             ship.setVelY(0);
         }
+
         if (k == KeyEvent.VK_SPACE) {
             isShooting = false;
         }
+
         if (k == KeyEvent.VK_Q) {
             currentStateIndex = GameStateType.GAMEOVER.ordinal();
+            gsm.setState(currentStateIndex);
+        }
+
+        if (k == KeyEvent.VK_P) {
+            currentStateIndex = GameStateType.PAUSE.ordinal();
+            gsm.setState(currentStateIndex);
+        }
+
+        if (k == KeyEvent.VK_W) {
+            currentStateIndex = GameStateType.WIN.ordinal();
             gsm.setState(currentStateIndex);
         }
     }

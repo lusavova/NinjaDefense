@@ -2,9 +2,12 @@ package telerik.game_states;
 
 import telerik.Constants;
 import telerik.Position;
+import telerik.enumerators.GameStateButtons;
+import telerik.enumerators.GameStateType;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class GameOverState extends GameState {
 
@@ -23,8 +26,7 @@ public class GameOverState extends GameState {
 
     private GameStateButtons[] buttons = {
             GameStateButtons.NEW_GAME,
-            GameStateButtons.STATISTICS,
-            GameStateButtons.EXIT,
+            GameStateButtons.EXIT
     };
 
     public GameOverState(GameStateManager gsm) {
@@ -39,7 +41,7 @@ public class GameOverState extends GameState {
             background = new Background("../res/gm2_new.png", new Position(0, 0));
 
             fontColor = Color.WHITE;
-            buttonsFont = new Font("Bookman Old Style", Font.BOLD, fontSize);
+            buttonsFont = new Font("Arial", Font.BOLD, fontSize);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,22 +67,46 @@ public class GameOverState extends GameState {
                 g.setColor(new Color(255, 95, 97));
             }
 
-            int buttonsLenght = buttons[i].name().length();
-            g.drawString(buttons[i].name(), ((width - buttonsLenght * fontSize / 2) - 30) / 2, (height / 2) + i * fontSize);
+            switch (buttons[i]){
+                case NEW_GAME:
+                    g.drawString("New Game", width / 2 - 200, (height / 2) + i * fontSize);
+                    break;
+                case EXIT:
+                    g.drawString("Exit", width / 2 - 200, (height / 2) + i * fontSize);
+                    break;
+            }
         }
     }
 
     private void select() {
-        if (currentChoice == 0) {
+        if (buttons[currentChoice] == GameStateButtons.NEW_GAME) {
+
             currentStateIndex = GameStateType.PLAYSTATE.ordinal();
             gsm.setState(currentStateIndex);
-        } else if (currentChoice == 1) {
+            gsm.setGameOver(true);
+        } else if (buttons[currentChoice] == GameStateButtons.EXIT) {
+
             System.exit(1);
         }
     }
 
     @Override
     public void keyPressed(int k) {
+
+    }
+
+    @Override
+    public void keyReleased(int k) {
+
+        if (k == KeyEvent.VK_ESCAPE) {
+            System.exit(0);
+        }
+
+        if (k == KeyEvent.VK_N) {
+            currentStateIndex = GameStateType.PLAYSTATE.ordinal();
+            gsm.setState(currentStateIndex);
+            gsm.setGameOver(true);
+        }
 
         if (k == KeyEvent.VK_ENTER) {
             select();
@@ -101,10 +127,5 @@ public class GameOverState extends GameState {
                 currentChoice = 0;
             }
         }
-    }
-
-    @Override
-    public void keyReleased(int k) {
-
     }
 }

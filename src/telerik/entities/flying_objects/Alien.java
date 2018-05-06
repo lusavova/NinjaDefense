@@ -4,7 +4,7 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.entities.Explosion;
-import telerik.game_states.GameStateType;
+import telerik.enumerators.GameStateType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
