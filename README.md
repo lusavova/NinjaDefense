@@ -11,6 +11,8 @@
     which can teleport food and ammo in space, so you can charge up.
     Stay alive long enough and you will even be able to level up to a stronger ship.</p>
 
+<p>Kill the BOSS at the end of the game to save The Coding Ninja from abduction.</p>
+
 <p>Be brave, because with great OOPP*, comes great OOPR**.</p>
 
 <p>*OOPP - Object Oriented Programming Power. <br>
