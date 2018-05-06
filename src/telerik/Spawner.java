@@ -76,7 +76,7 @@ public class Spawner {
         levelUpDelay--;
 
         if (alienDelay == 0) {
-            rndX = rnd.nextInt(Constants.WIDTH - Constants.ALIEN_WIDTH);
+            rndX = rnd.nextInt(Constants.WIDTH - Constants.CONTROL_PANEL_HEIGHT - Constants.ALIEN_WIDTH);
             rndSpeed = rnd.nextInt(2) + 1;
             alienDelay = Constants.ALIEN_SPAWN_DELAY;
             new Alien(game, rndX, rndSpeed);
@@ -93,7 +93,7 @@ public class Spawner {
 
         if (fuelDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.AMMO_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.AMMO_HEIGHT);
+            rndY = rnd.nextInt(Constants.HEIGHT - Constants.CONTROL_PANEL_HEIGHT - Constants.AMMO_HEIGHT);
             fuelDelay = Constants.AMMO_SPAWN_DELAY;
 
             new Ammo(game, rndX, rndY);
@@ -101,7 +101,7 @@ public class Spawner {
 
         if (levelUpDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.LEVEL_UP_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.LEVEL_UP_HEIGHT);
+            rndY = rnd.nextInt(Constants.HEIGHT - Constants.CONTROL_PANEL_HEIGHT - Constants.LEVEL_UP_HEIGHT);
             levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
 
             new LevelUp(game, rndX, rndY);
@@ -109,7 +109,7 @@ public class Spawner {
 
         if (oneUpDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.ONE_UP_WIDTH);
-            rndY = rnd.nextInt(Constants.HEIGHT - Constants.ONE_UP_HEIGHT);
+            rndY = rnd.nextInt(Constants.HEIGHT - Constants.CONTROL_PANEL_HEIGHT - Constants.ONE_UP_HEIGHT);
             oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
             new OneUp(game, rndX, rndY);
@@ -124,6 +124,7 @@ public class Spawner {
         });
 
     }
+
     public Random getRnd() {
         return rnd;
     }

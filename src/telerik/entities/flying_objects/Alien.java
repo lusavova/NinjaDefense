@@ -24,7 +24,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         this.speed = speed;
 
         this.setSize(new Size(width, height));
-        this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
+        this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT - Constants.ALIEN_HEIGHT));
         this.setImage(game.getSpriteSheet().getImage(600, 0, width, height));
         this.setBounds();
     }
@@ -69,10 +69,9 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Alien";
     }
-
 
 
 }
