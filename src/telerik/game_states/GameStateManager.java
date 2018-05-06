@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import telerik.Game;
+import telerik.Player;
 import telerik.SpriteSheet;
 import telerik.enumerators.GameStateType;
 
@@ -14,6 +15,7 @@ public class GameStateManager {
     private int currentState;
     private Game gamePanel;
     private SpriteSheet spriteSheet;
+    private Player player;
 
     public GameStateManager(Game gamePanel) {
         this.gamePanel = gamePanel;
@@ -56,9 +58,7 @@ public class GameStateManager {
         return spriteSheet;
     }
 
-    public void setGameOver(boolean gameOver) {
-        if (gameOver) {
-            this.gameStates.set(GameStateType.PLAYSTATE.ordinal(), new PlayState(this));
-        }
+    public void resetGame() {
+        this.gameStates.set(GameStateType.PLAYSTATE.ordinal(), new PlayState(this));
     }
 }

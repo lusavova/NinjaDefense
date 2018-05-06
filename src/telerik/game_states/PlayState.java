@@ -45,13 +45,17 @@ public class PlayState extends GameState {
     public void update() {
         handler.update();
         spawner.spawnObject();
+
+        if (player.getLives() == 0){
+            gsm.setState(GameStateType.GAMEOVER.ordinal());
+        }
     }
 
     @Override
     public void render(Graphics2D g) {
         background.render(g);
         handler.render(g);
-        g.drawImage(playIcon, 570, 10, null);
+        g.drawImage(playIcon, 570, 5, null);
     }
 
     @Override

@@ -7,7 +7,6 @@ import telerik.enumerators.GameStateType;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 
 public class GameOverState extends GameState {
 
@@ -83,7 +82,7 @@ public class GameOverState extends GameState {
 
             currentStateIndex = GameStateType.PLAYSTATE.ordinal();
             gsm.setState(currentStateIndex);
-            gsm.setGameOver(true);
+            gsm.resetGame();
         } else if (buttons[currentChoice] == GameStateButtons.EXIT) {
 
             System.exit(1);
@@ -105,7 +104,7 @@ public class GameOverState extends GameState {
         if (k == KeyEvent.VK_N) {
             currentStateIndex = GameStateType.PLAYSTATE.ordinal();
             gsm.setState(currentStateIndex);
-            gsm.setGameOver(true);
+            gsm.resetGame();
         }
 
         if (k == KeyEvent.VK_ENTER) {
