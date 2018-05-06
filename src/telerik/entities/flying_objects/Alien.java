@@ -75,7 +75,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         onCollide();
         int currentHealth = getGame().getPlayer().getShip().getHealth();
         getGame().getPlayer().getShip().setHealth(currentHealth - power);
-        System.out.println("KAMIKADZE! " + this + " killed. -1 Live");
+        System.out.println("KAMIKADZE! " + this + " killed. -" + power + " Health.");
     }
 
     @Override
