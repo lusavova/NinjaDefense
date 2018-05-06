@@ -30,11 +30,11 @@
     <li><a href="https://github.com/lusavova/spaceGame">Ninja Defense project repository</a></li>
     <li>Developer team <strong>"Black Panther"</strong>:
         <ul>
-            <li>github: <a href="https://github.com/kbonevska">kbonevska</a> / Telerik Academy: <a
+            <li>at github: <a href="https://github.com/kbonevska">kbonevska</a> / at Telerik Academy: <a
                     href="http://judge.telerikacademy.com/user/mor1ghan">mor1ghan</a></li>
-            <li>github: <a href="https://github.com/lusavova">lusavova</a> / Telerik Academy: <a
+            <li>at github: <a href="https://github.com/lusavova">lusavova</a> / at Telerik Academy: <a
                     href="http://judge.telerikacademy.com/user/lu.savova">lu.savova</a></li>
-            <li>github: <a href="https://github.com/Smytt">Smytt</a> / Telerik Academy: <a
+            <li>at github: <a href="https://github.com/Smytt">Smytt</a> / at Telerik Academy: <a
                     href="http://judge.telerikacademy.com/user/Smytt_kp">Smytt_kp</a></li>
         </ul>
     </li>
