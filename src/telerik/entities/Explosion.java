@@ -1,17 +1,13 @@
 package telerik.entities;
 
 
-import javafx.geometry.Pos;
 import telerik.Constants;
 import telerik.Position;
-import telerik.Size;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Collectable;
-import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.Entity;
-import telerik.interfaces.Movable;
+import telerik.interfaces.Updatable;
 
-public class Explosion extends Entity implements Movable {
+public class Explosion extends Entity implements Updatable {
 
     private int live;
     private int width;

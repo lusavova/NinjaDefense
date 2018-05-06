@@ -74,7 +74,7 @@ public class Boss extends Ship implements CollidesWithOwnShip, CollidesWithOwnBu
             if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - width) {
                 speedX *= -1;
             }
-            if (getPosition().getY() <= Constants.CONTROL_PANEL_HEIGHT + 20 || getPosition().getY() >= 250) {
+            if (getPosition().getY() <= Constants.CONTROL_PANEL_HEIGHT || getPosition().getY() >= 250) {
                 speedY *= -1;
             }
         }

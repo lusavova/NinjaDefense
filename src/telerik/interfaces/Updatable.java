@@ -1,6 +1,6 @@
 package telerik.interfaces;
 
-public interface Movable {
+public interface Updatable {
     public void update();
 }
 

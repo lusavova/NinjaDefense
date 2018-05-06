@@ -3,17 +3,14 @@ package telerik.entities.flying_objects;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
-import telerik.entities.Explosion;
 import telerik.entities.OwnShip;
 import telerik.entities.SmallExplosion;
 import telerik.enumerators.BulletShipSide;
 import telerik.game_states.PlayState;
 import telerik.interfaces.FlyingObject;
-import telerik.interfaces.Movable;
+import telerik.interfaces.Updatable;
 
-import java.awt.*;
-
-public class FriendlyBullet extends FlyingObject implements Movable {
+public class FriendlyBullet extends FlyingObject implements Updatable {
 
     private int kind;
     private int power;

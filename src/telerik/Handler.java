@@ -52,8 +52,8 @@ public class Handler {
     public void update() {
         gameObjects
                 .stream()
-                .filter(obj -> obj instanceof Movable)
-                .map(obj -> (Movable) obj)
+                .filter(obj -> obj instanceof Updatable)
+                .map(obj -> (Updatable) obj)
                 .forEach(gameObj -> gameObj.update());
 
         gameObjects.forEach(obj -> {

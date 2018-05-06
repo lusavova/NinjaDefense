@@ -2,7 +2,7 @@ package telerik.interfaces;
 
 import telerik.game_states.PlayState;
 
-public abstract class Ship extends Entity implements Movable {
+public abstract class Ship extends Entity implements Updatable {
     private int health;
     private int level;
 

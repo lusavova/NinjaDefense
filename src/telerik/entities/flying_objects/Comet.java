@@ -1,21 +1,17 @@
 package telerik.entities.flying_objects;
 
-import telerik.Bound;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
 import telerik.entities.Explosion;
-import telerik.entities.SmallExplosion;
 import telerik.enumerators.CometType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.FlyingObject;
 import telerik.interfaces.HurtingShip;
-import telerik.interfaces.Movable;
+import telerik.interfaces.Updatable;
 
-import java.util.Random;
-
-public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip, HurtingShip {
+public class Comet extends FlyingObject implements Updatable, CollidesWithOwnShip, HurtingShip {
 
     private CometType kind;
     private int speed;

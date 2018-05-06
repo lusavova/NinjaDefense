@@ -1,18 +1,14 @@
 package telerik.entities.flying_objects;
 
 
-import javafx.geometry.Pos;
 import telerik.Constants;
 import telerik.Position;
 import telerik.Size;
-import telerik.entities.Explosion;
 import telerik.entities.SmallExplosion;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
-import java.awt.*;
-
-public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
+public class EnemyBullet extends FlyingObject implements Updatable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 
 
     private int speed;

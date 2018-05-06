@@ -5,9 +5,9 @@ import telerik.Constants;
 import telerik.Position;
 import telerik.game_states.PlayState;
 import telerik.interfaces.Entity;
-import telerik.interfaces.Movable;
+import telerik.interfaces.Updatable;
 
-public class SmallExplosion extends Entity implements Movable {
+public class SmallExplosion extends Entity implements Updatable {
 
     private int live;
     private int width;

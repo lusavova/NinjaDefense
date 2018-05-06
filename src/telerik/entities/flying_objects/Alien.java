@@ -8,7 +8,7 @@ import telerik.enumerators.GameStateType;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
 
-public class Alien extends FlyingObject implements ReachingPlanet, Movable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
+public class Alien extends FlyingObject implements ReachingPlanet, Updatable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 
     private int power;
     private int speed;
