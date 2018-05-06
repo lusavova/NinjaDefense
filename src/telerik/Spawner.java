@@ -15,6 +15,7 @@ public class Spawner {
 
     private int rndX;
     private int rndY;
+    private int rndSpeed;
 
     private int alienDelay;
     private int foodDelay;
@@ -40,8 +41,12 @@ public class Spawner {
     }
 
     public void initSpawn() {
-        new Comet(game, CometType.LEFT, 100, 3);
-        new Comet(game, CometType.RIGHT, 200, 3);
+        rndY = rnd.nextInt(Constants.HEIGHT);
+        rndSpeed = rnd.nextInt(3) + 2;
+        new Comet(game, CometType.LEFT, rndY, rndSpeed);
+        rndY = rnd.nextInt(Constants.HEIGHT);
+        rndSpeed = rnd.nextInt(3) + 2;
+        new Comet(game, CometType.RIGHT, rndY, rndSpeed);
 
         for (int i = 0; i < Constants.NUM_OF_ENEMY_SHIPS; i++) {
             int startLeft = 1;
@@ -49,9 +54,10 @@ public class Spawner {
                 startLeft = -1;
             }
             int rndSpeed = rnd.nextInt(2) + 2;
+            rndX = rnd.nextInt(Constants.WIDTH - 100);
             //custom exception here
             try {
-                new EnemyShip(game, i % 2, Constants.WIDTH / 2, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
+                new EnemyShip(game, i % 2, rndX, Constants.CONTROL_PANEL_HEIGHT - 70 + Constants.ENEMY_SHIP_1_HEIGHT + 70 * i, rndSpeed * startLeft);
             } catch (NoSuchEntityException e) {
                 e.printStackTrace();
             }
@@ -67,7 +73,7 @@ public class Spawner {
 
         if (alienDelay == 0) {
             rndX = rnd.nextInt(Constants.WIDTH - Constants.ALIEN_WIDTH);
-            int rndSpeed = rnd.nextInt(2) + 1;
+            rndSpeed = rnd.nextInt(2) + 1;
             alienDelay = Constants.ALIEN_SPAWN_DELAY;
             new Alien(game, rndX, rndSpeed);
         }

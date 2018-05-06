@@ -30,7 +30,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         }
         this.setLevel(level);
         this.speed = speed;
-        this.shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
+        this.shootDelay = game.getSpawner().getRnd().nextInt(Constants.ENEMY_BULLETS_SHOOT_DELAY) ;
 
         if (level == 0) {
 

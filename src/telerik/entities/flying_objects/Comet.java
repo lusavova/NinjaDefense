@@ -79,7 +79,7 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
     }
 
     private void resetCometPosition() {
-
+        speed = getGame().getSpawner().getRnd().nextInt(3) + 2;
         getPosition().setY(getGame().getSpawner().getRnd().nextInt(Constants.HEIGHT - 250));
 
         if (kind == CometType.LEFT) {

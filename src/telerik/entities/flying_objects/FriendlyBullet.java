@@ -98,7 +98,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Friendly bullet";
     }
 }
