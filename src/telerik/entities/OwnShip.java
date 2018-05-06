@@ -15,7 +15,6 @@ public class OwnShip extends Ship implements Collidable {
     private int velY = 0;
 
     private int bullets;
-    private int health;
     private int width;
     private int height;
 
@@ -25,7 +24,7 @@ public class OwnShip extends Ship implements Collidable {
         super(game);
 
         this.bullets = Constants.INITIAL_BULLETS;
-        this.health = Constants.INITIAL_HEALTH;
+        setHealth(Constants.INITIAL_HEALTH);
         this.width = Constants.OWN_SHIP_WIDTH;
         this.height = Constants.OWN_SHIP_HEIGHT;
 
@@ -51,10 +50,10 @@ public class OwnShip extends Ship implements Collidable {
     public void update() {
         updateFrame();
 
-        if (getGame().getPlayer().getShip().getHealth() <= 0) {
+        if (getHealth() <= 0) {
             getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-            getGame().getPlayer().getShip().setHealth(Constants.INITIAL_HEALTH);
-//            new Explosion(getGame(), getPosition());
+            setHealth(Constants.INITIAL_HEALTH);
+            new Explosion(getGame(), this);
             resetPosition();
         }
 

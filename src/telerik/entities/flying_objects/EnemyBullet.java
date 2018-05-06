@@ -79,7 +79,7 @@ public class EnemyBullet extends FlyingObject implements Movable, CollidesWithOw
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new SmallExplosion(getGame(), getPosition());
+        new SmallExplosion(getGame(), this);
     }
 
     @Override

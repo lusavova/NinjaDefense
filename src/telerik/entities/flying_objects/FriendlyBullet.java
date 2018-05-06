@@ -94,7 +94,7 @@ public class FriendlyBullet extends FlyingObject implements Movable {
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new SmallExplosion(getGame(), getPosition());
+        new SmallExplosion(getGame(), this);
     }
 
     public int getKind() {

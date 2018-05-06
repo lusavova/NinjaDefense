@@ -51,7 +51,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-        new Explosion(getGame(), getPosition());
+        new Explosion(getGame(), this);
     }
 
     @Override

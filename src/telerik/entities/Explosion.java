@@ -17,13 +17,16 @@ public class Explosion extends Entity implements Movable {
     private int width;
     private int height;
 
-    public Explosion(PlayState game, Position position) {
+    public Explosion(PlayState game, Entity gameObj) {
         super(game);
-
         this.live = Constants.EXPLOSION_LIVE;
         this.width = 100;
         this.height = 100;
-        this.setPosition(position);
+
+        int x = gameObj.getPosition().getX() + (gameObj.getSize().getWidth() - width) / 2;
+        int y = gameObj.getPosition().getY() + (gameObj.getSize().getHeight() - height) / 2;
+        this.setPosition(new Position(x, y));
+
         setSprites();
         addToMovableCollection();
     }
@@ -42,7 +45,7 @@ public class Explosion extends Entity implements Movable {
             frame = 0;
         }
         live--;
-        if (live == 0 ) {
+        if (live == 0) {
             getGame().getHandler().addToRemove(this);
         }
     }
@@ -53,7 +56,7 @@ public class Explosion extends Entity implements Movable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Explosion";
     }
 }

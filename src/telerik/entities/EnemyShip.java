@@ -69,7 +69,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
             }
         }
         if (getHealth() <= 0) {
-            new Explosion(getGame(), getPosition());
+            new Explosion(getGame(), this);
             getGame().getHandler().addToRemove(this);
         }
         if (shootDelay == 0) {
@@ -124,10 +124,10 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
 
     @Override
     public void onCollideWithShip() {
-        new Explosion(getGame(), getPosition());
+        new Explosion(getGame(), this);
         getGame().getHandler().addToRemove(this);
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
-        new Explosion(getGame(), getGame().getPlayer().getShip().getPosition());
+        new Explosion(getGame(), getGame().getPlayer().getShip());
         getGame().getPlayer().getShip().resetPosition();
         System.out.println("KAMIKADZE! " + this + " killed. -1 Live");
 
