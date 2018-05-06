@@ -40,6 +40,10 @@ public class Spawner {
         this.enemyShips = new HashSet<>();
     }
 
+    public HashSet<EnemyShip> getEnemyShips() {
+        return enemyShips;
+    }
+
     public void initSpawn() {
         rndY = rnd.nextInt(Constants.HEIGHT);
         rndSpeed = rnd.nextInt(3) + 2;
@@ -120,7 +124,6 @@ public class Spawner {
         });
 
     }
-
     public Random getRnd() {
         return rnd;
     }

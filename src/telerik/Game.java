@@ -27,10 +27,6 @@ public class Game extends JPanel implements Runnable, GameEngine, KeyListener {
     private SpriteSheet spriteSheet;
 
     private GameStateManager gsm;
-    private Player player;
-    private Player username;
-
-    private EnemyShip enemy;
 
     public Game() {
         running = false;

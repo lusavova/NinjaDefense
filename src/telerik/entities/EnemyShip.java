@@ -66,19 +66,25 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
                 restoreFrame();
             }
         }
+
         if (getHealth() <= 0) {
             new Explosion(getGame(), this);
             getGame().getHandler().addToRemove(this);
+
+            getGame().setNumOfEnemyShips(getGame().getNumOfEnemyShips() - 1);
         }
+
         if (shootDelay == 0) {
             shootDelay = Constants.ENEMY_BULLETS_SHOOT_DELAY;
         }
+
         shootDelay--;
         getPosition().setX(getPosition().getX() + speed);
 
         if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
             speed *= -1;
         }
+
         getBounds().moveBounds(this);
     }
 

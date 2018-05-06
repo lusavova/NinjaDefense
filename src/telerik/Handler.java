@@ -43,6 +43,7 @@ public class Handler {
         gameObjectsToBeRemoved.clear();
 
         gameObjects.forEach(obj -> obj.render(g));
+        
         drawControlPanel(g);
     }
 

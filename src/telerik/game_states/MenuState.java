@@ -6,7 +6,6 @@ import telerik.enumerators.GameStateType;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 
 public class MenuState extends GameState {
 
@@ -67,6 +66,7 @@ public class MenuState extends GameState {
             } else {
                 g.setColor(new Color(7, 179, 30));
             }
+
             g.drawString(buttons[i], 90, (height / 2) -30+ i * fontSize);
         }
     }

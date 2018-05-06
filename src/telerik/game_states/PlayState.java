@@ -23,6 +23,8 @@ public class PlayState extends GameState {
     private Spawner spawner;
     private BufferedImage playIcon;
 
+    private int numOfEnemyShips;
+
     private boolean isShooting = false;
 
     public PlayState(GameStateManager gsm) {
@@ -35,10 +37,21 @@ public class PlayState extends GameState {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         handler = new Handler(this);
         player = new Player(this);
         spawner = new Spawner(this);
         spawner.initSpawn();
+
+        numOfEnemyShips = spawner.getEnemyShips().size();
+    }
+
+    public int getNumOfEnemyShips() {
+        return numOfEnemyShips;
+    }
+
+    public void setNumOfEnemyShips(int numOfEnemyShips) {
+        this.numOfEnemyShips = numOfEnemyShips;
     }
 
     @Override
@@ -46,8 +59,12 @@ public class PlayState extends GameState {
         handler.update();
         spawner.spawnObject();
 
-        if (player.getLives() == 0){
+        if (player.getLives() == 0) {
             gsm.setState(GameStateType.GAMEOVER.ordinal());
+        }
+
+        if (numOfEnemyShips == 0){
+            gsm.setState(GameStateType.WIN.ordinal());
         }
     }
 
@@ -127,6 +144,7 @@ public class PlayState extends GameState {
             gsm.setState(currentStateIndex);
         }
 
+        // left for demo
         if (k == KeyEvent.VK_W) {
             currentStateIndex = GameStateType.WIN.ordinal();
             gsm.setState(currentStateIndex);
