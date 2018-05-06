@@ -37,17 +37,16 @@ public class Handler {
     }
 
     public void render(Graphics2D g) {
-        gameObjects.forEach(obj -> obj.render(g));
-        drawControlPanel(g);
-    }
-
-    public void update() {
-
         gameObjects.addAll(gameObjectsTemp);
         gameObjectsTemp.clear();
         gameObjects.removeAll(gameObjectsToBeRemoved);
         gameObjectsToBeRemoved.clear();
 
+        gameObjects.forEach(obj -> obj.render(g));
+        drawControlPanel(g);
+    }
+
+    public void update() {
         gameObjects
                 .stream()
                 .filter(obj -> obj instanceof Movable)
