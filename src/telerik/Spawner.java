@@ -1,6 +1,7 @@
 package telerik;
 
 import telerik.Constants;
+import telerik.entities.Boss;
 import telerik.entities.EnemyShip;
 import telerik.entities.flying_objects.*;
 import telerik.enumerators.CometType;
@@ -25,7 +26,8 @@ public class Spawner {
 
     private PlayState game;
 
-    private HashSet<EnemyShip> enemyShips;
+    private boolean hasBoss;
+    private Boss boss;
 
     public Spawner(PlayState game) {
         this.game = game;
@@ -37,11 +39,7 @@ public class Spawner {
         this.levelUpDelay = Constants.LEVELUP_SPAWN_DELAY;
         this.oneUpDelay = Constants.ONE_UP_SPAWN_DELAY;
 
-        this.enemyShips = new HashSet<>();
-    }
-
-    public HashSet<EnemyShip> getEnemyShips() {
-        return enemyShips;
+        this.hasBoss = false;
     }
 
     public void initSpawn() {
@@ -115,13 +113,37 @@ public class Spawner {
             new OneUp(game, rndX, rndY);
         }
 
-        enemyShips.forEach(enemyShip -> {
-            if (enemyShip.getShootDelay() == 0) {
-                int x = enemyShip.getPosition().getX() + enemyShip.getSize().getWidth() / 2;
-                int y = enemyShip.getPosition().getY();
-                new EnemyBullet(game, enemyShip.getLevel(), x, y);
+        game.getHandler().getGameObjects()
+                .stream()
+                .filter(obj -> obj instanceof EnemyShip)
+                .map(obj -> (EnemyShip) obj)
+                .forEach(enemyShip -> {
+                    if (enemyShip.getShootDelay() == 0) {
+                        int x = enemyShip.getPosition().getX() + enemyShip.getSize().getWidth() / 2;
+                        int y = enemyShip.getPosition().getY();
+                        new EnemyBullet(game, enemyShip.getLevel(), x, y);
+                    }
+                });
+
+        if (!hasBoss && game.isInitialSpawnDone()) {
+            long totalEnemyShips = game.getHandler().getGameObjects()
+                    .stream()
+                    .filter(obj -> obj instanceof EnemyShip)
+                    .count();
+            if (totalEnemyShips == 0) {
+                boss = new Boss(game);
+                hasBoss = true;
             }
-        });
+        }
+
+        if(hasBoss) {
+            if (boss.getShootDelay() == 0) {
+                int rndKind = rnd.nextInt(2);
+                int x = boss.getPosition().getX() + boss.getSize().getWidth() / 2;
+                int y = boss.getPosition().getY();
+                new EnemyBullet(game, rndKind, x, y);
+            }
+        }
 
     }
 
@@ -129,7 +151,4 @@ public class Spawner {
         return rnd;
     }
 
-    public void addEnemyShip(EnemyShip enemyShip) {
-        enemyShips.add(enemyShip);
-    }
 }

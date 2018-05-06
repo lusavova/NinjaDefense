@@ -37,7 +37,7 @@ public class WinState extends GameState {
             System.exit(0);
         }
 
-        if (k == KeyEvent.VK_SPACE) {
+        if (k == KeyEvent.VK_ENTER) {
             currentStateIndex = GameStateType.PLAYSTATE.ordinal();
             gsm.setState(currentStateIndex);
             gsm.resetGame();

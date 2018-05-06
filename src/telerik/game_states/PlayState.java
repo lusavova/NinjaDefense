@@ -23,7 +23,8 @@ public class PlayState extends GameState {
     private Spawner spawner;
     private BufferedImage playIcon;
 
-    private int numOfEnemyShips;
+    private boolean won;
+    private boolean initialSpawnDone;
 
     private boolean isShooting = false;
 
@@ -38,32 +39,25 @@ public class PlayState extends GameState {
             e.printStackTrace();
         }
 
-        handler = new Handler(this);
-        player = new Player(this);
-        spawner = new Spawner(this);
-        spawner.initSpawn();
+        this.handler = new Handler(this);
+        this.player = new Player(this);
+        this.spawner = new Spawner(this);
+        this.spawner.initSpawn();
 
-        numOfEnemyShips = spawner.getEnemyShips().size();
-    }
-
-    public int getNumOfEnemyShips() {
-        return numOfEnemyShips;
-    }
-
-    public void setNumOfEnemyShips(int numOfEnemyShips) {
-        this.numOfEnemyShips = numOfEnemyShips;
+        this.won = false;
+        this.initialSpawnDone = false;
     }
 
     @Override
     public void update() {
-        handler.update();
         spawner.spawnObject();
+        handler.update();
 
         if (player.getLives() == 0) {
             gsm.setState(GameStateType.GAMEOVER.ordinal());
         }
 
-        if (numOfEnemyShips == 0){
+        if (won) {
             gsm.setState(GameStateType.WIN.ordinal());
         }
     }
@@ -169,5 +163,17 @@ public class PlayState extends GameState {
 
     public GameStateManager getGameStateManager() {
         return gsm;
+    }
+
+    public void setWon(boolean won) {
+        this.won = won;
+    }
+
+    public void setInitialSpawnDone(boolean initialSpawnDone) {
+        this.initialSpawnDone = initialSpawnDone;
+    }
+
+    public boolean isInitialSpawnDone() {
+        return initialSpawnDone;
     }
 }

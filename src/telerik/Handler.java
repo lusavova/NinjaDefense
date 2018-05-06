@@ -45,6 +45,8 @@ public class Handler {
         gameObjects.forEach(obj -> obj.render(g));
         
         drawControlPanel(g);
+
+        game.setInitialSpawnDone(true);
     }
 
     public void update() {
@@ -126,5 +128,9 @@ public class Handler {
 
     public PlayState getGame() {
         return game;
+    }
+
+    public HashSet<Entity> getGameObjects() {
+        return gameObjects;
     }
 }

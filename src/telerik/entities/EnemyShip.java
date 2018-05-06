@@ -20,7 +20,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     private int shootDelay;
     private int width;
     private int height;
-    private int isHurting = 0;
+    private int isHurting;
 
     public EnemyShip(PlayState game, int level, int x, int y, int speed) throws NoSuchEntityException {
         super(game);
@@ -28,6 +28,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         if(level > 1) {
             throw new NoSuchEntityException("No such enemy ship.");
         }
+
+        this.isHurting = 0;
         this.setLevel(level);
         this.speed = speed;
         this.shootDelay = game.getSpawner().getRnd().nextInt(Constants.ENEMY_BULLETS_SHOOT_DELAY) ;
@@ -53,8 +55,6 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.setPosition(new Position(x, y));
 
         this.setBounds();
-        addToEnemyShips();
-
     }
 
 
@@ -70,8 +70,6 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         if (getHealth() <= 0) {
             new Explosion(getGame(), this);
             getGame().getHandler().addToRemove(this);
-
-            getGame().setNumOfEnemyShips(getGame().getNumOfEnemyShips() - 1);
         }
 
         if (shootDelay == 0) {
@@ -81,7 +79,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         shootDelay--;
         getPosition().setX(getPosition().getX() + speed);
 
-        if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - getSize().getWidth()) {
+        if (getPosition().getX() <= 0 || getPosition().getX() >= Constants.WIDTH - width) {
             speed *= -1;
         }
 
@@ -130,10 +128,6 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         updateFrame();
         setHealth(getHealth() - bullet.getPower());
         getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
-    }
-
-    private void addToEnemyShips() {
-        getGame().getSpawner().addEnemyShip(this);
     }
 
     public int getShootDelay() {

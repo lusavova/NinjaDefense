@@ -22,7 +22,7 @@ public class Constants {
     public static final int INITIAL_LIVES = 3;
     public static final int INITIAL_POINTS = 0;
     public static final int INITIAL_BULLETS = 300;
-    public static final int INITIAL_HEALTH = 100;
+    public static final int INITIAL_HEALTH = 300;
 
 
     public static final long FPS = 60;
@@ -107,11 +107,18 @@ public class Constants {
 
     public static final int ENEMY_BULLET_VEL = 3;
 
-    public static final int ENEMY_1_HEALTH = 3000;
-    public static final int ENEMY_2_HEALTH = 5000;
+    public static final int ENEMY_1_HEALTH = 100;
+    public static final int ENEMY_2_HEALTH = 100;
 
     public static final int AMMO_AWARD = 100;
     public static final int FOOD_AWARD = 20;
 
     public static final int ALIEN_POWER = 30;
+
+    public static final int BOSS_WIDTH = 169;
+    public static final int BOSS_HEIGHT = 206;
+    public static final int BOSS_HEALTH = 5000;
+    public static final int BOSS_SPEED_X = 7;
+    public static final int BOSS_SPEED_Y = 3;
+    public static final int BOSS_SHOOT_DELAY = 30;
 }
