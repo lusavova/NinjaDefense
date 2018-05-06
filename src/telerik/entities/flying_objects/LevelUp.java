@@ -27,18 +27,12 @@ public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable 
         this.setImage(game.getSpriteSheet().getImage(567, 0, width, height));
 
         this.setBounds();
-        addToCollidableWithOwnShip();
     }
 
 
     @Override
     public void onCollide() {
         getGame().getHandler().addToRemove(this);
-    }
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
     }
 
     @Override

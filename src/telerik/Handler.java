@@ -17,37 +17,14 @@ public class Handler {
 
     private HashSet<Entity> gameObjects;
     private HashSet<Entity> gameObjectsTemp;
-
-    private HashSet<Movable> movables;
-    private HashSet<Movable> movablesTemp;
-
     private HashSet<Entity> gameObjectsToBeRemoved;
-
-    private HashSet<FriendlyBullet> ownBullets;
-    private HashSet<FriendlyBullet> ownBulletsTemp;
-
-    private HashSet<CollidesWithOwnShip> shipCollidables;
-    private HashSet<CollidesWithOwnShip> shipCollidablesTemp;
-
-    private HashSet<CollidesWithOwnBullet> bulletCollidables;
-    private HashSet<CollidesWithOwnBullet> bulletCollidablesTemp;
 
     private Font buttonsFont;
 
     public Handler(PlayState game) {
         this.game = game;
         this.gameObjects = new HashSet<>();
-        this.movables = new HashSet<>();
         this.gameObjectsTemp = new HashSet<>();
-        this.movablesTemp = new HashSet<>();
-
-        this.ownBullets = new HashSet<>();
-        this.shipCollidables = new HashSet<>();
-        this.bulletCollidables = new HashSet<>();
-        this.ownBulletsTemp = new HashSet<>();
-        this.shipCollidablesTemp = new HashSet<>();
-        this.bulletCollidablesTemp = new HashSet<>();
-
         this.gameObjectsToBeRemoved = new HashSet<>();
 
         try {
@@ -61,12 +38,32 @@ public class Handler {
 
     public void render(Graphics2D g) {
         gameObjects.forEach(obj -> obj.render(g));
-
-        //draw control panel
         drawControlPanel(g);
     }
 
-    public void drawControlPanel (Graphics2D g) {
+    public void update() {
+
+        gameObjects.addAll(gameObjectsTemp);
+        gameObjectsTemp.clear();
+        gameObjects.removeAll(gameObjectsToBeRemoved);
+        gameObjectsToBeRemoved.clear();
+
+        gameObjects
+                .stream()
+                .filter(obj -> obj instanceof Movable)
+                .map(obj -> (Movable) obj)
+                .forEach(gameObj -> gameObj.update());
+
+        gameObjects.forEach(obj -> {
+            if (obj instanceof Collectable) {
+                ((Collectable) obj).shouldDie();
+            }
+        });
+
+        checkForCollisions();
+    }
+
+    private void drawControlPanel(Graphics2D g) {
         g.drawImage(image, 0, 0, null);
 
         g.setColor(new Color(179, 24, 71));
@@ -83,62 +80,44 @@ public class Handler {
         g.drawString(bullets, 40, 95);
     }
 
-    public void update() {
-        gameObjects.addAll(gameObjectsTemp);
-        gameObjectsTemp.clear();
-
-        gameObjects.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        shipCollidables.removeAll(gameObjectsToBeRemoved);
-        bulletCollidables.removeAll(gameObjectsToBeRemoved);
-        movables.removeAll(gameObjectsToBeRemoved);
-        ownBullets.removeAll(gameObjectsToBeRemoved);
-
-        gameObjectsToBeRemoved.clear();
-
-        movables.addAll(movablesTemp);
-        movablesTemp.clear();
-        movables.forEach(obj -> obj.update());
-        gameObjects.forEach(obj -> {
-            if (obj instanceof Collectable) {
-                ((Collectable) obj).shouldDie();
-            }
-        });
-        checkForCollisions();
-    }
-
     private void checkForCollisions() {
-        //Exception in thread "GameThread" java.util.ConcurrentModificationException
-        bulletCollidables.addAll(bulletCollidablesTemp);
-        shipCollidables.addAll(shipCollidablesTemp);
-        ownBullets.addAll(ownBulletsTemp);
 
-        bulletCollidablesTemp.clear();
-        shipCollidablesTemp.clear();
-        ownBulletsTemp.clear();
+        gameObjects
+                .stream()
+                .filter(obj -> obj instanceof CollidesWithOwnBullet)
+                .map(obj -> (CollidesWithOwnBullet) obj)
+                .forEach(
+                        collidable -> {
+                            gameObjects
+                                    .stream()
+                                    .filter(obj -> obj instanceof FriendlyBullet)
+                                    .map(obj -> (FriendlyBullet) obj)
+                                    .forEach(bullet -> {
+                                        if (bullet.getBounds().intersects(collidable.getBounds())) {
+                                            bullet.onCollide();
+                                            collidable.onCollideWithBullet(bullet);
+                                        }
+                                    });
+                        }
+                );
 
-        bulletCollidables.forEach(collidable -> {
-            ownBullets.forEach(bullet -> {
-                if (bullet.getBounds().intersects(collidable.getBounds())) {
-                    bullet.onCollide();
-                    collidable.onCollideWithBullet(bullet);
-                }
-            });
-        });
-        shipCollidables.forEach(collidable -> {
-            if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
-                game.getPlayer().getShip().onCollide(collidable);
-                collidable.onCollideWithShip();
-            }
-        });
+        gameObjects
+                .stream()
+                .filter(obj -> obj instanceof CollidesWithOwnShip)
+                .map(obj -> (CollidesWithOwnShip) obj)
+                .forEach(
+                        collidable -> {
+                            if (game.getPlayer().getShip().getBounds().intersects(collidable.getBounds())) {
+                                game.getPlayer().getShip().onCollide(collidable);
+                                collidable.onCollideWithShip();
+                            }
+                        }
+                );
+
     }
 
     public void addGameObject(Entity gameObject) {
         this.gameObjectsTemp.add(gameObject);
-    }
-
-    public void addMovable(Movable gameObject) {
-        this.movablesTemp.add(gameObject);
     }
 
     public void addToRemove(Entity gameObject) {
@@ -147,17 +126,5 @@ public class Handler {
 
     public PlayState getGame() {
         return game;
-    }
-
-    public void addOwnBullet(FriendlyBullet friendlyBullet) {
-        ownBulletsTemp.add(friendlyBullet);
-    }
-
-    public void addCollidableWithShip(CollidesWithOwnShip gameObj) {
-        shipCollidablesTemp.add(gameObj);
-    }
-
-    public void addCollidableWithBullet(CollidesWithOwnBullet gameObj) {
-        bulletCollidablesTemp.add(gameObj);
     }
 }

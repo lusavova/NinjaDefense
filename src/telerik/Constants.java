@@ -108,8 +108,8 @@ public class Constants {
 
     public static final int ENEMY_BULLET_VEL = 3;
 
-    public static final int ENEMY_1_HEALTH = 5000;
-    public static final int ENEMY_2_HEALTH = 10000;
+    public static final int ENEMY_1_HEALTH = 100;
+    public static final int ENEMY_2_HEALTH = 200;
 
     public static final int AMMO_AWARD = 100;
     public static final int FOOD_AWARD = 20;

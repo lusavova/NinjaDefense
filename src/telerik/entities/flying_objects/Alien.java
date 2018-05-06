@@ -27,10 +27,6 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         this.setPosition(new Position(x, Constants.CONTROL_PANEL_HEIGHT));
         this.setImage(game.getSpriteSheet().getImage(600, 0, width, height));
         this.setBounds();
-
-        addToMovableCollection();
-        addToCollidableWithOwnBullet();
-        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -43,10 +39,6 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
         }
     }
 
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
 
     @Override
     public void onCollide() {
@@ -58,16 +50,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Movable, Coll
     public void onPlanetReach() {
         int stateIndex = GameStateType.GAMEOVER.ordinal();
         getGame().getGameStateManager().setState(stateIndex);
-    }
-
-    @Override
-    public void addToCollidableWithOwnBullet() {
-        getGame().getHandler().addCollidableWithBullet(this);
-    }
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
+        System.out.println(this + " reached the planet and abducted The Coding Ninja. GAME OVER.");
     }
 
     @Override

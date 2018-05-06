@@ -25,7 +25,6 @@ public class SmallExplosion extends Entity implements Movable {
         this.setPosition(new Position(x, y));
 
         setSprites();
-        addToMovableCollection();
     }
 
     private void setSprites() {
@@ -45,11 +44,6 @@ public class SmallExplosion extends Entity implements Movable {
         if (live == 0 ) {
             getGame().getHandler().addToRemove(this);
         }
-    }
-
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
     }
 
     @Override

@@ -43,9 +43,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
 
         setSprites(kind);
         setBounds();
-
-        addToMovableCollection();
-        addToCollidableWithOwnShip();
     }
 
     public void setSprites(CometType kind) {
@@ -93,10 +90,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
         }
     }
 
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
 
     @Override
     public void onCollide() {
@@ -109,11 +102,6 @@ public class Comet extends FlyingObject implements Movable, CollidesWithOwnShip,
         if (frame == getImageList().size()) {
             frame = 0;
         }
-    }
-
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
     }
 
     @Override

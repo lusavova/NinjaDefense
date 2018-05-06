@@ -27,7 +27,6 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
         this.setImage(game.getSpriteSheet().getImage(525, 0, width, height));
 
         this.setBounds();
-        addToCollidableWithOwnShip();
     }
 
 
@@ -36,11 +35,6 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
         getGame().getHandler().addToRemove(this);
     }
 
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-
-    }
 
     @Override
     public void onCollideWithShip() {

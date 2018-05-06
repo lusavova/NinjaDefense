@@ -10,15 +10,10 @@ public abstract class Ship extends Entity implements Movable {
     public Ship(PlayState game) {
         super(game);
         this.level = 1;
-        addToMovableCollection();
     }
 
     public Ship() {
 
-    }
-
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
     }
 
     public int getHealth() {

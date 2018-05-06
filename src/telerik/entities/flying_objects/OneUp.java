@@ -28,7 +28,6 @@ public class OneUp extends Entity implements CollidesWithOwnShip, Collectable {
         this.setImage(game.getSpriteSheet().getImage(542, 0, width, height));
 
         this.setBounds();
-        addToCollidableWithOwnShip();
     }
 
     @Override
@@ -36,10 +35,6 @@ public class OneUp extends Entity implements CollidesWithOwnShip, Collectable {
         getGame().getHandler().addToRemove(this);
     }
 
-    @Override
-    public void addToCollidableWithOwnShip() {
-        getGame().getHandler().addCollidableWithShip(this);
-    }
 
     @Override
     public void onCollideWithShip() {

@@ -67,9 +67,6 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         this.setBounds();
 
         this.ship.setBullets(this.ship.getBullets() - 1);
-
-        addToMovableCollection();
-        addToBulletCollection();
     }
 
 
@@ -80,15 +77,6 @@ public class FriendlyBullet extends FlyingObject implements Movable {
         if (getPosition().getY() <= 0) {
             getGame().getHandler().addToRemove(this);
         }
-    }
-
-    @Override
-    public void addToMovableCollection() {
-        getGame().getHandler().addMovable(this);
-    }
-
-    private void addToBulletCollection() {
-        getGame().getHandler().addOwnBullet(this);
     }
 
     @Override
