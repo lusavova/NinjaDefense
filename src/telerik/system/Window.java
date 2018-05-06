@@ -1,6 +1,7 @@
-package telerik;
+package telerik.system;
 
 import telerik.Constants;
+import telerik.system.Game;
 
 import javax.swing.*;
 

@@ -1,6 +1,7 @@
-package telerik.interfaces;
+package telerik.abstract_classes;
 
 import telerik.game_states.PlayState;
+import telerik.interfaces.Collidable;
 
 public abstract class FlyingObject extends Entity implements Collidable {
 

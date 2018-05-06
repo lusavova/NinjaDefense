@@ -1,8 +1,6 @@
-package telerik;
+package telerik.system;
 
 import telerik.Constants;
-import telerik.entities.EnemyShip;
-import telerik.exceptions.NoSuchEntityException;
 import telerik.game_states.GameStateManager;
 import telerik.interfaces.GameEngine;
 
@@ -47,7 +45,7 @@ public class Game extends JPanel implements Runnable, GameEngine, KeyListener {
 
     private void init() throws IOException {
         running = true;
-        BufferedImage bufferedSprite = ImageIO.read(getClass().getResourceAsStream("res/spriteSheet.png"));
+        BufferedImage bufferedSprite = ImageIO.read(getClass().getResourceAsStream("../res/spriteSheet.png"));
         spriteSheet = new SpriteSheet(bufferedSprite);
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         g = (Graphics2D) image.getGraphics();

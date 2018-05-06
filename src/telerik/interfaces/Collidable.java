@@ -1,6 +1,6 @@
 package telerik.interfaces;
 
-import telerik.Bound;
+import telerik.system.Bound;
 
 public interface Collidable {
     public void onCollide();

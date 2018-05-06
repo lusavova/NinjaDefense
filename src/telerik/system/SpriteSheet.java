@@ -1,4 +1,4 @@
-package telerik;
+package telerik.system;
 
 import java.awt.image.BufferedImage;
 

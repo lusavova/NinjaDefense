@@ -2,12 +2,12 @@ package telerik.entities.flying_objects;
 
 
 import telerik.Constants;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Position;
+import telerik.system.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.Collectable;
 import telerik.interfaces.CollidesWithOwnShip;
-import telerik.interfaces.Entity;
+import telerik.abstract_classes.Entity;
 
 
 public class LevelUp extends Entity implements CollidesWithOwnShip, Collectable {

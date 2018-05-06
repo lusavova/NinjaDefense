@@ -1,13 +1,13 @@
 package telerik.entities.flying_objects;
 
 import telerik.Constants;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Position;
+import telerik.system.Size;
 import telerik.entities.OwnShip;
 import telerik.entities.SmallExplosion;
 import telerik.enumerators.BulletShipSide;
 import telerik.game_states.PlayState;
-import telerik.interfaces.FlyingObject;
+import telerik.abstract_classes.FlyingObject;
 import telerik.interfaces.Updatable;
 
 public class FriendlyBullet extends FlyingObject implements Updatable {

@@ -1,8 +1,8 @@
-package telerik.interfaces;
+package telerik.abstract_classes;
 
-import telerik.Bound;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Bound;
+import telerik.system.Position;
+import telerik.system.Size;
 import telerik.game_states.PlayState;
 
 import java.awt.*;

@@ -1,9 +1,10 @@
 package telerik.game_states;
 
 import telerik.Constants;
-import telerik.Position;
+import telerik.system.Position;
 import telerik.enumerators.GameStateButtons;
 import telerik.enumerators.GameStateType;
+import telerik.system.Background;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -79,10 +80,9 @@ public class GameOverState extends GameState {
 
     private void select() {
         if (buttons[currentChoice] == GameStateButtons.NEW_GAME) {
-
+            gsm.resetGame();
             currentStateIndex = GameStateType.PLAYSTATE.ordinal();
             gsm.setState(currentStateIndex);
-            gsm.resetGame();
         } else if (buttons[currentChoice] == GameStateButtons.EXIT) {
 
             System.exit(1);

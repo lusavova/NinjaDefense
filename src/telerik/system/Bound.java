@@ -1,8 +1,8 @@
-package telerik;
+package telerik.system;
 
 import telerik.entities.flying_objects.Comet;
 import telerik.enumerators.CometType;
-import telerik.interfaces.Entity;
+import telerik.abstract_classes.Entity;
 
 import java.awt.*;
 

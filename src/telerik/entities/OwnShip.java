@@ -2,12 +2,12 @@ package telerik.entities;
 
 
 import telerik.Constants;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Position;
+import telerik.system.Size;
 import telerik.game_states.PlayState;
 import telerik.interfaces.Collidable;
 import telerik.interfaces.HurtingShip;
-import telerik.interfaces.Ship;
+import telerik.abstract_classes.Ship;
 
 public class OwnShip extends Ship implements Collidable {
 

@@ -1,6 +1,7 @@
-package telerik.interfaces;
+package telerik.abstract_classes;
 
 import telerik.game_states.PlayState;
+import telerik.interfaces.Updatable;
 
 public abstract class Ship extends Entity implements Updatable {
     private int health;

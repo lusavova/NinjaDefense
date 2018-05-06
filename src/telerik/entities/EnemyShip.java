@@ -1,18 +1,13 @@
 package telerik.entities;
 
 import telerik.Constants;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Position;
+import telerik.system.Size;
+import telerik.abstract_classes.Ship;
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.exceptions.NoSuchEntityException;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
-
-import java.awt.*;
-import java.util.Random;
-
-import static javax.swing.text.StyleConstants.Size;
-import static javax.swing.text.StyleConstants.getSpaceAbove;
 
 public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 

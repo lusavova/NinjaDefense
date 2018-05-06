@@ -2,9 +2,9 @@ package telerik.entities;
 
 
 import telerik.Constants;
-import telerik.Position;
+import telerik.system.Position;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Entity;
+import telerik.abstract_classes.Entity;
 import telerik.interfaces.Updatable;
 
 public class SmallExplosion extends Entity implements Updatable {

@@ -1,12 +1,11 @@
 package telerik.game_states;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import telerik.Game;
+import telerik.system.Game;
 import telerik.Player;
-import telerik.SpriteSheet;
+import telerik.system.SpriteSheet;
 import telerik.enumerators.GameStateType;
 
 public class GameStateManager {

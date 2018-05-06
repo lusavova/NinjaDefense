@@ -5,11 +5,13 @@ import telerik.entities.OwnShip;
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.enumerators.BulletShipSide;
 import telerik.enumerators.GameStateType;
+import telerik.system.Background;
+import telerik.system.Position;
+import telerik.system.SpriteSheet;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -58,6 +60,7 @@ public class PlayState extends GameState {
         }
 
         if (won) {
+            gsm.setState(GameStateType.PAUSE.ordinal());
             gsm.setState(GameStateType.WIN.ordinal());
         }
     }

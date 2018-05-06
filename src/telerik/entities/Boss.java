@@ -1,14 +1,14 @@
 package telerik.entities;
 
 import telerik.Constants;
-import telerik.Position;
-import telerik.Size;
+import telerik.system.Position;
+import telerik.system.Size;
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
 import telerik.interfaces.CollidesWithOwnBullet;
 import telerik.interfaces.CollidesWithOwnShip;
 import telerik.interfaces.HurtingShip;
-import telerik.interfaces.Ship;
+import telerik.abstract_classes.Ship;
 
 public class Boss extends Ship implements CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 

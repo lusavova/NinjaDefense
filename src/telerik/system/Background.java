@@ -1,6 +1,4 @@
-package telerik.game_states;
-
-import telerik.Position;
+package telerik.system;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

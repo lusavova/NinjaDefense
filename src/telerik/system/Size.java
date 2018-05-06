@@ -1,4 +1,4 @@
-package telerik;
+package telerik.system;
 
 public class Size {
     private int width;

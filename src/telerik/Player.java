@@ -2,7 +2,6 @@ package telerik;
 
 import telerik.entities.*;
 import telerik.game_states.PlayState;
-import telerik.interfaces.Ship;
 
 public class Player {
 

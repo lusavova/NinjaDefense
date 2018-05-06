@@ -1,8 +1,9 @@
 package telerik.game_states;
 
 import telerik.Constants;
-import telerik.Position;
+import telerik.system.Position;
 import telerik.enumerators.GameStateType;
+import telerik.system.Background;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

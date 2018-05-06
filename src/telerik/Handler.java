@@ -1,5 +1,6 @@
 package telerik;
 
+import telerik.abstract_classes.Entity;
 import telerik.entities.flying_objects.FriendlyBullet;
 import telerik.game_states.PlayState;
 import telerik.interfaces.*;
