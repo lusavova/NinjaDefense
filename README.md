@@ -23,10 +23,9 @@
     The graphical interface was achieved though the Swing GUI Toolkit.
     The main purpose of the task was to exercise the 4 pillars of OOP - Inheritance, Abstraction, Encapsulation and
     Polymorphism.</p>
-
+    <img src="https://github.com/lusavova/spaceGame/blob/master/Class_Hierarchy.png"/>
 <h6>More: </h6>
 <ul>
-    <li><a href="https://github.com/lusavova/spaceGame/blob/master/Class_Hierarchy.png">Class Hierarchy</a></li>
     <li><a href="http://telerikacademy.com/">Telerik Academy</a></li>
     <li><a href="https://github.com/lusavova/spaceGame">Ninja Defense project repository</a></li>
     <li>Developer team <strong>"Black Panther"</strong>:
