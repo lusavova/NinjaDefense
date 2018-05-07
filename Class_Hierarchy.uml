@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>telerik.abstract_classes.Entity</OriginalElement>
+  <nodes>
+    <node x="2070.4613467261906" y="2235.5">telerik.interfaces.HurtingShip</node>
+    <node x="896.0" y="2522.0">telerik.entities.OwnShip</node>
+    <node x="2242.8125" y="2544.0">telerik.entities.flying_objects.Comet</node>
+    <node x="1232.5625" y="2213.5">telerik.abstract_classes.Ship</node>
+    <node x="1532.5625" y="2169.0">telerik.entities.Explosion</node>
+    <node x="0.0" y="3515.0">telerik.Player</node>
+    <node x="621.75" y="2907.0">telerik.game_states.GameState</node>
+    <node x="2471.8125" y="2588.5">telerik.entities.flying_objects.Alien</node>
+    <node x="2659.0" y="2907.0">telerik.game_states.GameStateManager</node>
+    <node x="197.0" y="3515.0">telerik.interfaces.GameEngine</node>
+    <node x="672.0" y="2621.5">telerik.entities.flying_objects.Food</node>
+    <node x="1939.8125" y="2577.5">telerik.entities.flying_objects.EnemyBullet</node>
+    <node x="1707.5625" y="2224.5">telerik.interfaces.CollidesWithOwnBullet</node>
+    <node x="1636.8125" y="2544.0">telerik.entities.EnemyShip</node>
+    <node x="1636.25" y="2907.0">java.lang.Enum</node>
+    <node x="1127.0625" y="2522.0">telerik.entities.Boss</node>
+    <node x="1462.0" y="3319.0">telerik.enumerators.GameStateButtons</node>
+    <node x="0.0" y="3119.5">telerik.game_states.GameOverState</node>
+    <node x="224.0" y="2621.5">telerik.entities.flying_objects.Ammo</node>
+    <node x="1630.0" y="3297.0">telerik.enumerators.GameStateType</node>
+    <node x="463.00000000000006" y="3108.0">telerik.game_states.PlayState</node>
+    <node x="2774.8125" y="2588.0">telerik.entities.flying_objects.FriendlyBullet</node>
+    <node x="1401.8125" y="1824.5">telerik.interfaces.Collidable</node>
+    <node x="748.0" y="3119.5">telerik.game_states.MenuState</node>
+    <node x="2085.0" y="2907.0">telerik.Spawner</node>
+    <node x="2375.7113467261906" y="2235.5">telerik.abstract_classes.FlyingObject</node>
+    <node x="448.0" y="2621.5">telerik.entities.flying_objects.LevelUp</node>
+    <node x="970.0" y="3218.5">telerik.game_states.PauseState</node>
+    <node x="2963.0" y="3009.0">telerik.exceptions.NoSuchEntityException</node>
+    <node x="2072.3625" y="1836.0">telerik.interfaces.Updatable</node>
+    <node x="384.0" y="3515.0">telerik.GameLauncher</node>
+    <node x="1196.0" y="3141.5">telerik.game_states.WinState</node>
+    <node x="1008.5625" y="2224.5">telerik.interfaces.CollidesWithOwnShip</node>
+    <node x="2958.0" y="2907.0">java.lang.Exception</node>
+    <node x="241.00000000000006" y="3207.5">telerik.game_states.HelpState</node>
+    <node x="-400.0" y="2020.0">telerik.Constants</node>
+    <node x="2304.0" y="2907.0">telerik.Handler</node>
+    <node x="1357.5625" y="2169.0">telerik.entities.SmallExplosion</node>
+    <node x="238.0354352678571" y="2224.5">telerik.interfaces.Collectable</node>
+    <node x="0.0" y="2621.5">telerik.entities.flying_objects.OneUp</node>
+    <node x="1783.0" y="3341.0">telerik.enumerators.CometType</node>
+    <node x="1915.0" y="3319.0">telerik.enumerators.BulletShipSide</node>
+    <node x="862.0" y="1725.0">telerik.abstract_classes.Entity</node>
+    <node x="2544.226171875" y="2224.5">telerik.interfaces.ReachingPlanet</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="telerik.entities.flying_objects.OneUp" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="68.0" y="-70.5" />
+      <point x="170.0" y="2452.0" />
+      <point x="1019.8958333333334" y="2452.0" />
+      <point x="-90.66666666666663" y="26.0" />
+    </edge>
+    <edge source="telerik.interfaces.CollidesWithOwnBullet" target="telerik.interfaces.Collidable">
+      <point x="0.0" y="-26.0" />
+      <point x="1849.0625" y="2069.0" />
+      <point x="1499.3125" y="2069.0" />
+      <point x="19.5" y="37.5" />
+    </edge>
+    <edge source="telerik.enumerators.BulletShipSide" target="java.lang.Enum">
+      <point x="0.0" y="-59.0" />
+      <point x="1977.5" y="3272.0" />
+      <point x="1866.375" y="3272.0" />
+      <point x="98.625" y="170.0" />
+    </edge>
+    <edge source="telerik.entities.OwnShip" target="telerik.interfaces.Collidable">
+      <point x="-52.25" y="-170.0" />
+      <point x="948.25" y="2109.0" />
+      <point x="1421.3125" y="2109.0" />
+      <point x="-58.5" y="37.5" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Comet" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="-78.375" y="-148.0" />
+      <point x="2268.9375" y="2422.0" />
+      <point x="1178.5625" y="2422.0" />
+      <point x="68.0" y="26.0" />
+    </edge>
+    <edge source="telerik.enumerators.GameStateType" target="java.lang.Enum">
+      <point x="0.0" y="-81.0" />
+      <point x="1696.5" y="3272.0" />
+      <point x="1734.875" y="3272.0" />
+      <point x="-32.875" y="170.0" />
+    </edge>
+    <edge source="telerik.entities.SmallExplosion" target="telerik.interfaces.Updatable">
+      <point x="38.75" y="-81.5" />
+      <point x="1473.8125" y="2139.0" />
+      <point x="2102.7910714285717" y="2139.0" />
+      <point x="-40.57142857142844" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.EnemyBullet" target="telerik.interfaces.Updatable">
+      <point x="56.59999999999991" y="-114.5" />
+      <point x="2137.9125" y="2482.0" />
+      <point x="2194.9613467261906" y="2482.0" />
+      <point x="2194.9613467261906" y="2149.0" />
+      <point x="2143.3625" y="2149.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="telerik.abstract_classes.FlyingObject" target="telerik.abstract_classes.Entity">
+      <point x="-29.25" y="-15.0" />
+      <point x="2404.9613467261906" y="2059.0" />
+      <point x="1104.8125" y="2059.0" />
+      <point x="113.3125" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Comet" target="telerik.interfaces.HurtingShip">
+      <point x="-26.125" y="-148.0" />
+      <point x="2321.1875" y="2412.0" />
+      <point x="2150.261346726191" y="2412.0" />
+      <point x="22.800000000000182" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.SmallExplosion" target="telerik.abstract_classes.Entity">
+      <point x="-38.75" y="-81.5" />
+      <point x="1396.3125" y="2089.0" />
+      <point x="1040.0625" y="2089.0" />
+      <point x="48.5625" y="137.0" />
+    </edge>
+    <edge source="telerik.game_states.HelpState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-81.5" />
+      <point x="342.00000000000006" y="3078.0" />
+      <point x="672.0" y="3078.0" />
+      <point x="-50.25" y="70.5" />
+    </edge>
+    <edge source="telerik.entities.EnemyShip" target="telerik.interfaces.HurtingShip">
+      <point x="106.125" y="-148.0" />
+      <point x="1884.4375" y="2492.0" />
+      <point x="2104.6613467261905" y="2492.0" />
+      <point x="-22.800000000000182" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.EnemyShip" target="telerik.abstract_classes.Ship">
+      <point x="-35.375" y="-148.0" />
+      <point x="1742.9375" y="2452.0" />
+      <point x="1320.0625" y="2452.0" />
+      <point x="35.0" y="37.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="-117.91666666666652" y="-103.5" />
+      <point x="2495.3958333333335" y="2402.0" />
+      <point x="1201.2291666666667" y="2402.0" />
+      <point x="90.66666666666674" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Food" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="68.0" y="-70.5" />
+      <point x="842.0" y="2482.0" />
+      <point x="1087.8958333333333" y="2482.0" />
+      <point x="-22.666666666666742" y="26.0" />
+    </edge>
+    <edge source="telerik.abstract_classes.Ship" target="telerik.abstract_classes.Entity">
+      <point x="-26.25" y="-37.0" />
+      <point x="1258.8125" y="2099.0" />
+      <point x="1007.6875" y="2099.0" />
+      <point x="16.1875" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.OwnShip" target="telerik.abstract_classes.Ship">
+      <point x="52.25" y="-170.0" />
+      <point x="1052.75" y="2492.0" />
+      <point x="1250.0625" y="2492.0" />
+      <point x="-35.0" y="37.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.interfaces.Updatable">
+      <point x="117.91666666666652" y="-103.5" />
+      <point x="2731.2291666666665" y="2502.0" />
+      <point x="2738.726171875" y="2502.0" />
+      <point x="2738.726171875" y="2029.0" />
+      <point x="2183.9339285714286" y="2029.0" />
+      <point x="40.57142857142844" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.LevelUp" target="telerik.abstract_classes.Entity">
+      <point x="0.0" y="-70.5" />
+      <point x="550.875" y="2089.0" />
+      <point x="942.9375" y="2089.0" />
+      <point x="-48.5625" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Ammo" target="telerik.interfaces.Collectable">
+      <point x="0.0" y="-70.5" />
+      <point x="326.0" y="2442.0" />
+      <point x="297.2854352678571" y="2442.0" />
+      <point x="-19.75" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Comet" target="telerik.interfaces.Updatable">
+      <point x="78.375" y="-148.0" />
+      <point x="2425.6875" y="2502.0" />
+      <point x="2503.2113467261906" y="2502.0" />
+      <point x="2503.2113467261906" y="2039.0" />
+      <point x="2163.648214285714" y="2039.0" />
+      <point x="20.28571428571422" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.interfaces.ReachingPlanet">
+      <point x="70.75" y="-103.5" />
+      <point x="2684.0625" y="2362.0" />
+      <point x="2636.226171875" y="2362.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="telerik.game_states.PauseState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-70.5" />
+      <point x="1073.0" y="3078.0" />
+      <point x="772.5" y="3078.0" />
+      <point x="50.25" y="70.5" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.EnemyBullet" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="-113.20000000000005" y="-114.5" />
+      <point x="1968.1125" y="2442.0" />
+      <point x="1155.8958333333335" y="2442.0" />
+      <point x="45.333333333333485" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.EnemyShip" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="-106.125" y="-148.0" />
+      <point x="1672.1875" y="2462.0" />
+      <point x="1133.2291666666667" y="2462.0" />
+      <point x="22.666666666666742" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Ammo" target="telerik.abstract_classes.Entity">
+      <point x="-68.0" y="-70.5" />
+      <point x="258.0" y="2432.0" />
+      <point x="211.0238467261904" y="2432.0" />
+      <point x="211.0238467261904" y="2079.0" />
+      <point x="910.5625" y="2079.0" />
+      <point x="-80.9375" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Ammo" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="68.0" y="-70.5" />
+      <point x="394.0" y="2462.0" />
+      <point x="1042.5625" y="2462.0" />
+      <point x="-68.0" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.Explosion" target="telerik.interfaces.Updatable">
+      <point x="38.75" y="-81.5" />
+      <point x="1648.8125" y="2149.0" />
+      <point x="2123.0767857142855" y="2149.0" />
+      <point x="-20.28571428571422" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.interfaces.HurtingShip">
+      <point x="-23.583333333333485" y="-103.5" />
+      <point x="2589.7291666666665" y="2382.0" />
+      <point x="2173.06134672619" y="2382.0" />
+      <point x="45.59999999999991" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.interfaces.CollidesWithOwnBullet">
+      <point x="-70.75" y="-103.5" />
+      <point x="2542.5625" y="2392.0" />
+      <point x="1955.1875" y="2392.0" />
+      <point x="106.125" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.EnemyBullet" target="telerik.interfaces.CollidesWithOwnBullet">
+      <point x="-56.59999999999991" y="-114.5" />
+      <point x="2024.7125" y="2432.0" />
+      <point x="1884.4375" y="2432.0" />
+      <point x="35.375" y="26.0" />
+    </edge>
+    <edge source="telerik.enumerators.CometType" target="java.lang.Enum">
+      <point x="0.0" y="-37.0" />
+      <point x="1839.0" y="3272.0" />
+      <point x="1800.625" y="3272.0" />
+      <point x="32.875" y="170.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.FriendlyBullet" target="telerik.abstract_classes.FlyingObject">
+      <point x="-39.0" y="-104.0" />
+      <point x="2813.8125" y="2352.0" />
+      <point x="2478.0863467261906" y="2352.0" />
+      <point x="43.875" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.LevelUp" target="telerik.interfaces.Collectable">
+      <point x="-68.0" y="-70.5" />
+      <point x="482.0" y="2442.0" />
+      <point x="336.7854352678571" y="2442.0" />
+      <point x="19.75" y="26.0" />
+    </edge>
+    <edge source="telerik.abstract_classes.FlyingObject" target="telerik.interfaces.Collidable">
+      <point x="29.25" y="-15.0" />
+      <point x="2463.4613467261906" y="2049.0" />
+      <point x="1538.3125" y="2049.0" />
+      <point x="58.5" y="37.5" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Food" target="telerik.interfaces.Collectable">
+      <point x="-68.0" y="-70.5" />
+      <point x="706.0" y="2432.0" />
+      <point x="376.2854352678571" y="2432.0" />
+      <point x="59.25" y="26.0" />
+    </edge>
+    <edge source="telerik.game_states.GameOverState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-169.5" />
+      <point x="110.5" y="3068.0" />
+      <point x="638.5" y="3068.0" />
+      <point x="-83.75" y="70.5" />
+    </edge>
+    <edge source="telerik.exceptions.NoSuchEntityException" target="java.lang.Exception">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.EnemyBullet" target="telerik.interfaces.HurtingShip">
+      <point x="0.0" y="-114.5" />
+      <point x="2081.3125" y="2502.0" />
+      <point x="2127.4613467261906" y="2502.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.OneUp" target="telerik.interfaces.Collectable">
+      <point x="0.0" y="-70.5" />
+      <point x="102.0" y="2442.0" />
+      <point x="257.7854352678571" y="2442.0" />
+      <point x="-59.25" y="26.0" />
+    </edge>
+    <edge source="telerik.enumerators.GameStateButtons" target="java.lang.Enum">
+      <point x="0.0" y="-59.0" />
+      <point x="1536.0" y="3272.0" />
+      <point x="1669.125" y="3272.0" />
+      <point x="-98.625" y="170.0" />
+    </edge>
+    <edge source="telerik.entities.Boss" target="telerik.interfaces.CollidesWithOwnBullet">
+      <point x="35.375" y="-170.0" />
+      <point x="1303.9375" y="2472.0" />
+      <point x="1742.9375" y="2472.0" />
+      <point x="-106.125" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.Boss" target="telerik.interfaces.HurtingShip">
+      <point x="106.125" y="-170.0" />
+      <point x="1374.6875" y="2482.0" />
+      <point x="2081.8613467261903" y="2482.0" />
+      <point x="-45.59999999999991" y="15.0" />
+    </edge>
+    <edge source="telerik.abstract_classes.Ship" target="telerik.interfaces.Updatable">
+      <point x="26.25" y="-37.0" />
+      <point x="1311.3125" y="2129.0" />
+      <point x="2082.505357142857" y="2129.0" />
+      <point x="-60.85714285714266" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.EnemyShip" target="telerik.interfaces.CollidesWithOwnBullet">
+      <point x="35.375" y="-148.0" />
+      <point x="-35.375" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.OneUp" target="telerik.abstract_classes.Entity">
+      <point x="-68.0" y="-70.5" />
+      <point x="34.0" y="2432.0" />
+      <point x="102.84815848214294" y="2432.0" />
+      <point x="102.84815848214294" y="2069.0" />
+      <point x="878.1875" y="2069.0" />
+      <point x="-113.3125" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.EnemyBullet" target="telerik.abstract_classes.FlyingObject">
+      <point x="113.19999999999982" y="-114.5" />
+      <point x="2194.5125" y="2492.0" />
+      <point x="2390.3363467261906" y="2492.0" />
+      <point x="-43.875" y="15.0" />
+    </edge>
+    <edge source="telerik.interfaces.CollidesWithOwnShip" target="telerik.interfaces.Collidable">
+      <point x="0.0" y="-26.0" />
+      <point x="1110.5625" y="2119.0" />
+      <point x="1460.3125" y="2119.0" />
+      <point x="-19.5" y="37.5" />
+    </edge>
+    <edge source="telerik.entities.Boss" target="telerik.abstract_classes.Ship">
+      <point x="-35.375" y="-170.0" />
+      <point x="1233.1875" y="2502.0" />
+      <point x="1285.0625" y="2502.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.FriendlyBullet" target="telerik.interfaces.Updatable">
+      <point x="39.0" y="-104.0" />
+      <point x="2891.8125" y="2019.0" />
+      <point x="2204.2196428571433" y="2019.0" />
+      <point x="60.85714285714312" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.LevelUp" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="68.0" y="-70.5" />
+      <point x="618.0" y="2472.0" />
+      <point x="1065.2291666666667" y="2472.0" />
+      <point x="-45.33333333333326" y="26.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Alien" target="telerik.abstract_classes.FlyingObject">
+      <point x="23.583333333333485" y="-103.5" />
+      <point x="2636.8958333333335" y="2372.0" />
+      <point x="2448.8363467261906" y="2372.0" />
+      <point x="14.625" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.Explosion" target="telerik.abstract_classes.Entity">
+      <point x="-38.75" y="-81.5" />
+      <point x="1571.3125" y="2079.0" />
+      <point x="1072.4375" y="2079.0" />
+      <point x="80.9375" y="137.0" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Food" target="telerik.abstract_classes.Entity">
+      <point x="0.0" y="-70.5" />
+      <point x="774.0" y="2099.0" />
+      <point x="975.3125" y="2099.0" />
+      <point x="-16.1875" y="137.0" />
+    </edge>
+    <edge source="telerik.game_states.MenuState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-169.5" />
+      <point x="849.0" y="3088.0" />
+      <point x="739.0" y="3088.0" />
+      <point x="16.75" y="70.5" />
+    </edge>
+    <edge source="telerik.game_states.WinState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-147.5" />
+      <point x="1306.5" y="3068.0" />
+      <point x="806.0" y="3068.0" />
+      <point x="83.75" y="70.5" />
+    </edge>
+    <edge source="telerik.entities.flying_objects.Comet" target="telerik.abstract_classes.FlyingObject">
+      <point x="26.125" y="-148.0" />
+      <point x="2373.4375" y="2502.0" />
+      <point x="2419.5863467261906" y="2502.0" />
+      <point x="-14.625" y="15.0" />
+    </edge>
+    <edge source="telerik.entities.Boss" target="telerik.interfaces.CollidesWithOwnShip">
+      <point x="-106.125" y="-170.0" />
+      <point x="1162.4375" y="2482.0" />
+      <point x="1110.5625" y="2482.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="telerik.game_states.PlayState" target="telerik.game_states.GameState">
+      <point x="0.0" y="-181.0" />
+      <point x="595.5" y="3088.0" />
+      <point x="705.5" y="3088.0" />
+      <point x="-16.75" y="70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30000000000000004" x="1224.666666666667" y="2323.166666666667" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
