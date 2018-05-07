@@ -26,9 +26,9 @@ public class Constants {
 
 
     public static final long FPS = 60;
-    public static final double UPDATE_TIME = 1000000000 / FPS;
-
-    public static final long TARGET_TIME = 1000 / FPS;
+//    public static final double UPDATE_TIME = 1000000000 / FPS;
+//
+//    public static final long TARGET_TIME = 1000 / FPS;
 
     public static final int FRIENDLY_BULLET_1_POWER = 20;
     public static final int FRIENDLY_BULLET_2_POWER = 40;
@@ -41,17 +41,17 @@ public class Constants {
     public static final int ENEMY_BULLET_2_POWER = 20;
     public static final int COMET_POWER = 50;
 
-    public static final int ALIEN_KILL_POINTS = 500;
-    public static final int SHIP_1_KILL_POINTS = 1000;
-    public static final int SHIP_2_KILL_POINTS = 2000;
-    public static final int BULLET_1_KILL_POINTS = 50;
-    public static final int BULLET_2_KILL_POINTS = 100;
-    public static final int COMET_KILL_POINTS = 100;
+//    public static final int ALIEN_KILL_POINTS = 500;
+//    public static final int SHIP_1_KILL_POINTS = 1000;
+//    public static final int SHIP_2_KILL_POINTS = 2000;
+//    public static final int BULLET_1_KILL_POINTS = 50;
+//    public static final int BULLET_2_KILL_POINTS = 100;
+//    public static final int COMET_KILL_POINTS = 100;
 
 
     public static final int CONTROL_PANEL_HEIGHT = 120;
-    public static final int BUTTONS_FONT_SIZE = 50;
-    public static final int CONTROL_PANEL_FONT_ZISE = 15;
+//    public static final int BUTTONS_FONT_SIZE = 50;
+//    public static final int CONTROL_PANEL_FONT_ZISE = 15;
 
     public static final int ALIEN_SPAWN_DELAY = 180;
     public static final int FOOD_SPAWN_DELAY = 300;
