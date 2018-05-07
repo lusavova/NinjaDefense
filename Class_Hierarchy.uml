@@ -38,7 +38,7 @@
     <node x="1008.5625" y="2224.5">telerik.interfaces.CollidesWithOwnShip</node>
     <node x="2958.0" y="2907.0">java.lang.Exception</node>
     <node x="0.0" y="3207.5">telerik.game_states.HelpState</node>
-    <node x="-390.0" y="2040.0">telerik.Constants</node>
+    <node x="3190.0" y="2020.0">telerik.Constants</node>
     <node x="2304.0" y="2907.0">telerik.Handler</node>
     <node x="1532.5625" y="2169.0">telerik.entities.SmallExplosion</node>
     <node x="238.0354352678571" y="2224.5">telerik.interfaces.Collectable</node>
