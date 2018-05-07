@@ -140,7 +140,7 @@ public class Spawner {
             if (boss.getShootDelay() == 0) {
                 int rndKind = rnd.nextInt(2);
                 int x = boss.getPosition().getX() + boss.getSize().getWidth() / 2;
-                int y = boss.getPosition().getY();
+                int y = boss.getPosition().getY() + boss.getSize().getHeight() - 20;
                 new EnemyBullet(game, rndKind, x, y);
             }
         }
