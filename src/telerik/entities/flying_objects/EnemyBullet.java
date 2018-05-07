@@ -11,11 +11,10 @@ import telerik.interfaces.*;
 
 public class EnemyBullet extends FlyingObject implements Updatable, CollidesWithOwnShip, CollidesWithOwnBullet, HurtingShip {
 
-
-    private int speed;
-    private int power;
     private int width;
     private int height;
+    private int speed;
+    private int power;
 
     public EnemyBullet(PlayState game, int kind, int x, int y) {
         super(game);
@@ -24,17 +23,17 @@ public class EnemyBullet extends FlyingObject implements Updatable, CollidesWith
 
         if (kind == 0) {
 
-            this.power = Constants.ENEMY_BULLET_1_POWER;
             this.width = Constants.ENEMY_BULLET_1_WIDTH;
             this.height = Constants.ENEMY_BULLET_1_HEIGHT;
+            this.power = Constants.ENEMY_BULLET_1_POWER;
 
             this.setImage(game.getSpriteSheet().getImage(667, 0, width, height));
 
         } else if (kind == 1) {
 
-            this.power = Constants.ENEMY_BULLET_2_POWER;
             this.width = Constants.ENEMY_BULLET_2_WIDTH;
             this.height = Constants.ENEMY_BULLET_2_HEIGHT;
+            this.power = Constants.ENEMY_BULLET_2_POWER;
 
             this.setImage(game.getSpriteSheet().getImage(677, 0, width, height));
         }
@@ -47,9 +46,11 @@ public class EnemyBullet extends FlyingObject implements Updatable, CollidesWith
     @Override
     public void update() {
         getPosition().setY(getPosition().getY() + speed);
+
         if (getPosition().getY() >= Constants.HEIGHT) {
             getGame().getHandler().addToRemove(this);
         }
+
         getBounds().moveBounds(this);
     }
 
@@ -68,6 +69,7 @@ public class EnemyBullet extends FlyingObject implements Updatable, CollidesWith
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+
         System.out.println(this + " hit you. -" + power + " Health.");
     }
     @Override

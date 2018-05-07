@@ -13,14 +13,13 @@ public class Alien extends FlyingObject implements ReachingPlanet, Updatable, Co
 
     private int power;
     private int speed;
-    private int width;
-    private int height;
 
     public Alien(PlayState game, int x, int speed) {
         super(game);
 
-        this.width = Constants.ALIEN_WIDTH;
-        this.height = Constants.ALIEN_HEIGHT;
+        int width = Constants.ALIEN_WIDTH;
+        int height = Constants.ALIEN_HEIGHT;
+
         this.power = Constants.ALIEN_POWER;
         this.speed = speed;
 
@@ -51,6 +50,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Updatable, Co
     public void onPlanetReach() {
         int stateIndex = GameStateType.GAMEOVER.ordinal();
         getGame().getGameStateManager().setState(stateIndex);
+
         System.out.println(this + " reached the planet and abducted The Coding Ninja. GAME OVER.");
     }
 
@@ -59,6 +59,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Updatable, Co
         onCollide();
         int currentHealth = getGame().getPlayer().getShip().getHealth();
         getGame().getPlayer().getShip().setHealth(currentHealth - power);
+
         System.out.println("KAMIKADZE! " + this + " killed. -" + power + " Health.");
     }
 
@@ -66,6 +67,7 @@ public class Alien extends FlyingObject implements ReachingPlanet, Updatable, Co
     public void onCollideWithBullet(FriendlyBullet bullet) {
         onCollide();
         getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
+
         System.out.println(this + " killed. +" + bullet.getPower() + " Points");
     }
 

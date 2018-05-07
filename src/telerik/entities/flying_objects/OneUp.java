@@ -12,16 +12,13 @@ import telerik.abstract_classes.Entity;
 public class OneUp extends Entity implements CollidesWithOwnShip, Collectable {
 
     private int live;
-    private int width;
-    private int height;
 
     public OneUp(PlayState game, int x, int y) {
         super(game);
 
         this.live = Constants.ONE_UP_lIVE;
-        this.width = Constants.ONE_UP_WIDTH;
-        this.height = Constants.ONE_UP_HEIGHT;
-
+        int width = Constants.ONE_UP_WIDTH;
+        int height = Constants.ONE_UP_HEIGHT;
 
         this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
@@ -40,6 +37,7 @@ public class OneUp extends Entity implements CollidesWithOwnShip, Collectable {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().setLives(getGame().getPlayer().getLives() + 1);
+
         System.out.println(this + "! +1 Live");
     }
 
