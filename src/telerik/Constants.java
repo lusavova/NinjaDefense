@@ -116,7 +116,7 @@ public class Constants {
     public static final int ALIEN_POWER = 30;
 
     public static final int BOSS_WIDTH = 169;
-    public static final int BOSS_HEIGHT = 206;
+    public static final int BOSS_HEIGHT = 181;
     public static final int BOSS_HEALTH = 5000;
     public static final int BOSS_SPEED_X = 7;
     public static final int BOSS_SPEED_Y = 3;
