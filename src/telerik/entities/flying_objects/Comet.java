@@ -59,10 +59,13 @@ public class Comet extends FlyingObject implements Updatable, CollidesWithOwnShi
     @Override
     public void update() {
         updateFrame();
+
         getPosition().setY(getPosition().getY() + speed);
+
         if (getPosition().getY() >= Constants.HEIGHT) {
             resetCometPosition();
         }
+
         if (kind == CometType.LEFT) {
             getPosition().setX(getPosition().getX() + speed);
         }
@@ -103,8 +106,10 @@ public class Comet extends FlyingObject implements Updatable, CollidesWithOwnShi
     @Override
     public void onCollideWithShip() {
         new Explosion(getGame(), this);
+
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+
         System.out.println(this + " hit you. -" + power + " Health.");
     }
 

@@ -11,15 +11,13 @@ import telerik.abstract_classes.Entity;
 public class Food extends Entity implements CollidesWithOwnShip, Collectable {
 
     private int live;
-    private int width;
-    private int height;
 
     public Food(PlayState game, int x, int y, int food) {
         super(game);
 
+        int width = Constants.FOOD_WIDTH;
+        int height = Constants.FOOD_HEIGHT;
         this.live = Constants.FOOD_LIVE;
-        this.width = Constants.FOOD_WIDTH;
-        this.height = Constants.FOOD_HEIGHT;
 
         this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
@@ -37,6 +35,7 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+
         System.out.println(Constants.FOOD_AWARD + " " + this + " collected.");
     }
 

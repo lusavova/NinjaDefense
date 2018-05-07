@@ -12,15 +12,13 @@ import telerik.abstract_classes.Entity;
 public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
 
     private int live;
-    private int width;
-    private int height;
 
     public Ammo(PlayState game, int x, int y) {
         super(game);
 
+        int width = Constants.AMMO_WIDTH;
+        int height = Constants.AMMO_HEIGHT;
         this.live = Constants.AMMO_LIVE;
-        this.width = Constants.AMMO_WIDTH;
-        this.height = Constants.AMMO_HEIGHT;
 
         this.setSize(new Size(width, height));
         this.setPosition(new Position(x, y));
@@ -40,6 +38,7 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
     public void onCollideWithShip() {
         onCollide();
         getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + Constants.AMMO_AWARD);
+
         System.out.println(Constants.AMMO_AWARD + " " + this + " collected.");
     }
 

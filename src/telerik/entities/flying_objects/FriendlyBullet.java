@@ -17,14 +17,13 @@ public class FriendlyBullet extends FlyingObject implements Updatable {
     private int speed;
     private int width;
     private int height;
-    private OwnShip ship;
 
     public FriendlyBullet(PlayState game, int kind, Position position, BulletShipSide side) {
         super(game);
 
         this.speed = Constants.FRIENDLY_BULLET_SPEED;
         this.kind = kind;
-        this.ship = game.getPlayer().getShip();
+        OwnShip ship = game.getPlayer().getShip();
 
         if (kind == 1) {
 
@@ -52,25 +51,31 @@ public class FriendlyBullet extends FlyingObject implements Updatable {
         int shipWidth = this.getGame().getPlayer().getShip().getSize().getWidth();
 
         if (side == BulletShipSide.RIGHT) {
+
             this.setPosition(new Position(x + shipWidth - width, y));
         } else if (side == BulletShipSide.LEFT) {
+
             this.setPosition(new Position(x, y));
         } else if (side == BulletShipSide.MIDLEFT) {
+
             this.setPosition(new Position(x + shipWidth - width - 16, y + 5));
         } else {
+
             this.setPosition(new Position(x + 16, y + 5));
         }
 
         this.setBounds();
 
-        this.ship.setBullets(this.ship.getBullets() - 1);
+        ship.setBullets(ship.getBullets() - 1);
     }
 
 
     @Override
     public void update() {
         getPosition().setY(getPosition().getY() - speed);
+
         getBounds().moveBounds(this);
+
         if (getPosition().getY() <= 0) {
             getGame().getHandler().addToRemove(this);
         }
