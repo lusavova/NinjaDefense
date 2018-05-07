@@ -36,7 +36,8 @@ public class OneUp extends Entity implements CollidesWithOwnShip, Collectable {
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().setLives(getGame().getPlayer().getLives() + 1);
+        int currentLives = getGame().getPlayer().getLives();
+        getGame().getPlayer().setLives(currentLives + 1);
 
         System.out.println(this + "! +1 Live");
     }

@@ -102,7 +102,8 @@ public class Boss extends Ship implements CollidesWithOwnShip, CollidesWithOwnBu
     public void onCollideWithShip() {
         updateFrame();
         setHealth(getHealth() - 500);
-        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+        int currentLives = getGame().getPlayer().getLives();
+        getGame().getPlayer().setLives(currentLives - 1);
         new Explosion(getGame(), getGame().getPlayer().getShip());
         getGame().getPlayer().getShip().resetPosition();
         System.out.println("KAMIKADZE! " + this + " hurt. -1 Live");
@@ -112,7 +113,9 @@ public class Boss extends Ship implements CollidesWithOwnShip, CollidesWithOwnBu
     public void onCollideWithBullet(FriendlyBullet bullet) {
         updateFrame();
         setHealth(getHealth() - bullet.getPower());
-        getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
+
+        int currentPoints = getGame().getPlayer().getPoints();
+        getGame().getPlayer().setPoints(currentPoints + bullet.getPower());
     }
 
     public int getShootDelay() {

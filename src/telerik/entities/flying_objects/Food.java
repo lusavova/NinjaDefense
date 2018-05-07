@@ -34,7 +34,8 @@ public class Food extends Entity implements CollidesWithOwnShip, Collectable {
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() + Constants.FOOD_AWARD);
+        int currentHealth = getGame().getPlayer().getShip().getHealth();
+        getGame().getPlayer().getShip().setHealth(currentHealth + Constants.FOOD_AWARD);
 
         System.out.println(Constants.FOOD_AWARD + " " + this + " collected.");
     }

@@ -20,14 +20,14 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public EnemyShip(PlayState game, int level, int x, int y, int speed) throws NoSuchEntityException {
         super(game);
 
-        if(level > 1) {
+        if (level > 1) {
             throw new NoSuchEntityException("No such enemy ship.");
         }
 
         this.isHurting = 0;
         this.setLevel(level);
         this.speed = speed;
-        this.shootDelay = game.getSpawner().getRnd().nextInt(Constants.ENEMY_BULLETS_SHOOT_DELAY) ;
+        this.shootDelay = game.getSpawner().getRnd().nextInt(Constants.ENEMY_BULLETS_SHOOT_DELAY);
 
         if (level == 0) {
 
@@ -85,8 +85,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.getImageList().clear();
         if (getLevel() == 0) {
             this.setImage(getGame().getSpriteSheet().getImage(0, 99, width, height));
-        }
-        else {
+        } else {
             this.setImage(getGame().getSpriteSheet().getImage(0, 154, width, height));
         }
     }
@@ -96,8 +95,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
         this.getImageList().clear();
         if (getLevel() == 0) {
             this.setImage(getGame().getSpriteSheet().getImage(width, 99, width, height));
-        }
-        else {
+        } else {
             this.setImage(getGame().getSpriteSheet().getImage(width, 154, width, height));
         }
     }
@@ -111,7 +109,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public void onCollideWithShip() {
         new Explosion(getGame(), this);
         getGame().getHandler().addToRemove(this);
-        getGame().getPlayer().setLives(getGame().getPlayer().getLives() - 1);
+        int currentLives = getGame().getPlayer().getLives();
+        getGame().getPlayer().setLives(currentLives - 1);
         new Explosion(getGame(), getGame().getPlayer().getShip());
         getGame().getPlayer().getShip().resetPosition();
         System.out.println("KAMIKADZE! " + this + " killed. -1 Live");
@@ -122,7 +121,8 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     public void onCollideWithBullet(FriendlyBullet bullet) {
         updateFrame();
         setHealth(getHealth() - bullet.getPower());
-        getGame().getPlayer().setPoints(getGame().getPlayer().getPoints() + bullet.getPower());
+        int currentPoints = getGame().getPlayer().getPoints();
+        getGame().getPlayer().setPoints(currentPoints + bullet.getPower());
     }
 
     public int getShootDelay() {
@@ -130,7 +130,7 @@ public class EnemyShip extends Ship implements CollidesWithOwnShip, CollidesWith
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Enemy ship";
     }
 

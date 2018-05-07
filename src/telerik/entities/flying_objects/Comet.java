@@ -108,7 +108,8 @@ public class Comet extends FlyingObject implements Updatable, CollidesWithOwnShi
         new Explosion(getGame(), this);
 
         onCollide();
-        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        int currentHealth = getGame().getPlayer().getShip().getHealth();
+        getGame().getPlayer().getShip().setHealth(currentHealth - power);
 
         System.out.println(this + " hit you. -" + power + " Health.");
     }

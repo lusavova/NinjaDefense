@@ -37,7 +37,8 @@ public class Ammo extends Entity implements CollidesWithOwnShip, Collectable {
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().getShip().setBullets(getGame().getPlayer().getShip().getBullets() + Constants.AMMO_AWARD);
+        int bullets = getGame().getPlayer().getShip().getBullets();
+        getGame().getPlayer().getShip().setBullets(bullets + Constants.AMMO_AWARD);
 
         System.out.println(Constants.AMMO_AWARD + " " + this + " collected.");
     }

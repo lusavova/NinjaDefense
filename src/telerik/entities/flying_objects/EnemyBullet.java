@@ -68,7 +68,8 @@ public class EnemyBullet extends FlyingObject implements Updatable, CollidesWith
     @Override
     public void onCollideWithShip() {
         onCollide();
-        getGame().getPlayer().getShip().setHealth(getGame().getPlayer().getShip().getHealth() - power);
+        int currentHealth = getGame().getPlayer().getShip().getHealth();
+        getGame().getPlayer().getShip().setHealth(currentHealth - power);
 
         System.out.println(this + " hit you. -" + power + " Health.");
     }
