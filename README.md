@@ -1,4 +1,7 @@
 <h1>Ninja Defense</h1>
+
+![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/88f593785_high.jpg)
+
 <p>Ninja Defense is a Java based game in which you take the controls
     over a space ship which only purpose is to defend the planet where The Coding Ninja lives.
     You have to kill all invading aliens, while you manage to drift between space debris such as comets,
@@ -59,3 +62,8 @@
         </ul>
     </li>
 </ul>
+
+![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/d704d3782_high.jpg)
+![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/154a13781_high.jpg)
+![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/239753786_high.jpg)
+![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/134003783_high.jpg)
