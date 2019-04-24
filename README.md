@@ -1,4 +1,4 @@
-<h1>Ninja Defense</h1>
+<h1>Ninja Defense - edit</h1>
 
 ![alt text](https://github.com/lusavova/spaceGame/blob/master/imgs/88f593785_high.jpg)
 
